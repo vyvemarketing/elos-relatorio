@@ -48,6 +48,8 @@ section{padding:72px 0;border-bottom:1px solid var(--border)}
 }
 .htitle{font-family:var(--fd);font-size:clamp(68px,13vw,148px);line-height:.88;margin-bottom:20px}
 .htitle em{color:var(--amber);font-style:normal;display:block}
+.logo-badge{display:inline-block;background:#fff;border-radius:10px;padding:14px 24px;margin-bottom:26px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.logo-badge img{height:40px;display:block}
 .hclient{font-size:clamp(15px,2vw,20px);font-weight:300;letter-spacing:.1em;color:var(--txt2);margin-bottom:6px}
 .hperiod{font-size:12px;color:var(--mt);letter-spacing:.1em;margin-bottom:28px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
@@ -260,13 +262,14 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 ============================== -->
 <section id="hero">
   <div class="hero-inner">
+    <div class="logo-badge"><img src="elos-logo-full.png" alt="ELOS Eletrotécnica"></div>
     <div class="eyebrow">⚡ Relatório de Performance Digital</div>
     <div class="htitle">
-      1º SEM
-      <em>2026</em>
+      RELATÓRIO
+      <em>MENSAL</em>
     </div>
-    <div class="hclient">ELOS Eletrotécnica</div>
-    <div class="hperiod">01 de janeiro — 08 de junho de 2026</div>
+    <div class="hclient">ELOS Eletrotécnica · Marketing Digital</div>
+    <div class="hperiod">Período: 01 jan – 08 jun 2026 · use o filtro 📅 acima para ver por mês</div>
     <div class="chips">
       <span class="chip">Google Ads</span>
       <span class="chip">YouTube Ads</span>
@@ -550,6 +553,19 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       <div class="cvc"><div class="cvi">🔍</div><div class="cvv" data-m="buscas">352</div><div class="cvl">Buscas Internas</div></div>
     </div>
 
+    <div class="chart-box" style="margin-top:28px">
+      <div style="font-family:var(--fd);font-size:18px;color:var(--txt);margin-bottom:14px">📈 Leads gerados por mês</div>
+      <div class="chart-bars">
+        <div class="bcol"><div class="bar" style="height:106px"><span class="bval">75</span></div><span class="blbl">Jan</span></div>
+        <div class="bcol"><div class="bar" style="height:98px"><span class="bval">69</span></div><span class="blbl">Fev</span></div>
+        <div class="bcol"><div class="bar" style="height:129px"><span class="bval">91</span></div><span class="blbl">Mar</span></div>
+        <div class="bcol"><div class="bar" style="height:220px"><span class="bval" style="color:var(--em)">155 ⭐</span></div><span class="blbl pk">Abr</span></div>
+        <div class="bcol"><div class="bar" style="height:175px"><span class="bval">123</span></div><span class="blbl">Mai</span></div>
+        <div class="bcol"><div class="bar gray" style="height:28px"><span class="bval">20</span></div><span class="blbl" style="color:var(--mt)">Jun*</span></div>
+      </div>
+      <p style="font-size:11px;color:var(--mt);margin-top:10px">* Junho parcial (até dia 8) · total: 532 leads no semestre · dados GA4. O pico de abril acompanha o pico de tráfego (entrada do Meta Ads).</p>
+    </div>
+
     <div class="callout em">
       🌿 <strong>Insight de ouro:</strong> Quase metade dos leads vem do <strong>SEO orgânico — 205 dos 447 leads (46%)</strong>, mesmo o canal sendo só 19% do tráfego. É o que mais converte e não tem custo por clique. O Google Ads vem em 2º (165 leads · 37%). Reforça investir em SEO no 2º semestre.
     </div>
@@ -587,13 +603,13 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     <div class="stitle">Páginas Mais Visitadas</div>
     <div class="ssub">As páginas que mais atraíram acessos no semestre</div>
     <div class="pglist">
-      <div class="pgrow"><div class="pgrank">1</div><div class="pgname">🏠 Página Inicial</div><div><div class="pgviews">17.764</div><div class="pglbl">visualizações</div></div></div>
-      <div class="pgrow"><div class="pgrank">2</div><div class="pgname">🏗️ Locação de Equipamentos</div><div><div class="pgviews">3.230</div><div class="pglbl">visualizações</div></div></div>
-      <div class="pgrow"><div class="pgrank">3</div><div class="pgname">⚡ Quadro de Distribuição Pedestal</div><div><div class="pgviews">2.402</div><div class="pglbl">visualizações</div></div></div>
-      <div class="pgrow"><div class="pgrank">4</div><div class="pgname">🔌 Média Tensão</div><div><div class="pgviews">2.361</div><div class="pglbl">visualizações</div></div></div>
-      <div class="pgrow"><div class="pgrank">5</div><div class="pgname">💡 Baixa Tensão</div><div><div class="pgviews">1.173</div><div class="pglbl">visualizações</div></div></div>
-      <div class="pgrow"><div class="pgrank">6</div><div class="pgname">📦 Produtos</div><div><div class="pgviews">854</div><div class="pglbl">visualizações</div></div></div>
-      <div class="pgrow"><div class="pgrank">7</div><div class="pgname">🤝 Representantes</div><div><div class="pgviews">771</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">1</div><div class="pgname">🏠 Página Inicial</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--sky)">10s</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">17.764</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">2</div><div class="pgname">🏗️ Locação de Equipamentos</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--sky)">5s</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">3.230</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">3</div><div class="pgname">⚡ Quadro de Distribuição Pedestal</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--sky)">14s</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">2.402</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">4</div><div class="pgname">🔌 Média Tensão</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--em)">36s 🏆</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">2.361</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">5</div><div class="pgname">💡 Baixa Tensão</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--sky)">18s</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">1.173</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">6</div><div class="pgname">📦 Produtos</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--sky)">15s</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">854</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">7</div><div class="pgname">🤝 Representantes</div><div style="text-align:right;margin-right:16px"><div style="font-family:var(--fd);font-size:18px;color:var(--em)">34s 🏆</div><div class="pglbl">tempo médio</div></div><div><div class="pgviews">771</div><div class="pglbl">visualizações</div></div></div>
     </div>
     <div class="callout">
       💡 <strong>Oportunidade:</strong> A página de <strong>Locação de Equipamentos</strong> é a 2ª mais acessada do site — superando páginas de produto clássicas. Vale criar campanhas específicas para esse serviço e fortalecer o SEO dessa página no próximo semestre.
@@ -700,6 +716,19 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
         <div class="irow"><span>Página "Vagas"</span><span>1.199 visitantes</span></div>
       </div>
     </div>
+    <div class="chart-box" style="margin-top:24px">
+      <div style="font-family:var(--fd);font-size:18px;color:var(--txt);margin-bottom:14px">📈 Novos seguidores por mês</div>
+      <div class="chart-bars">
+        <div class="bcol"><div class="bar" style="height:220px"><span class="bval" style="color:var(--em)">929 ⭐</span></div><span class="blbl pk">Jan</span></div>
+        <div class="bcol"><div class="bar" style="height:93px"><span class="bval">394</span></div><span class="blbl">Fev</span></div>
+        <div class="bcol"><div class="bar" style="height:89px"><span class="bval">375</span></div><span class="blbl">Mar</span></div>
+        <div class="bcol"><div class="bar" style="height:136px"><span class="bval">574</span></div><span class="blbl">Abr</span></div>
+        <div class="bcol"><div class="bar" style="height:125px"><span class="bval">530</span></div><span class="blbl">Mai</span></div>
+        <div class="bcol"><div class="bar gray" style="height:27px"><span class="bval">116</span></div><span class="blbl" style="color:var(--mt)">Jun*</span></div>
+      </div>
+      <p style="font-size:11px;color:var(--mt);margin-top:10px">* Junho parcial · total: <strong>+2.918 seguidores</strong> no semestre (2.020 via Ads). Forte impulso em janeiro; ritmo constante até maio.</p>
+    </div>
+
     <div class="callout em">
       💡 <strong>Insight:</strong> O público do LinkedIn é exatamente o decisor do setor — <strong>eletricistas, técnicos e engenheiros elétricos</strong> de empresas de <strong>energia, utilities e construção</strong>, concentrados em SP, Curitiba e RJ. As campanhas trazem seguidores qualificados a ~R$3 cada. É a base ideal para gerar leads B2B no 2º semestre.
     </div>
