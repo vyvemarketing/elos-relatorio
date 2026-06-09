@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELOS Eletrotécnica · Resultados 1º Semestre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090f;--bg2:#0c111a;--bg3:#111927;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --amber:#f59e0b;--amberd:#d97706;--sky:#38bdf8;--em:#34d399;--rose:#f87171;
+  --txt:#f1f5f9;--txt2:#cbd5e1;--mt:#64748b;--mt2:#94a3b8;
+  --fd:'Bebas Neue',sans-serif;--fb:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--txt);line-height:1.6;font-size:15px}
+h1,h2,h3,h4{font-family:var(--fd);letter-spacing:.05em;line-height:1}
+a{color:inherit;text-decoration:none}
+
+/* LAYOUT */
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+section{padding:72px 0;border-bottom:1px solid var(--border)}
+.stag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.stitle{font-family:var(--fd);font-size:clamp(26px,4vw,40px);letter-spacing:.05em;color:var(--txt);margin-bottom:6px}
+.ssub{color:var(--mt2);font-size:13px;margin-bottom:36px;max-width:580px;line-height:1.7}
+
+/* HERO */
+#hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,#07090f 0%,#0c1520 55%,#07090f 100%);
+  position:relative;overflow:hidden;border-bottom:2px solid var(--amber);
+}
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(245,158,11,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,158,11,.03) 1px,transparent 1px);
+  background-size:56px 56px;
+}
+.hero-inner{text-align:center;position:relative;z-index:1;padding:40px 20px}
+.eyebrow{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);
+  padding:6px 20px;border-radius:2px;margin-bottom:24px;
+}
+.htitle{font-family:var(--fd);font-size:clamp(68px,13vw,148px);line-height:.88;margin-bottom:20px}
+.htitle em{color:var(--amber);font-style:normal;display:block}
+.hclient{font-size:clamp(15px,2vw,20px);font-weight:300;letter-spacing:.1em;color:var(--txt2);margin-bottom:6px}
+.hperiod{font-size:12px;color:var(--mt);letter-spacing:.1em;margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 14px;border:1px solid var(--border2);border-radius:2px;color:var(--mt2)}
+.chip.live{border-color:var(--em);color:var(--em)}
+
+/* PAUTA */
+#pauta{background:var(--bg2)}
+.pauta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.pi{
+  background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:20px;
+  display:flex;gap:14px;align-items:flex-start;transition:border-color .2s;cursor:default;
+}
+.pi:hover{border-color:var(--amber)}
+.pi-n{font-family:var(--fd);font-size:34px;color:rgba(245,158,11,.18);line-height:1;flex-shrink:0}
+.pi strong{display:block;font-size:13px;font-weight:700;margin-bottom:4px;color:var(--txt)}
+.pi p{font-size:12px;color:var(--mt);line-height:1.5}
+
+/* METRIC CARDS */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.mc{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:26px 22px;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.mc.a::before{background:var(--amber)}.mc.s::before{background:var(--sky)}.mc.e::before{background:var(--em)}.mc.r::before{background:var(--rose)}
+.mc-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mt);margin-bottom:10px}
+.mc-val{font-family:var(--fd);font-size:clamp(38px,5vw,58px);line-height:1;margin-bottom:8px}
+.mc.a .mc-val{color:var(--amber)}.mc.s .mc-val{color:var(--sky)}.mc.e .mc-val{color:var(--em)}.mc.r .mc-val{color:var(--rose)}
+.mc-sub{font-size:12px;color:var(--mt2);line-height:1.5}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:2px;margin-top:8px}
+.badge.g{background:rgba(52,211,153,.1);color:var(--em)}
+
+/* CHART */
+.chart-box{margin-top:28px}
+.chart-bars{
+  display:flex;align-items:flex-end;gap:10px;
+  height:220px;border-bottom:1px solid var(--border);border-left:1px solid var(--border);
+  padding:0 4px;
+}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end}
+.bar{
+  width:100%;border-radius:3px 3px 0 0;position:relative;
+  background:linear-gradient(to top,var(--amberd),var(--amber));
+  animation:bGrow .9s cubic-bezier(.34,1.56,.64,1) both;
+  animation-play-state:paused;
+}
+.bar.gray{background:linear-gradient(to top,#1e2938,#374151)}
+.bar:hover{filter:brightness(1.1)}
+.bval{position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+  font-family:var(--fd);font-size:13px;color:var(--amber);white-space:nowrap;text-align:center}
+.bar.gray .bval{color:var(--mt)}
+.blbl{font-size:11px;color:var(--mt2);font-weight:600;padding-bottom:2px}
+.blbl.pk{color:var(--em);font-weight:800}
+@keyframes bGrow{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1)}}
+.bcol:nth-child(1) .bar{animation-delay:.1s}
+.bcol:nth-child(2) .bar{animation-delay:.2s}
+.bcol:nth-child(3) .bar{animation-delay:.3s}
+.bcol:nth-child(4) .bar{animation-delay:.4s}
+.bcol:nth-child(5) .bar{animation-delay:.5s}
+.bcol:nth-child(6) .bar{animation-delay:.6s}
+
+/* CHANNELS */
+.chlist{display:flex;flex-direction:column;gap:13px;max-width:680px}
+.crow{display:flex;align-items:center;gap:14px}
+.cname{font-size:13px;font-weight:500;width:200px;flex-shrink:0;color:var(--txt2)}
+.cbwrap{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.cbar{height:100%;border-radius:4px;animation:fillW .9s ease-out both;animation-play-state:paused}
+.cbar.amb{background:linear-gradient(90deg,var(--amberd),var(--amber))}
+.cbar.sky{background:linear-gradient(90deg,#0284c7,var(--sky))}
+.cbar.grn{background:linear-gradient(90deg,#059669,var(--em))}
+.cbar.gray{background:linear-gradient(90deg,#1e2938,#374151)}
+@keyframes fillW{from{width:0}to{width:var(--w)}}
+.cnum{font-size:13px;font-weight:700;color:var(--txt);width:56px;text-align:right}
+.cpct{font-size:11px;color:var(--mt);width:34px;text-align:right}
+
+/* INFO CARDS */
+.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ic{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:22px}
+.ic h4{font-family:var(--fd);font-size:18px;margin-bottom:14px;color:var(--txt)}
+.irow{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;gap:8px}
+.irow:last-child{border-bottom:none}
+.irow span:first-child{color:var(--mt)}
+.irow span:last-child{font-weight:700;color:var(--txt);text-align:right}
+
+/* CONVERSIONS */
+.cvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.cvc{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:20px;text-align:center}
+.cvi{font-size:26px;margin-bottom:6px}
+.cvv{font-family:var(--fd);font-size:38px;color:var(--amber);margin-bottom:4px;line-height:1}
+.cvl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--mt)}
+.cvn{font-size:11px;color:var(--rose);margin-top:4px}
+.cvn.ok{color:var(--em)}
+
+/* PAGES */
+.pglist{display:flex;flex-direction:column;gap:8px;max-width:620px}
+.pgrow{
+  display:flex;align-items:center;gap:12px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:12px 16px;
+  transition:border-color .2s;
+}
+.pgrow:hover{border-color:var(--amber)}
+.pgrank{font-family:var(--fd);font-size:24px;color:rgba(245,158,11,.25);width:28px;flex-shrink:0}
+.pgname{flex:1;font-size:13px;font-weight:500;color:var(--txt2)}
+.pgviews{font-family:var(--fd);font-size:20px;color:var(--amber)}
+.pglbl{font-size:9px;color:var(--mt);text-align:right;text-transform:uppercase;letter-spacing:.08em}
+
+/* LINKEDIN */
+.lnbox{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:30px;max-width:580px}
+.lnnums{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px}
+.pbwrap{height:16px;background:var(--bg3);border-radius:8px;overflow:hidden;margin-bottom:10px;border:1px solid var(--border)}
+.pbfill{height:100%;background:linear-gradient(90deg,#0e76a8,var(--sky));border-radius:8px;position:relative;animation:fillW 1.6s ease-out both;animation-play-state:paused}
+.pbfill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  animation:shim 2s infinite}
+@keyframes shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+/* NEXT STEPS */
+.nsgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.ns{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:5px;padding:22px}
+.ns.done{border-left-color:var(--em)}
+.ns-num{font-family:var(--fd);font-size:44px;color:rgba(245,158,11,.12);line-height:1;margin-bottom:6px}
+.ns-title{font-weight:700;font-size:13px;margin-bottom:8px;color:var(--amber)}
+.ns.done .ns-title{color:var(--em)}
+.ns-desc{font-size:12px;color:var(--txt2);line-height:1.65}
+.ns-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border-radius:2px;margin-top:10px;background:rgba(245,158,11,.08);color:var(--amber)}
+
+/* CALLOUT */
+.callout{
+  background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);
+  border-radius:4px;padding:15px 20px;margin-top:20px;font-size:12px;color:var(--txt2);line-height:1.65;
+}
+.callout strong{color:var(--amber)}
+.callout.em{background:rgba(52,211,153,.05);border-color:rgba(52,211,153,.2)}
+.callout.em strong{color:var(--em)}
+
+/* FOOTER */
+footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
+
+/* NAV */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;gap:0;
+  background:rgba(7,9,15,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);padding:10px 20px;
+  flex-wrap:wrap;
+}
+.nav-a{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mt);padding:6px 12px;border-radius:2px;transition:color .2s;white-space:nowrap}
+.nav-a:hover{color:var(--amber)}
+
+/* FILTRO DE PERÍODO (integrado ao menu) */
+#filterbar{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;
+  margin-left:14px;padding-left:14px;border-left:1px solid var(--border2);
+}
+#filterbar .flbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mt)}
+#filterbar select{
+  background:var(--bg3);color:var(--txt);border:1px solid var(--border2);
+  border-radius:4px;padding:4px 9px;font-family:var(--fb);font-size:11px;font-weight:600;cursor:pointer;
+}
+#filterbar select:focus{outline:none;border-color:var(--amber)}
+#filterbar .pill{font-size:10px;font-weight:700;color:var(--em);border:1px solid rgba(52,211,153,.4);
+  border-radius:20px;padding:3px 12px}
+#scopeNote{display:none;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);
+  color:var(--amber);font-size:10px;font-weight:600;border-radius:4px;padding:3px 10px;text-align:center}
+
+@media(max-width:600px){
+  .crow{flex-wrap:wrap}.cname{width:100%}
+  .lnnums{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-a">⚡ ELOS</a>
+  <a href="#pauta" class="nav-a">Pauta</a>
+  <a href="#overview" class="nav-a">Site</a>
+  <a href="#mensal" class="nav-a">Por Mês</a>
+  <a href="#canais" class="nav-a">Canais</a>
+  <a href="#google" class="nav-a">Google Ads</a>
+  <a href="#meta" class="nav-a">Meta Ads</a>
+  <a href="#leads" class="nav-a">Leads</a>
+  <a href="#paginas" class="nav-a">Páginas</a>
+  <a href="#linkedin" class="nav-a">LinkedIn</a>
+  <a href="#proximos" class="nav-a">2º Sem →</a>
+  <span id="filterbar">
+    <span class="flbl">📅 Período</span>
+    <select id="anoSel">
+      <option value="2026">2026</option>
+    </select>
+    <select id="mesSel">
+      <option value="total">Semestre completo (jan–jun)</option>
+      <option value="jan">Janeiro</option>
+      <option value="fev">Fevereiro</option>
+      <option value="mar">Março</option>
+      <option value="abr">Abril</option>
+      <option value="mai">Maio</option>
+      <option value="jun">Junho (parcial 1–8)</option>
+    </select>
+    <span class="pill" id="periodPill">Semestre completo</span>
+    <span id="scopeNote">Site &amp; Leads do mês · demais seções = semestre</span>
+  </span>
+</nav>
+
+<!-- ==============================
+     CAPA
+============================== -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">⚡ Relatório de Performance Digital</div>
+    <div class="htitle">
+      1º SEM
+      <em>2026</em>
+    </div>
+    <div class="hclient">ELOS Eletrotécnica</div>
+    <div class="hperiod">01 de janeiro — 08 de junho de 2026</div>
+    <div class="chips">
+      <span class="chip">Google Ads</span>
+      <span class="chip">YouTube Ads</span>
+      <span class="chip">Meta Ads</span>
+      <span class="chip">LinkedIn</span>
+      <span class="chip">SEO Orgânico</span>
+      <span class="chip live">✓ Dados validados ao vivo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     PAUTA
+============================== -->
+<section id="pauta" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="stag">Agenda</div>
+    <div class="stitle">Pauta da Reunião</div>
+    <div class="ssub">7 tópicos — simples, objetivo, com dados reais conferidos direto na fonte</div>
+    <div class="pauta-grid">
+      <div class="pi"><div class="pi-n">01</div><div><strong>Site — Visão Geral</strong><p>Visitantes, novos acessos, acessos recorrentes e visualizações</p></div></div>
+      <div class="pi"><div class="pi-n">02</div><div><strong>Acessos por Mês</strong><p>Evolução mês a mês de janeiro a junho</p></div></div>
+      <div class="pi"><div class="pi-n">03</div><div><strong>De onde vieram as visitas</strong><p>Google Ads, Instagram, SEO, acesso direto e mais</p></div></div>
+      <div class="pi"><div class="pi-n">04</div><div><strong>Google &amp; YouTube Ads</strong><p>Resultados e performance das campanhas pagas no Google</p></div></div>
+      <div class="pi"><div class="pi-n">05</div><div><strong>Meta Ads — Instagram</strong><p>Alcance, cliques, engajamento, custo por resultado</p></div></div>
+      <div class="pi"><div class="pi-n">06</div><div><strong>Leads &amp; Mensuração</strong><p>Contatos gerados, de onde vêm, e melhorias de rastreamento</p></div></div>
+      <div class="pi"><div class="pi-n">07</div><div><strong>LinkedIn + Próximos 6 Meses</strong><p>Meta 10K e estratégia do segundo semestre</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     01 — VISÃO GERAL
+============================== -->
+<section id="overview">
+  <div class="wrap">
+    <div class="stag">01 — Site</div>
+    <div class="stitle">Os Números do Semestre</div>
+    <div class="ssub" id="ovSub">De 1º de janeiro a 8 de junho de 2026 — ~5 meses e meio de resultados (conferidos ao vivo no Google Analytics)</div>
+    <div class="mgrid">
+      <div class="mc a">
+        <div class="mc-lbl">Visitantes Ativos</div>
+        <div class="mc-val" data-m="visitantes">20.723</div>
+        <div class="mc-sub">Pessoas que interagiram com o site</div>
+        <div class="badge g">↑ Crescimento consistente</div>
+      </div>
+      <div class="mc s">
+        <div class="mc-lbl">Novos Visitantes</div>
+        <div class="mc-val" data-m="novos">20.455</div>
+        <div class="mc-sub">Pessoas que acessaram pela 1ª vez</div>
+      </div>
+      <div class="mc e">
+        <div class="mc-lbl">Páginas Visualizadas</div>
+        <div class="mc-val" data-m="paginas">42.209</div>
+        <div class="mc-sub">Acessos a produtos, serviços e blog</div>
+      </div>
+      <div class="mc r">
+        <div class="mc-lbl">Interações no Site</div>
+        <div class="mc-val" data-m="interacoes">123.268</div>
+        <div class="mc-sub">Cliques, buscas, scrolls e eventos</div>
+      </div>
+    </div>
+    <div class="callout">
+      📌 <strong>Observação:</strong> Mais de 20 mil pessoas novas chegaram ao site da ELOS no semestre — praticamente todas vindas dos canais de marketing digital geridos pela agência. É um volume de descoberta de marca relevante para o setor industrial.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     02 — ACESSOS POR MÊS
+============================== -->
+<section id="mensal">
+  <div class="wrap">
+    <div class="stag">01 — Site / Evolução</div>
+    <div class="stitle">Acessos por Mês</div>
+    <div class="ssub">Tendência de novos visitantes por mês — crescimento constante de janeiro a abril</div>
+    <div class="chart-box">
+      <div class="chart-bars" id="barChart">
+        <div class="bcol">
+          <div class="bar" style="height:114px"><span class="bval">2.970</span></div>
+          <span class="blbl">Jan</span>
+        </div>
+        <div class="bcol">
+          <div class="bar" style="height:119px"><span class="bval">3.090</span></div>
+          <span class="blbl">Fev</span>
+        </div>
+        <div class="bcol">
+          <div class="bar" style="height:138px"><span class="bval">3.592</span></div>
+          <span class="blbl">Mar</span>
+        </div>
+        <div class="bcol">
+          <div class="bar" style="height:220px"><span class="bval" style="color:var(--em)">5.713 ⭐</span></div>
+          <span class="blbl pk">Abr</span>
+        </div>
+        <div class="bcol">
+          <div class="bar" style="height:171px"><span class="bval">4.437</span></div>
+          <span class="blbl">Mai</span>
+        </div>
+        <div class="bcol">
+          <div class="bar gray" style="height:28px"><span class="bval">724</span></div>
+          <span class="blbl" style="color:var(--mt)">Jun*</span>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--mt);margin-top:10px">* Junho parcial — apenas os primeiros 8 dias · números reais do GA4 (total: 20.455 novos visitantes)</p>
+    </div>
+    <div class="callout em">
+      💡 <strong>Insight:</strong> Abril foi o pico do semestre — 5.713 novos visitantes, um salto de <strong>+59% sobre março</strong>. Coincide exatamente com o início das campanhas de Instagram Ads (01/abr): a expansão para o Meta Ads trouxe resultado imediato no tráfego.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     03 — CANAIS
+============================== -->
+<section id="canais" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="stag">02 — Origem do Tráfego</div>
+    <div class="stitle">De Onde Vieram as Visitas</div>
+    <div class="ssub">Distribuição de novos visitantes por canal de marketing — jan a jun 2026 (números reais do GA4)</div>
+    <div class="chlist">
+      <div class="crow">
+        <div class="cname">🔍 Google Ads (Pago)</div>
+        <div class="cbwrap"><div class="cbar amb" style="--w:29%;width:0"></div></div>
+        <div class="cnum">5.947</div><div class="cpct">29%</div>
+      </div>
+      <div class="crow">
+        <div class="cname">🔗 Acesso Direto</div>
+        <div class="cbwrap"><div class="cbar sky" style="--w:27%;width:0"></div></div>
+        <div class="cnum">5.536</div><div class="cpct">27%</div>
+      </div>
+      <div class="crow">
+        <div class="cname">🌿 Google Orgânico (SEO)</div>
+        <div class="cbwrap"><div class="cbar grn" style="--w:19%;width:0"></div></div>
+        <div class="cnum">3.909</div><div class="cpct">19%</div>
+      </div>
+      <div class="crow">
+        <div class="cname">📱 Meta Ads (Instagram)</div>
+        <div class="cbwrap"><div class="cbar amb" style="--w:12%;width:0"></div></div>
+        <div class="cnum">2.410</div><div class="cpct">12%</div>
+      </div>
+      <div class="crow">
+        <div class="cname">👥 Social Orgânico</div>
+        <div class="cbwrap"><div class="cbar gray" style="--w:5%;width:0"></div></div>
+        <div class="cnum">1.026</div><div class="cpct">5%</div>
+      </div>
+      <div class="crow">
+        <div class="cname">🔀 Indicações (Referral)</div>
+        <div class="cbwrap"><div class="cbar gray" style="--w:4%;width:0"></div></div>
+        <div class="cnum">810</div><div class="cpct">4%</div>
+      </div>
+      <div class="crow">
+        <div class="cname">✉️ Email</div>
+        <div class="cbwrap"><div class="cbar gray" style="--w:1.3%;width:0"></div></div>
+        <div class="cnum">266</div><div class="cpct">1%</div>
+      </div>
+    </div>
+    <div class="callout">
+      📌 <strong>Observação:</strong> 41% das visitas novas vieram de anúncios pagos (Google 29% + Meta 12%) — o investimento traz resultado direto. Outros 19% vieram do Google orgânico (SEO, sem custo por clique) e 27% por acesso direto, o que indica marca já reconhecida.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     04 — GOOGLE ADS
+============================== -->
+<section id="google">
+  <div class="wrap">
+    <div class="stag">03 — Google &amp; YouTube Ads</div>
+    <div class="stitle">Campanhas no Google</div>
+    <div class="ssub">Três frentes ativas no período — busca por marca, busca por produto e vídeo</div>
+    <div class="igrid">
+      <div class="ic">
+        <h4>🔍 Campanha — Marca</h4>
+        <div class="irow"><span>Sessões geradas</span><span style="color:var(--amber)">5.371</span></div>
+        <div class="irow"><span>Tipo</span><span>Busca por nome (Brand)</span></div>
+        <div class="irow"><span>Objetivo</span><span>Captura quem já conhece a ELOS</span></div>
+        <div class="irow"><span>Status</span><span style="color:var(--em)">✓ Alta eficiência</span></div>
+      </div>
+      <div class="ic">
+        <h4>🔎 Campanha — QDEP Regional</h4>
+        <div class="irow"><span>Sessões geradas</span><span style="color:var(--amber)">1.750</span></div>
+        <div class="irow"><span>Tipo</span><span>Busca de produto (Non-brand)</span></div>
+        <div class="irow"><span>Público-alvo</span><span>Clientes sem conhecer a marca</span></div>
+        <div class="irow"><span>Cobertura</span><span>Sul + Sudeste</span></div>
+      </div>
+      <div class="ic">
+        <h4>▶️ YouTube Ads</h4>
+        <div class="irow"><span>Sessões geradas</span><span style="color:var(--sky)">160</span></div>
+        <div class="irow"><span>Formato</span><span>Vídeo institucional + técnico</span></div>
+        <div class="irow"><span>Objetivo</span><span>Branding + reconhecimento</span></div>
+        <div class="irow"><span>Oportunidade</span><span style="color:var(--amber)">Escalar no 2º semestre</span></div>
+      </div>
+    </div>
+    <div class="callout em">
+      ✅ <strong>Melhoria aplicada (08/06):</strong> Corrigimos a mensuração de conversões no GA4 — antes o Google Ads contava "visualização de página" como conversão (inflando os números). Agora ele otimiza para <strong>leads e contatos reais</strong>. Próximo passo: reimportar as conversões certas no Google Ads para o lance automático melhorar.
+    </div>
+    <div class="callout">
+      📌 <strong>Observação:</strong> Duas frentes no Google cobrem toda a jornada de compra — marca (5.371 visitas, quem já conhece a ELOS) e produto/QDEP (1.750 visitas, quem busca a solução sem conhecer a marca). O YouTube (160) ainda é pequeno e tem espaço para escalar.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     05 — META ADS
+============================== -->
+<section id="meta" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="stag">04 — Meta Ads · Instagram</div>
+    <div class="stitle">Instagram Ads</div>
+    <div class="ssub">Período: 01 de abril a 08 de junho de 2026 — ~2,5 meses de campanha (validado pela exportação do Meta)</div>
+    <div class="mgrid">
+      <div class="mc a">
+        <div class="mc-lbl">Investimento Total</div>
+        <div class="mc-val" style="font-size:44px">R$2.136</div>
+        <div class="mc-sub">Site R$1.391 + Seguidores R$746</div>
+      </div>
+      <div class="mc s">
+        <div class="mc-lbl">Impressões (Alcance)</div>
+        <div class="mc-val" style="font-size:44px">144K</div>
+        <div class="mc-sub">Exibições dos anúncios no Instagram</div>
+      </div>
+      <div class="mc e">
+        <div class="mc-lbl">Cliques no Site</div>
+        <div class="mc-val" style="font-size:44px">5.286</div>
+        <div class="mc-sub">Pessoas que clicaram e foram ao site</div>
+      </div>
+      <div class="mc r">
+        <div class="mc-lbl">Engajamentos</div>
+        <div class="mc-val" style="font-size:44px">33.4K</div>
+        <div class="mc-sub">Curtidas, salvamentos e interações</div>
+      </div>
+    </div>
+    <div class="igrid" style="margin-top:20px">
+      <div class="ic">
+        <h4>📊 Eficiência das Campanhas</h4>
+        <div class="irow"><span>Custo por clique (CPC)</span><span style="color:var(--em)">R$ 0,40 🏆</span></div>
+        <div class="irow"><span>Custo por mil impressões (CPM)</span><span>R$ 14,77</span></div>
+        <div class="irow"><span>Taxa de clique (CTR)</span><span style="color:var(--em)">3,65% 🏆</span></div>
+        <div class="irow"><span>Benchmark B2B do setor</span><span style="color:var(--mt)">0,9% – 1,5%</span></div>
+      </div>
+      <div class="ic">
+        <h4>🗺️ Onde foi investido (camp. Site)</h4>
+        <div class="irow"><span>Sudeste</span><span style="color:var(--amber)">R$ 1.120 · 80%</span></div>
+        <div class="irow"><span>Sul</span><span>R$ 159 · 11%</span></div>
+        <div class="irow"><span>Criativo destaque</span><span>Treinamento Técnico</span></div>
+        <div class="irow"><span>Público que mais assiste</span><span style="color:var(--em)">45–64 anos</span></div>
+      </div>
+      <div class="ic">
+        <h4>🎬 Retenção dos Vídeos</h4>
+        <div class="irow"><span>Assistiram 25% do vídeo</span><span style="color:var(--amber)">6.512</span></div>
+        <div class="irow"><span>Assistiram 50%</span><span>3.705</span></div>
+        <div class="irow"><span>Assistiram 75%</span><span>2.078</span></div>
+        <div class="irow"><span>Assistiram 100% (completo)</span><span style="color:var(--em)">1.216</span></div>
+      </div>
+    </div>
+    <div class="callout em">
+      💡 <strong>Insight:</strong> O CTR de 3,65% está mais de <strong>3x acima da média do mercado B2B industrial</strong> (0,9–1,5%), com CPC de apenas R$0,40 — altamente eficiente. E o público de 45 a 64 anos (engenheiros e gestores seniores, o decisor de compra) é justamente quem mais assiste os vídeos até o fim. Sinal de mídia bem direcionada.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     06 — LEADS
+============================== -->
+<section id="leads">
+  <div class="wrap">
+    <div class="stag">05 — Leads e Mensuração</div>
+    <div class="stitle">O Que as Pessoas Fizeram no Site</div>
+    <div class="ssub">Contatos, downloads e interações geradas no semestre (números reais do GA4)</div>
+    <div class="cvgrid">
+      <div class="cvc"><div class="cvi">📋</div><div class="cvv" data-m="leads">532</div><div class="cvl">Leads Gerados</div></div>
+      <div class="cvc"><div class="cvi">📥</div><div class="cvv" data-m="downloads">460</div><div class="cvl">Downloads</div></div>
+      <div class="cvc"><div class="cvi">💬</div><div class="cvv" data-m="whatsapp">86</div><div class="cvl">Cliques WhatsApp</div><div class="cvn">⚠️ subestimado</div></div>
+      <div class="cvc"><div class="cvi">🖱️</div><div class="cvv" data-m="cliques">772</div><div class="cvl">Cliques de Saída</div></div>
+      <div class="cvc"><div class="cvi">🔍</div><div class="cvv" data-m="buscas">352</div><div class="cvl">Buscas Internas</div></div>
+    </div>
+
+    <div class="callout em">
+      🌿 <strong>Insight de ouro:</strong> Quase metade dos leads vem do <strong>SEO orgânico — 205 dos 447 leads (46%)</strong>, mesmo o canal sendo só 19% do tráfego. É o que mais converte e não tem custo por clique. O Google Ads vem em 2º (165 leads · 37%). Reforça investir em SEO no 2º semestre.
+    </div>
+
+    <div class="igrid" style="margin-top:22px">
+      <div class="ic" style="border-left:3px solid var(--em)">
+        <h4 style="color:var(--em)">✅ Mensuração corrigida (08/06)</h4>
+        <p style="font-size:12px;color:var(--txt2);line-height:1.7;margin-top:4px">
+          Fizemos uma auditoria no GA4 e ajustamos as <strong style="color:var(--em)">conversões</strong>:<br><br>
+          • Antes, "visualização de página" contava como conversão (inflava tudo) → <strong>removido</strong>.<br>
+          • Agora <code style="background:var(--bg3);padding:2px 6px;border-radius:2px;font-size:11px">generate_lead</code> (leads) e <code style="background:var(--bg3);padding:2px 6px;border-radius:2px;font-size:11px">click_whatsapp</code> (WhatsApp) contam como conversão.<br><br>
+          Resultado: relatórios e Google Ads passam a medir <strong>contatos reais</strong>.
+        </p>
+      </div>
+      <div class="ic" style="border-left:3px solid var(--rose)">
+        <h4 style="color:var(--rose)">⚠️ Ainda a corrigir — WhatsApp</h4>
+        <p style="font-size:12px;color:var(--txt2);line-height:1.7;margin-top:4px">
+          O botão de WhatsApp registrou só <strong style="color:var(--rose)">86 cliques</strong> — bem abaixo do real. Provavelmente o botão flutuante (presente em todas as páginas) não dispara o evento certo, e os cliques caem no "cliques de saída" (772).<br><br>
+          <strong style="color:var(--amber)">Ação:</strong> corrigir o gatilho <code style="background:var(--bg3);padding:2px 6px;border-radius:2px;font-size:11px">click_whatsapp</code> no Google Tag Manager (item técnico, no 2º sem).
+        </p>
+      </div>
+    </div>
+    <div class="callout">
+      📌 <strong>Observação:</strong> 532 leads registrados no semestre (formulários, solicitações de catálogo e contatos). O rastreamento foi melhorado em 08/06; com a próxima correção do WhatsApp no Tag Manager, o número real tende a ser ainda maior no 2º semestre.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     PÁGINAS
+============================== -->
+<section id="paginas" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="stag">01 — Site / Conteúdo</div>
+    <div class="stitle">Páginas Mais Visitadas</div>
+    <div class="ssub">As páginas que mais atraíram acessos no semestre</div>
+    <div class="pglist">
+      <div class="pgrow"><div class="pgrank">1</div><div class="pgname">🏠 Página Inicial</div><div><div class="pgviews">17.764</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">2</div><div class="pgname">🏗️ Locação de Equipamentos</div><div><div class="pgviews">3.230</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">3</div><div class="pgname">⚡ Quadro de Distribuição Pedestal</div><div><div class="pgviews">2.402</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">4</div><div class="pgname">🔌 Média Tensão</div><div><div class="pgviews">2.361</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">5</div><div class="pgname">💡 Baixa Tensão</div><div><div class="pgviews">1.173</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">6</div><div class="pgname">📦 Produtos</div><div><div class="pgviews">854</div><div class="pglbl">visualizações</div></div></div>
+      <div class="pgrow"><div class="pgrank">7</div><div class="pgname">🤝 Representantes</div><div><div class="pgviews">771</div><div class="pglbl">visualizações</div></div></div>
+    </div>
+    <div class="callout">
+      💡 <strong>Oportunidade:</strong> A página de <strong>Locação de Equipamentos</strong> é a 2ª mais acessada do site — superando páginas de produto clássicas. Vale criar campanhas específicas para esse serviço e fortalecer o SEO dessa página no próximo semestre.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     LINKEDIN
+============================== -->
+<section id="linkedin">
+  <div class="wrap">
+    <div class="stag">06 — LinkedIn</div>
+    <div class="stitle">Audiência Qualificada no LinkedIn</div>
+    <div class="ssub">Crescimento, engajamento e perfil do público — orgânico + pago · jan–jun 2026 (validado pelas exportações da plataforma)</div>
+    <div class="mgrid">
+      <div class="mc s">
+        <div class="mc-lbl">Base de Seguidores</div>
+        <div class="mc-val" style="font-size:44px">9.000+</div>
+        <div class="mc-sub">Seguidores da página · ~90% da meta de 10K</div>
+      </div>
+      <div class="mc a">
+        <div class="mc-lbl">Novos no Semestre</div>
+        <div class="mc-val" style="font-size:44px">+2.918</div>
+        <div class="mc-sub">2.020 via Ads + 898 orgânicos</div>
+        <div class="badge g">↑ crescimento</div>
+      </div>
+      <div class="mc e">
+        <div class="mc-lbl">Impressões (posts)</div>
+        <div class="mc-val" style="font-size:44px">805K</div>
+        <div class="mc-sub">53K orgânicas + 752K patrocinadas</div>
+      </div>
+      <div class="mc r">
+        <div class="mc-lbl">Cliques (posts)</div>
+        <div class="mc-val" style="font-size:44px">20.056</div>
+        <div class="mc-sub">Em 54 publicações no período</div>
+      </div>
+    </div>
+    <div class="igrid" style="margin-top:20px">
+      <div class="ic">
+        <h4>📣 LinkedIn Ads — Seguidores</h4>
+        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 6.037</span></div>
+        <div class="irow"><span>Impressões</span><span>701.007</span></div>
+        <div class="irow"><span>Cliques</span><span>13.902</span></div>
+        <div class="irow"><span>CTR / CPC</span><span style="color:var(--em)">1,98% · R$ 0,43</span></div>
+        <div class="irow"><span>Seguidores ganhos</span><span style="color:var(--em)">+2.020 · ~R$3 cada 🏆</span></div>
+      </div>
+      <div class="ic">
+        <h4>🎯 Quem é o público (o decisor!)</h4>
+        <div class="irow"><span>Cargos</span><span>Eletricista · Téc./Eng. Elétrico</span></div>
+        <div class="irow"><span>Funções</span><span>Operações · Engenharia</span></div>
+        <div class="irow"><span>Setores</span><span>Energia/Utilities · Construção</span></div>
+        <div class="irow"><span>Cidades</span><span>SP · Curitiba · RJ</span></div>
+      </div>
+      <div class="ic">
+        <h4>👀 Visitas à Página</h4>
+        <div class="irow"><span>Visitantes únicos</span><span style="color:var(--amber)">1.709</span></div>
+        <div class="irow"><span>Visualizações</span><span>3.194</span></div>
+        <div class="irow"><span>Dispositivo</span><span>~82% mobile</span></div>
+        <div class="irow"><span>Página "Vagas"</span><span>1.199 visitantes</span></div>
+      </div>
+    </div>
+    <div class="callout em">
+      💡 <strong>Insight:</strong> O público do LinkedIn é exatamente o decisor do setor — <strong>eletricistas, técnicos e engenheiros elétricos</strong> de empresas de <strong>energia, utilities e construção</strong>, concentrados em SP, Curitiba e RJ. As campanhas trazem seguidores qualificados a ~R$3 cada. É a base ideal para gerar leads B2B no 2º semestre.
+    </div>
+    <div class="callout">
+      📌 <strong>Observação:</strong> A página está com <strong>9.000+ seguidores</strong> (~90% da meta de 10K), com <strong>+2.918 novos</strong> no semestre. Mais importante que o número é a qualidade da audiência: o público é o decisor técnico do setor elétrico — base ideal para gerar leads B2B no 2º semestre.
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     PRÓXIMOS 6 MESES
+============================== -->
+<section id="proximos" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="stag">07 — Planejamento</div>
+    <div class="stitle">O Que Esperar do 2º Semestre</div>
+    <div class="ssub">Estratégias e prioridades para julho – dezembro de 2026</div>
+    <div class="nsgrid">
+      <div class="ns done">
+        <div class="ns-num">✓</div>
+        <div class="ns-title">✅ Mensuração de conversões — FEITO</div>
+        <div class="ns-desc">Auditamos o GA4: removemos "page_view" das conversões e marcamos leads e WhatsApp como conversão. Agora o Google Ads otimiza para contatos reais. Falta reimportar no Google Ads.</div>
+        <span class="ns-tag" style="background:rgba(52,211,153,.1);color:var(--em)">Analytics · Concluído</span>
+      </div>
+      <div class="ns">
+        <div class="ns-num">01</div>
+        <div class="ns-title">🎯 LinkedIn → Leads qualificados</div>
+        <div class="ns-desc">A base já é altamente qualificada (eletricistas, técnicos e engenheiros do setor de energia). Próximo passo: além de crescer seguidores, ativar campanhas de geração de leads com formulário para esse público decisor.</div>
+        <span class="ns-tag">LinkedIn Ads</span>
+      </div>
+      <div class="ns">
+        <div class="ns-num">02</div>
+        <div class="ns-title">📱 Escalar Meta Ads</div>
+        <div class="ns-desc">CPC de R$0,40 e CTR 3x acima da média indicam alto retorno. Próximo passo: aumentar orçamento gradualmente, testar novos formatos e expandir além do Sudeste (que hoje concentra 80% da verba).</div>
+        <span class="ns-tag">Meta Ads · Instagram</span>
+      </div>
+      <div class="ns">
+        <div class="ns-num">03</div>
+        <div class="ns-title">🔍 Google Ads — Novos Produtos</div>
+        <div class="ns-desc">Criar campanhas específicas para Média Tensão, Baixa Tensão e Locação de Equipamentos — páginas com alto tráfego orgânico que ainda não têm campanhas pagas próprias.</div>
+        <span class="ns-tag">Google Ads</span>
+      </div>
+      <div class="ns">
+        <div class="ns-num">04</div>
+        <div class="ns-title">💬 Corrigir Rastreamento WhatsApp</div>
+        <div class="ns-desc">O botão flutuante de WhatsApp não dispara o evento certo — os cliques caem no genérico "saída". Corrigir o gatilho no Google Tag Manager vai revelar o volume real de contatos.</div>
+        <span class="ns-tag">Tag Manager · Tracking</span>
+      </div>
+      <div class="ns">
+        <div class="ns-num">05</div>
+        <div class="ns-title">🌿 SEO — Crescimento Orgânico</div>
+        <div class="ns-desc">O SEO já gera 46% dos leads e 19% das visitas sem custo por clique. Otimizar as páginas de produto pode ampliar muito esse número, reduzindo o custo total por lead.</div>
+        <span class="ns-tag">SEO · Orgânico</span>
+      </div>
+      <div class="ns">
+        <div class="ns-num">06</div>
+        <div class="ns-title">📊 Dashboard Mensal ao Vivo</div>
+        <div class="ns-desc">Relatório mensal automático com acessos, leads, WhatsApp, páginas top e evolução por campanha — acompanhamento contínuo sem depender de reunião.</div>
+        <span class="ns-tag">Automação · Relatório</span>
+      </div>
+    </div>
+
+    <!-- META BOX -->
+    <div style="margin-top:36px;padding:28px 32px;background:var(--bg3);border:1px solid var(--amber);border-radius:6px;max-width:680px">
+      <div style="font-family:var(--fd);font-size:26px;color:var(--amber);margin-bottom:20px;letter-spacing:.05em">METAS DO 2º SEMESTRE 2026</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Novos Visitantes</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--txt)">25.000+</div>
+          <div style="font-size:11px;color:var(--mt)">vs 20.455 no 1º sem</div>
+        </div>
+        <div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Leads Gerados</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--txt)">800+</div>
+          <div style="font-size:11px;color:var(--mt)">vs 532 no 1º sem</div>
+        </div>
+        <div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">LinkedIn</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--sky)">10K + Leads</div>
+          <div style="font-size:11px;color:var(--mt)">~9k hoje · foco em leads B2B</div>
+        </div>
+        <div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Meta Ads CTR</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--em)">4%+</div>
+          <div style="font-size:11px;color:var(--mt)">Hoje está em 3,65%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>ELOS Eletrotécnica · Relatório de Performance Digital · 1º Semestre 2026</p>
+    <p style="margin-top:4px">Produzido por Eros — Marketing Digital · jan – jun 2026</p>
+    <p style="margin-top:8px;color:var(--em)">✓ Site/Leads validados ao vivo no Google Analytics · Meta validado pela exportação oficial · em 08/06/2026</p>
+  </div>
+</footer>
+
+<script>
+// Intersection observer - trigger animations on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.animationPlayState = 'running';
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.25});
+
+document.querySelectorAll('.bar, .cbar, .pbfill').forEach(el => {
+  el.style.animationPlayState = 'paused';
+  io.observe(el);
+});
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--amber)' : '';
+  });
+}, {passive: true});
+
+/* ============================================================
+   FILTRO DE PERÍODO — dados reais do GA4 (01 jan a 08 jun 2026)
+   Filtra as seções de Site (Visão Geral) e Leads.
+   Demais seções permanecem no período completo.
+============================================================ */
+const DATA = {
+  total: {label:'Semestre completo', visitantes:'20.723', novos:'20.455', paginas:'42.209', interacoes:'123.268', leads:'532', downloads:'460', whatsapp:'86', cliques:'772', buscas:'352'},
+  jan:   {label:'Janeiro 2026',  visitantes:'3.159', novos:'2.970', paginas:'7.245', interacoes:'20.592', leads:'75',  downloads:'108', whatsapp:'14', cliques:'131', buscas:'78'},
+  fev:   {label:'Fevereiro 2026',visitantes:'3.287', novos:'3.090', paginas:'7.193', interacoes:'20.831', leads:'69',  downloads:'71',  whatsapp:'17', cliques:'151', buscas:'67'},
+  mar:   {label:'Março 2026',    visitantes:'3.854', novos:'3.592', paginas:'7.788', interacoes:'22.678', leads:'91',  downloads:'79',  whatsapp:'11', cliques:'142', buscas:'50'},
+  abr:   {label:'Abril 2026',    visitantes:'5.899', novos:'5.713', paginas:'9.651', interacoes:'28.449', leads:'155', downloads:'71',  whatsapp:'23', cliques:'181', buscas:'60'},
+  mai:   {label:'Maio 2026',     visitantes:'4.629', novos:'4.437', paginas:'8.735', interacoes:'26.071', leads:'123', downloads:'123', whatsapp:'20', cliques:'150', buscas:'82'},
+  jun:   {label:'Junho 2026 (1–8)',visitantes:'796', novos:'724', paginas:'1.597', interacoes:'4.649', leads:'20', downloads:'8', whatsapp:'1', cliques:'17', buscas:'15'}
+};
+
+const mesSel = document.getElementById('mesSel');
+const pill = document.getElementById('periodPill');
+const scopeNote = document.getElementById('scopeNote');
+
+const ovSub = document.getElementById('ovSub');
+const ovSubTotal = ovSub ? ovSub.textContent : '';
+
+function aplicarPeriodo(key){
+  const d = DATA[key] || DATA.total;
+  document.querySelectorAll('[data-m]').forEach(el => {
+    if(d[el.dataset.m] !== undefined) el.textContent = d[el.dataset.m];
+  });
+  pill.textContent = d.label;
+  scopeNote.style.display = (key === 'total') ? 'none' : 'inline-block';
+  if(ovSub){
+    ovSub.textContent = (key === 'total')
+      ? ovSubTotal
+      : 'Dados de ' + d.label + ' — conferidos ao vivo no Google Analytics';
+  }
+}
+
+mesSel.addEventListener('change', e => aplicarPeriodo(e.target.value));
+aplicarPeriodo('total');
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Publicar SOMENTE o relatório. Ignora tudo o resto (dados brutos do cliente, configs).
+*
+!.gitignore
+!index.html
+!ELOS_Relatorio_1S2026.html
+!README.md
