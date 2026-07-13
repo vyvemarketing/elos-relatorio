@@ -212,15 +212,15 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   border-radius:4px;padding:4px 9px;font-family:var(--fb);font-size:11px;font-weight:600;cursor:pointer;
 }
 #filterbar input{cursor:text}
-#filterbar input[type="date"]{width:130px}
-#filterbar input[type="number"]{width:58px;text-align:center;padding-right:4px}
+#filterbar input[type="date"]{width:126px;border:0;background:transparent;padding:4px 6px}
 #filterbar select:focus,#filterbar input:focus{outline:none;border-color:var(--amber)}
-#filterbar .days-wrap{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding-right:8px}
-#filterbar .days-wrap input{border:0;background:transparent}
-#filterbar .days-wrap span{font-size:10px;color:var(--mt);font-weight:700;text-transform:uppercase}
+#filterbar .range-wrap{display:flex;align-items:center;gap:2px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding:0 5px}
+#filterbar .range-wrap:focus-within{border-color:var(--amber)}
+#filterbar .range-label{font-size:9px;color:var(--mt);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+#filterbar .range-divider{width:1px;height:18px;background:var(--border2);margin:0 3px}
 #applyRange{
-  width:26px;height:26px;border:1px solid rgba(52,211,153,.35);border-radius:4px;
-  background:rgba(52,211,153,.1);color:var(--em);font-weight:900;cursor:pointer;
+  min-width:52px;height:27px;border:1px solid rgba(52,211,153,.35);border-radius:4px;padding:0 10px;
+  background:rgba(52,211,153,.1);color:var(--em);font-family:var(--fb);font-size:10px;font-weight:800;cursor:pointer;text-transform:uppercase;
 }
 #applyRange:hover{border-color:var(--em)}
 #filterbar .pill{font-size:10px;font-weight:700;color:var(--em);border:1px solid rgba(52,211,153,.4);
@@ -234,7 +234,8 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 @media(max-width:600px){
   .crow{flex-wrap:wrap}.cname{width:100%}
   .lnnums{flex-direction:column;gap:8px}
-  #filterbar input[type="date"]{width:122px}
+  #filterbar .range-wrap{width:100%;justify-content:center}
+  #filterbar input[type="date"]{width:120px}
   #filterbar .pill,#scopeNote{width:100%}
 }
 </style>
@@ -275,12 +276,14 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       <option value="jul">Julho (parcial 1–12)</option>
       <option value="custom">Personalizado</option>
     </select>
-    <input type="date" id="dataInicio" min="2026-01-01" max="2026-07-12" value="2026-01-01" aria-label="Data inicial">
-    <label class="days-wrap" title="Quantidade de dias do período">
-      <input type="number" id="diasPeriodo" min="1" max="193" value="193" aria-label="Quantidade de dias">
-      <span>dias</span>
-    </label>
-    <button id="applyRange" type="button" title="Aplicar período" aria-label="Aplicar período">✓</button>
+    <span class="range-wrap" aria-label="Intervalo de datas">
+      <label class="range-label" for="dataInicio">De</label>
+      <input type="date" id="dataInicio" min="2026-01-01" max="2026-07-12" value="2026-01-01" aria-label="Data inicial" required>
+      <span class="range-divider" aria-hidden="true"></span>
+      <label class="range-label" for="dataFim">Até</label>
+      <input type="date" id="dataFim" min="2026-01-01" max="2026-07-12" value="2026-07-12" aria-label="Data final" required>
+    </span>
+    <button id="applyRange" type="button" title="Aplicar período" aria-label="Aplicar período">Aplicar</button>
     <span class="pill" id="periodPill">01 jan – 12 jul · 193 dias</span>
     <span id="scopeNote">Site &amp; Leads recalculados para o período selecionado · demais seções = base atual</span>
   </span>
@@ -298,7 +301,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       <em>GERAL</em>
     </div>
     <div class="hclient">ELOS Eletrotécnica · Marketing Digital</div>
-    <div class="hperiod">Período: 01 jan – 12 jul 2026 · use o filtro 📅 acima para selecionar data e dias</div>
+    <div class="hperiod">Período: 01 jan – 12 jul 2026 · use o filtro 📅 acima para escolher a data inicial e a data final</div>
     <div class="chips">
       <span class="chip">Google Ads</span>
       <span class="chip">YouTube Ads</span>
@@ -896,7 +899,7 @@ const MONTH_BY_KEY = MONTHS.reduce((acc, month) => {
 
 const presetSel = document.getElementById('presetSel');
 const startInput = document.getElementById('dataInicio');
-const daysInput = document.getElementById('diasPeriodo');
+const endInput = document.getElementById('dataFim');
 const applyRange = document.getElementById('applyRange');
 const pill = document.getElementById('periodPill');
 const scopeNote = document.getElementById('scopeNote');
@@ -908,8 +911,6 @@ const leadsSub = document.getElementById('leadsSub');
 const leadsSubTotal = leadsSub ? leadsSub.textContent : '';
 const leadObservation = document.getElementById('leadObservation');
 const leadObservationTotal = leadObservation ? leadObservation.innerHTML : '';
-const TOTAL_DAYS = diffDays(DATA_START, DATA_END);
-
 function makeDate(iso){
   const [year, month, day] = iso.split('-').map(Number);
   return new Date(year, month - 1, day);
@@ -950,19 +951,25 @@ function formatLongDate(date){
   return date.toLocaleDateString('pt-BR', {day:'2-digit', month:'2-digit', year:'numeric'});
 }
 
-function clampRange(start, days){
-  let nextStart = start || DATA_START;
+function formatDayCount(days){
+  return `${days} ${days === 1 ? 'dia' : 'dias'}`;
+}
+
+function clampRange(start, end){
+  let nextStart = start instanceof Date && Number.isFinite(start.getTime()) ? start : DATA_START;
+  let nextEnd = end instanceof Date && Number.isFinite(end.getTime()) ? end : DATA_END;
+
   if(nextStart < DATA_START) nextStart = DATA_START;
   if(nextStart > DATA_END) nextStart = DATA_END;
+  if(nextEnd < DATA_START) nextEnd = DATA_START;
+  if(nextEnd > DATA_END) nextEnd = DATA_END;
 
-  let nextDays = parseInt(days, 10);
-  if(!Number.isFinite(nextDays) || nextDays < 1) nextDays = 1;
-  nextDays = Math.min(nextDays, TOTAL_DAYS, diffDays(nextStart, DATA_END));
+  if(nextStart > nextEnd) nextEnd = nextStart;
 
   return {
     start: nextStart,
-    days: nextDays,
-    end: addDays(nextStart, nextDays - 1)
+    end: nextEnd,
+    days: diffDays(nextStart, nextEnd)
   };
 }
 
@@ -989,8 +996,8 @@ function aggregateRange(start, end){
   const activeKey = `${toIso(start)}:${days}`;
   const exactMonth = exactMonthForRange(start, end);
   const label = exactMonth
-    ? `${exactMonth.label} · ${days} dias`
-    : `${formatShortDate(start)} – ${formatShortDate(end)} · ${days} dias`;
+    ? `${exactMonth.label} · ${formatDayCount(days)}`
+    : `${formatShortDate(start)} – ${formatShortDate(end)} · ${formatDayCount(days)}`;
 
   return {
     label,
@@ -1009,12 +1016,12 @@ function aggregateRange(start, end){
   };
 }
 
-function renderRange(start, days){
-  const range = clampRange(start, days);
+function renderRange(start, end){
+  const range = clampRange(start, end);
   const result = aggregateRange(range.start, range.end);
 
   startInput.value = toIso(range.start);
-  daysInput.value = range.days;
+  endInput.value = toIso(range.end);
   pill.textContent = result.label;
 
   document.querySelectorAll('[data-m]').forEach(el => {
@@ -1034,7 +1041,7 @@ function renderRange(start, days){
   if(ovSub){
     ovSub.textContent = result.total
       ? ovSubTotal
-      : `Período selecionado: ${formatLongDate(range.start)} a ${formatLongDate(range.end)} (${range.days} dias) — dados precisos do GA4`;
+      : `Período selecionado: ${formatLongDate(range.start)} a ${formatLongDate(range.end)} (${formatDayCount(range.days)}) — dados precisos do GA4`;
   }
 
   if(ovObservation){
@@ -1058,40 +1065,44 @@ function renderRange(start, days){
 
 function applyPreset(value){
   if(value === 'total'){
-    renderRange(DATA_START, TOTAL_DAYS);
+    renderRange(DATA_START, DATA_END);
     return;
   }
 
   if(MONTH_BY_KEY[value]){
     const month = MONTH_BY_KEY[value];
-    renderRange(month.startDate, diffDays(month.startDate, month.endDate));
+    renderRange(month.startDate, month.endDate);
     return;
   }
 
   const days = parseInt(value, 10);
   if(Number.isFinite(days)){
-    renderRange(addDays(DATA_END, -(days - 1)), days);
+    renderRange(addDays(DATA_END, -(days - 1)), DATA_END);
     return;
   }
 
-  renderRange(makeDate(startInput.value), daysInput.value);
+  renderRange(makeDate(startInput.value), makeDate(endInput.value));
 }
 
 presetSel.addEventListener('change', e => applyPreset(e.target.value));
 startInput.addEventListener('change', () => {
   presetSel.value = 'custom';
-  renderRange(makeDate(startInput.value), daysInput.value);
+  const start = makeDate(startInput.value);
+  const end = makeDate(endInput.value);
+  renderRange(start, start > end ? start : end);
 });
-daysInput.addEventListener('change', () => {
+endInput.addEventListener('change', () => {
   presetSel.value = 'custom';
-  renderRange(makeDate(startInput.value), daysInput.value);
+  const start = makeDate(startInput.value);
+  const end = makeDate(endInput.value);
+  renderRange(end < start ? end : start, end);
 });
 applyRange.addEventListener('click', () => {
   presetSel.value = 'custom';
-  renderRange(makeDate(startInput.value), daysInput.value);
+  renderRange(makeDate(startInput.value), makeDate(endInput.value));
 });
 
-renderRange(DATA_START, TOTAL_DAYS);
+renderRange(DATA_START, DATA_END);
 </script>
 </body>
 </html>
