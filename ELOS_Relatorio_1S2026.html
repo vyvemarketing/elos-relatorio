@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ELOS Eletrotécnica · Relatório Geral 2026</title>
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -206,19 +207,35 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   margin-left:14px;padding-left:14px;border-left:1px solid var(--border2);
 }
 #filterbar .flbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mt)}
-#filterbar select{
+#filterbar select,#filterbar input{
   background:var(--bg3);color:var(--txt);border:1px solid var(--border2);
   border-radius:4px;padding:4px 9px;font-family:var(--fb);font-size:11px;font-weight:600;cursor:pointer;
 }
-#filterbar select:focus{outline:none;border-color:var(--amber)}
+#filterbar input{cursor:text}
+#filterbar input[type="date"]{width:130px}
+#filterbar input[type="number"]{width:58px;text-align:center;padding-right:4px}
+#filterbar select:focus,#filterbar input:focus{outline:none;border-color:var(--amber)}
+#filterbar .days-wrap{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding-right:8px}
+#filterbar .days-wrap input{border:0;background:transparent}
+#filterbar .days-wrap span{font-size:10px;color:var(--mt);font-weight:700;text-transform:uppercase}
+#applyRange{
+  width:26px;height:26px;border:1px solid rgba(52,211,153,.35);border-radius:4px;
+  background:rgba(52,211,153,.1);color:var(--em);font-weight:900;cursor:pointer;
+}
+#applyRange:hover{border-color:var(--em)}
 #filterbar .pill{font-size:10px;font-weight:700;color:var(--em);border:1px solid rgba(52,211,153,.4);
   border-radius:20px;padding:3px 12px}
 #scopeNote{display:none;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);
   color:var(--amber);font-size:10px;font-weight:600;border-radius:4px;padding:3px 10px;text-align:center}
 
+@media(max-width:980px){
+  #filterbar{width:100%;margin-left:0;margin-top:8px;padding-left:0;border-left:0}
+}
 @media(max-width:600px){
   .crow{flex-wrap:wrap}.cname{width:100%}
   .lnnums{flex-direction:column;gap:8px}
+  #filterbar input[type="date"]{width:122px}
+  #filterbar .pill,#scopeNote{width:100%}
 }
 </style>
 </head>
@@ -242,8 +259,13 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     <select id="anoSel">
       <option value="2026">2026</option>
     </select>
-    <select id="mesSel">
-      <option value="total">Período completo (jan–jul)</option>
+    <select id="presetSel" aria-label="Atalho de período">
+      <option value="total">Período completo</option>
+      <option value="7">Últimos 7 dias</option>
+      <option value="15">Últimos 15 dias</option>
+      <option value="30">Últimos 30 dias</option>
+      <option value="60">Últimos 60 dias</option>
+      <option value="90">Últimos 90 dias</option>
       <option value="jan">Janeiro</option>
       <option value="fev">Fevereiro</option>
       <option value="mar">Março</option>
@@ -251,9 +273,16 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       <option value="mai">Maio</option>
       <option value="jun">Junho</option>
       <option value="jul">Julho (parcial 1–12)</option>
+      <option value="custom">Personalizado</option>
     </select>
-    <span class="pill" id="periodPill">Período completo</span>
-    <span id="scopeNote">Site &amp; Leads do mês · demais seções = período/base atual</span>
+    <input type="date" id="dataInicio" min="2026-01-01" max="2026-07-12" value="2026-01-01" aria-label="Data inicial">
+    <label class="days-wrap" title="Quantidade de dias do período">
+      <input type="number" id="diasPeriodo" min="1" max="193" value="193" aria-label="Quantidade de dias">
+      <span>dias</span>
+    </label>
+    <button id="applyRange" type="button" title="Aplicar período" aria-label="Aplicar período">✓</button>
+    <span class="pill" id="periodPill">01 jan – 12 jul · 193 dias</span>
+    <span id="scopeNote">Site &amp; Leads recalculados para o período selecionado · demais seções = base atual</span>
   </span>
 </nav>
 
@@ -269,7 +298,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       <em>GERAL</em>
     </div>
     <div class="hclient">ELOS Eletrotécnica · Marketing Digital</div>
-    <div class="hperiod">Período: 01 jan – 12 jul 2026 · use o filtro 📅 acima para filtrar por mês</div>
+    <div class="hperiod">Período: 01 jan – 12 jul 2026 · use o filtro 📅 acima para selecionar data e dias</div>
     <div class="chips">
       <span class="chip">Google Ads</span>
       <span class="chip">YouTube Ads</span>
@@ -312,7 +341,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
         <div class="mc-sub">Cliques, buscas, scrolls e eventos</div>
       </div>
     </div>
-    <div class="callout">
+    <div class="callout" id="ovObservation">
       📌 <strong>Observação:</strong> Mais de 24 mil pessoas novas chegaram ao site da ELOS no período — praticamente todas vindas dos canais de marketing digital geridos pela agência. É um volume de descoberta de marca relevante para o setor industrial.
     </div>
   </div>
@@ -528,7 +557,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   <div class="wrap">
     <div class="stag">05 — Leads e Mensuração</div>
     <div class="stitle">O Que as Pessoas Fizeram no Site</div>
-    <div class="ssub">Contatos, downloads e interações geradas no período (números reais do GA4)</div>
+    <div class="ssub" id="leadsSub">Contatos, downloads e interações geradas no período (números reais do GA4)</div>
     <div class="cvgrid">
       <div class="cvc"><div class="cvi">📋</div><div class="cvv" data-m="leads">544</div><div class="cvl">Leads Gerados</div></div>
       <div class="cvc"><div class="cvi">📥</div><div class="cvv" data-m="downloads">550</div><div class="cvl">Downloads</div></div>
@@ -573,7 +602,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
         </p>
       </div>
     </div>
-    <div class="callout">
+    <div class="callout" id="leadObservation">
       📌 <strong>Observação:</strong> 544 leads registrados no período (formulários, solicitações de catálogo e contatos). O rastreamento de WhatsApp foi melhorado em 08/06 e já mostra escala: 389 cliques medidos até 12/07. Isso dá uma leitura mais completa da demanda real gerada pelo site.
     </div>
   </div>
@@ -842,44 +871,255 @@ window.addEventListener('scroll', () => {
 }, {passive: true});
 
 /* ============================================================
-   FILTRO DE PERÍODO — dados reais do GA4 (01 jan a 12 jul 2026)
-   Filtra as seções de Site (Visão Geral) e Leads.
-   Demais seções permanecem no período completo.
+   FILTRO DE PERÍODO — base GA4 carregada até 12 jul 2026.
+   Períodos fechados usam dados exatos; intervalos parciais usam
+   cálculo proporcional por média diária da base mensal disponível.
 ============================================================ */
-const DATA = {
-  total: {label:'Período completo', visitantes:'24.743', novos:'24.509', paginas:'50.522', interacoes:'148.233', leads:'544', downloads:'550', whatsapp:'389', cliques:'1.076', buscas:'457'},
-  jan:   {label:'Janeiro 2026',  visitantes:'3.159', novos:'2.970', paginas:'7.245', interacoes:'20.592', leads:'75',  downloads:'108', whatsapp:'14', cliques:'131', buscas:'78'},
-  fev:   {label:'Fevereiro 2026',visitantes:'3.287', novos:'3.090', paginas:'7.193', interacoes:'20.831', leads:'69',  downloads:'71',  whatsapp:'17', cliques:'151', buscas:'67'},
-  mar:   {label:'Março 2026',    visitantes:'3.854', novos:'3.592', paginas:'7.788', interacoes:'22.678', leads:'91',  downloads:'79',  whatsapp:'11', cliques:'142', buscas:'50'},
-  abr:   {label:'Abril 2026',    visitantes:'5.899', novos:'5.713', paginas:'9.651', interacoes:'28.449', leads:'155', downloads:'71',  whatsapp:'23', cliques:'181', buscas:'60'},
-  mai:   {label:'Maio 2026',     visitantes:'4.629', novos:'4.437', paginas:'8.735', interacoes:'26.071', leads:'123', downloads:'123', whatsapp:'20', cliques:'150', buscas:'82'},
-  jun:   {label:'Junho 2026',visitantes:'3.497', novos:'3.411', paginas:'7.363', interacoes:'21.923', leads:'31', downloads:'81', whatsapp:'222', cliques:'238', buscas:'94'},
-  jul:   {label:'Julho 2026 (1–12)',visitantes:'1.337', novos:'1.296', paginas:'2.547', interacoes:'7.689', leads:'0', downloads:'17', whatsapp:'82', cliques:'83', buscas:'26'}
+const METRICS = ['visitantes','novos','paginas','interacoes','leads','downloads','whatsapp','cliques','buscas'];
+const DATA_START = makeDate('2026-01-01');
+const DATA_END = makeDate('2026-07-12');
+
+const TOTAL_DATA = {
+  visitantes:24743, novos:24509, paginas:50522, interacoes:148233,
+  leads:544, downloads:550, whatsapp:389, cliques:1076, buscas:457
 };
 
-const mesSel = document.getElementById('mesSel');
+const MONTHS = [
+  {key:'jan', label:'Janeiro 2026', start:'2026-01-01', end:'2026-01-31', data:{visitantes:3159, novos:2970, paginas:7245, interacoes:20592, leads:75, downloads:108, whatsapp:14, cliques:131, buscas:78}},
+  {key:'fev', label:'Fevereiro 2026', start:'2026-02-01', end:'2026-02-28', data:{visitantes:3287, novos:3090, paginas:7193, interacoes:20831, leads:69, downloads:71, whatsapp:17, cliques:151, buscas:67}},
+  {key:'mar', label:'Março 2026', start:'2026-03-01', end:'2026-03-31', data:{visitantes:3854, novos:3592, paginas:7788, interacoes:22678, leads:91, downloads:79, whatsapp:11, cliques:142, buscas:50}},
+  {key:'abr', label:'Abril 2026', start:'2026-04-01', end:'2026-04-30', data:{visitantes:5899, novos:5713, paginas:9651, interacoes:28449, leads:155, downloads:71, whatsapp:23, cliques:181, buscas:60}},
+  {key:'mai', label:'Maio 2026', start:'2026-05-01', end:'2026-05-31', data:{visitantes:4629, novos:4437, paginas:8735, interacoes:26071, leads:123, downloads:123, whatsapp:20, cliques:150, buscas:82}},
+  {key:'jun', label:'Junho 2026', start:'2026-06-01', end:'2026-06-30', data:{visitantes:3497, novos:3411, paginas:7363, interacoes:21923, leads:31, downloads:81, whatsapp:222, cliques:238, buscas:94}},
+  {key:'jul', label:'Julho 2026 (1–12)', start:'2026-07-01', end:'2026-07-12', data:{visitantes:1337, novos:1296, paginas:2547, interacoes:7689, leads:0, downloads:17, whatsapp:82, cliques:83, buscas:26}}
+].map(m => ({...m, startDate:makeDate(m.start), endDate:makeDate(m.end)}));
+
+const MONTH_BY_KEY = MONTHS.reduce((acc, month) => {
+  acc[month.key] = month;
+  return acc;
+}, {});
+
+const presetSel = document.getElementById('presetSel');
+const startInput = document.getElementById('dataInicio');
+const daysInput = document.getElementById('diasPeriodo');
+const applyRange = document.getElementById('applyRange');
 const pill = document.getElementById('periodPill');
 const scopeNote = document.getElementById('scopeNote');
-
 const ovSub = document.getElementById('ovSub');
 const ovSubTotal = ovSub ? ovSub.textContent : '';
+const ovObservation = document.getElementById('ovObservation');
+const ovObservationTotal = ovObservation ? ovObservation.innerHTML : '';
+const leadsSub = document.getElementById('leadsSub');
+const leadsSubTotal = leadsSub ? leadsSub.textContent : '';
+const leadObservation = document.getElementById('leadObservation');
+const leadObservationTotal = leadObservation ? leadObservation.innerHTML : '';
+const TOTAL_DAYS = diffDays(DATA_START, DATA_END);
 
-function aplicarPeriodo(key){
-  const d = DATA[key] || DATA.total;
-  document.querySelectorAll('[data-m]').forEach(el => {
-    if(d[el.dataset.m] !== undefined) el.textContent = d[el.dataset.m];
+function makeDate(iso){
+  const [year, month, day] = iso.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}
+
+function toIso(date){
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function addDays(date, amount){
+  const next = new Date(date);
+  next.setDate(next.getDate() + amount);
+  return next;
+}
+
+function diffDays(start, end){
+  const ms = makeDate(toIso(end)) - makeDate(toIso(start));
+  return Math.round(ms / 86400000) + 1;
+}
+
+function isSameDay(a, b){
+  return toIso(a) === toIso(b);
+}
+
+function minDate(a, b){
+  return a < b ? a : b;
+}
+
+function maxDate(a, b){
+  return a > b ? a : b;
+}
+
+function formatNumber(value){
+  return Math.round(value).toLocaleString('pt-BR');
+}
+
+function formatShortDate(date){
+  const months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  return `${String(date.getDate()).padStart(2, '0')} ${months[date.getMonth()]}`;
+}
+
+function formatLongDate(date){
+  return date.toLocaleDateString('pt-BR', {day:'2-digit', month:'2-digit', year:'numeric'});
+}
+
+function clampRange(start, days){
+  let nextStart = start || DATA_START;
+  if(nextStart < DATA_START) nextStart = DATA_START;
+  if(nextStart > DATA_END) nextStart = DATA_END;
+
+  let nextDays = parseInt(days, 10);
+  if(!Number.isFinite(nextDays) || nextDays < 1) nextDays = 1;
+  nextDays = Math.min(nextDays, TOTAL_DAYS, diffDays(nextStart, DATA_END));
+
+  return {
+    start: nextStart,
+    days: nextDays,
+    end: addDays(nextStart, nextDays - 1)
+  };
+}
+
+function exactMonthForRange(start, end){
+  return MONTHS.find(month => isSameDay(start, month.startDate) && isSameDay(end, month.endDate));
+}
+
+function aggregateRange(start, end){
+  const days = diffDays(start, end);
+
+  if(isSameDay(start, DATA_START) && isSameDay(end, DATA_END)){
+    return {
+      label: `${formatShortDate(start)} – ${formatShortDate(end)} · ${days} dias`,
+      data: {...TOTAL_DATA},
+      estimated: false,
+      total: true
+    };
+  }
+
+  const exactMonth = exactMonthForRange(start, end);
+  if(exactMonth){
+    return {
+      label: `${exactMonth.label} · ${days} dias`,
+      data: {...exactMonth.data},
+      estimated: false,
+      total: false
+    };
+  }
+
+  const data = METRICS.reduce((acc, key) => {
+    acc[key] = 0;
+    return acc;
+  }, {});
+
+  MONTHS.forEach(month => {
+    const from = maxDate(start, month.startDate);
+    const to = minDate(end, month.endDate);
+    if(from > to) return;
+
+    const overlapDays = diffDays(from, to);
+    const monthDays = diffDays(month.startDate, month.endDate);
+    const ratio = overlapDays / monthDays;
+    METRICS.forEach(key => {
+      data[key] += month.data[key] * ratio;
+    });
   });
-  pill.textContent = d.label;
-  scopeNote.style.display = (key === 'total') ? 'none' : 'inline-block';
+
+  return {
+    label: `${formatShortDate(start)} – ${formatShortDate(end)} · ${days} dias`,
+    data,
+    estimated: true,
+    total: false
+  };
+}
+
+function renderRange(start, days){
+  const range = clampRange(start, days);
+  const result = aggregateRange(range.start, range.end);
+
+  startInput.value = toIso(range.start);
+  daysInput.value = range.days;
+  pill.textContent = result.label;
+
+  document.querySelectorAll('[data-m]').forEach(el => {
+    const value = result.data[el.dataset.m];
+    if(value !== undefined){
+      el.textContent = `${result.estimated ? '~' : ''}${formatNumber(value)}`;
+    }
+  });
+
+  if(result.total){
+    scopeNote.style.display = 'none';
+  }else{
+    scopeNote.style.display = 'inline-block';
+    scopeNote.textContent = result.estimated
+      ? '⚠️ Site & Leads em estimativa proporcional por média diária da base GA4 mensal · demais seções = base atual'
+      : 'Site & Leads filtrados com dados GA4 fechados para o período · demais seções = base atual';
+  }
+
   if(ovSub){
-    ovSub.textContent = (key === 'total')
-      ? ovSubTotal
-      : 'Dados de ' + d.label + ' — conferidos ao vivo no Google Analytics';
+    if(result.total){
+      ovSub.textContent = ovSubTotal;
+    }else if(result.estimated){
+      ovSub.textContent = `Período selecionado: ${formatLongDate(range.start)} a ${formatLongDate(range.end)} (${range.days} dias) — estimativa proporcional baseada na leitura GA4 disponível`;
+    }else{
+      ovSub.textContent = `Período selecionado: ${formatLongDate(range.start)} a ${formatLongDate(range.end)} (${range.days} dias) — dados GA4 fechados`;
+    }
+  }
+
+  if(ovObservation){
+    ovObservation.innerHTML = result.total
+      ? ovObservationTotal
+      : `📌 <strong>Observação:</strong> Os cards acima foram ${result.estimated ? 'estimados proporcionalmente' : 'filtrados'} para <strong>${result.label}</strong>. As análises estratégicas abaixo continuam usando a base geral validada até 12/07.`;
+  }
+
+  if(leadsSub){
+    leadsSub.textContent = result.total
+      ? leadsSubTotal
+      : `Contatos, downloads e interações no período selecionado (${result.estimated ? 'estimativa proporcional da base GA4' : 'dados GA4 fechados'})`;
+  }
+
+  if(leadObservation){
+    leadObservation.innerHTML = result.total
+      ? leadObservationTotal
+      : `📌 <strong>Observação:</strong> Os cards de leads acima acompanham <strong>${result.label}</strong>. O gráfico mensal, a auditoria de mensuração e os insights abaixo continuam na base completa do relatório, validada até 12/07.`;
   }
 }
 
-mesSel.addEventListener('change', e => aplicarPeriodo(e.target.value));
-aplicarPeriodo('total');
+function applyPreset(value){
+  if(value === 'total'){
+    renderRange(DATA_START, TOTAL_DAYS);
+    return;
+  }
+
+  if(MONTH_BY_KEY[value]){
+    const month = MONTH_BY_KEY[value];
+    renderRange(month.startDate, diffDays(month.startDate, month.endDate));
+    return;
+  }
+
+  const days = parseInt(value, 10);
+  if(Number.isFinite(days)){
+    renderRange(addDays(DATA_END, -(days - 1)), days);
+    return;
+  }
+
+  renderRange(makeDate(startInput.value), daysInput.value);
+}
+
+presetSel.addEventListener('change', e => applyPreset(e.target.value));
+startInput.addEventListener('change', () => {
+  presetSel.value = 'custom';
+  renderRange(makeDate(startInput.value), daysInput.value);
+});
+daysInput.addEventListener('change', () => {
+  presetSel.value = 'custom';
+  renderRange(makeDate(startInput.value), daysInput.value);
+});
+applyRange.addEventListener('click', () => {
+  presetSel.value = 'custom';
+  renderRange(makeDate(startInput.value), daysInput.value);
+});
+
+renderRange(DATA_START, TOTAL_DAYS);
 </script>
 </body>
 </html>
