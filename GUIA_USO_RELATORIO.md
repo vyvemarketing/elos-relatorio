@@ -15,12 +15,12 @@
 
 ### Limite atual dos dados
 
-A base precisa do GA4 (Google Analytics 4) cobre **01/01/2026 a 12/07/2026**. O seletor não permite datas fora desse intervalo até que uma nova exportação seja incorporada ao relatório.
+A base precisa do GA4 (Google Analytics 4) cobre **01/01/2026 a 08/08/2026**. O seletor não permite datas fora desse intervalo até que uma nova exportação seja incorporada ao relatório.
 
 ### O que acompanha o filtro
 
 - ⭐ **Dados-chave:** acessos ao site e origens solicitadas pelo cliente.
-- 🌐 **Site:** visitantes, novos visitantes, visualizações e interações.
+- 🌐 **Site:** sessões, novos visitantes, visualizações e interações.
 - 📊 **Origem:** distribuição das sessões por canal.
 - 🎯 **Leads:** leads, downloads, WhatsApp, cliques e buscas.
 
@@ -57,7 +57,7 @@ O relatório foi padronizado em **sessões pela origem da sessão**. O quadro **
 
 1. Exporte no GA4 os dados diários do novo intervalo.
 2. Preserve os campos usados no objeto `GA4_PRECISE`: usuários ativos, novos usuários, visualizações, eventos, leads, downloads, WhatsApp, cliques, buscas, sessões e origens.
-3. Atualize `start`, `end`, `daily` e `activeRanges` dentro de `ELOS_Relatorio_1S2026.html`.
+3. Atualize `start`, `end`, `totals` e `daily` dentro de `ELOS_Relatorio_1S2026.html`.
 4. Atualize os limites `min`, `max` e os atalhos do seletor de datas.
 5. Confira se os totais do período completo fecham com a exportação do GA4.
 
@@ -85,4 +85,19 @@ O GitHub Pages publica automaticamente a branch `main`. Após o envio, aguarde a
 
 ## Regra para evitar novas divergências
 
-Sempre informe **métrica + dimensão + intervalo**. Exemplo correto: “31.771 sessões, agrupadas pelo canal da sessão, de 01/01/2026 a 12/07/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica ou a dimensão muda.
+Sempre informe **métrica + dimensão + intervalo**. Exemplo correto: “36.066 sessões, agrupadas pelo canal da sessão, de 01/01/2026 a 08/08/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica ou a dimensão muda.
+
+## Situação das plataformas em 08/08/2026
+
+- 🔎 **Google Ads:** campanhas e verbas mantidas. `page_view` está fora das metas, mas `generate_lead` e `click_whatsapp` ainda precisam ser importados do GA4 para otimização comercial.
+- 💼 **LinkedIn Ads:** campanhas e verbas mantidas. A campanha ativa apresenta boa entrega, porém não registra leads.
+- ⏸️ **Meta Ads:** campanhas de seguidores e site estão desativadas e devem permanecer OFF.
+- 🤖 **ChatGPT Ads:** conta criada, porém bloqueada por elegibilidade de setor. O piloto de R$ 1.300 só deve começar após aprovação do recurso, faturamento e tracking.
+
+## Orientação para a informática
+
+1. Não editar manualmente os números visíveis sem atualizar também `GA4_PRECISE`.
+2. Ao incorporar uma nova exportação, conferir os totais consolidados do GA4 e as 5 origens do relatório.
+3. Publicar somente depois de testar período completo, um mês, últimos 7 dias e um intervalo personalizado.
+4. Não inserir credenciais, tokens ou links de sessão no repositório.
+5. O GitHub Pages publica a branch `main`; validar o workflow antes de enviar o link ao cliente.
