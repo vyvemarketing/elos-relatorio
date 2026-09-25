@@ -11,7 +11,8 @@
 1. 📅 No topo, escolha um atalho de período ou preencha as datas **De** e **Até**.
 2. ✅ Ao alterar uma data, o relatório aplica o intervalo automaticamente. O botão **Aplicar** confirma a seleção.
 3. 🔎 Use o menu para navegar. O atalho **★ Dados-chave** abre diretamente os números pedidos pelo cliente.
-4. 📱 No celular, deslize horizontalmente o menu superior quando algum atalho não estiver visível.
+4. 🎯 O bloco **Resumo** abre a prioridade de crescimento no LinkedIn e os números mais recentes de mídia.
+5. 📱 No celular, o menu e o filtro quebram em linhas para manter todos os atalhos visíveis.
 
 ### Limite atual dos dados
 
@@ -24,7 +25,7 @@ A base precisa do GA4 (Google Analytics 4) cobre **01/01/2026 a 08/08/2026**. O 
 - 📊 **Origem:** distribuição das sessões por canal.
 - 🎯 **Leads:** leads, downloads, WhatsApp, cliques e buscas.
 
-Os gráficos mensais, campanhas de Ads, páginas, artigos do blog, LinkedIn e planejamento continuam mostrando a base geral indicada em cada seção. Quando o filtro está fora do período completo, um aviso aparece no topo para deixar esse escopo explícito.
+Os gráficos mensais, páginas, artigos do blog e leads continuam mostrando a exportação detalhada do GA4 indicada em cada seção. Google Ads e LinkedIn têm atualização própria até 25/09/2026. Quando o filtro está fora do período completo, um aviso aparece no topo para deixar esse escopo explícito.
 
 ## Definições das métricas
 
@@ -43,6 +44,8 @@ Os gráficos mensais, campanhas de Ads, páginas, artigos do blog, LinkedIn e pl
 O quadro antigo de origem mostrava **novos usuários pela primeira origem do usuário**. O quadro Dados-chave mostrava **sessões pela origem da sessão**. As duas leituras existem no GA4, mas não podem ser comparadas diretamente.
 
 O relatório foi padronizado em **sessões pela origem da sessão**. O quadro **De onde vieram as sessões** e o quadro **Dados-chave** agora usam a mesma base, o mesmo intervalo e os mesmos agrupamentos. Não use capturas antigas como referência.
+
+No período completo, os cards usam a consulta consolidada oficial do GA4. Nos intervalos personalizados, o relatório soma as linhas diárias exportadas. Pequenas diferenças entre essas duas leituras podem ocorrer pelo processamento e pela granularidade das consultas do GA4; não distribua a diferença manualmente entre os dias.
 
 ## Manutenção técnica
 
@@ -87,12 +90,20 @@ O GitHub Pages publica automaticamente a branch `main`. Após o envio, aguarde a
 
 Sempre informe **métrica + dimensão + intervalo**. Exemplo correto: “36.066 sessões, agrupadas pelo canal da sessão, de 01/01/2026 a 08/08/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica ou a dimensão muda.
 
-## Situação das plataformas em 08/08/2026
+## Situação das plataformas em 25/09/2026
 
-- 🔎 **Google Ads:** campanhas e verbas mantidas. `page_view` está fora das metas, mas `generate_lead` e `click_whatsapp` ainda precisam ser importados do GA4 para otimização comercial.
-- 💼 **LinkedIn Ads:** campanhas e verbas mantidas. A campanha ativa apresenta boa entrega, porém não registra leads.
+- 🔎 **Google Ads:** R$ 15.051,97 investidos, 43.936 cliques, CTR de 7,70% e CPC médio de R$ 0,34 no acumulado do ano. As 23.047 ações registradas incluem eventos de YouTube e não devem ser tratadas como leads. Campanhas e verbas foram mantidas.
+- 💼 **LinkedIn Ads:** 10.487 seguidores na página, 2.546 seguidores pagos no ano e custo médio de R$ 4,46 por seguidor pago. Nos últimos 7 dias fechados, o CTR chegou a 2,73%. O objetivo seguinte é 11 mil seguidores sem aumento de verba.
 - ⏸️ **Meta Ads:** campanhas de seguidores e site estão desativadas e devem permanecer OFF.
-- 🤖 **ChatGPT Ads:** conta criada, porém bloqueada por elegibilidade de setor. O piloto de R$ 1.300 só deve começar após aprovação do recurso, faturamento e tracking.
+- 🤖 **ChatGPT Ads:** plataforma ativa no Brasil e conta criada. O piloto de R$ 1.300 permanece planejado e sem gasto até aprovação específica e validação do tracking.
+
+## Plano de otimização sem aumento de preço
+
+- 🎯 **LinkedIn:** preservar os dois criativos com CTR de 4,57% e 3,61%; substituir a peça com CTR de 0,30% e CPC de R$ 2,35.
+- 👥 **Audiência:** priorizar cargos elétricos e setores Utilities, Construção, Energia e fabricantes elétricos; separar o teste para medir qualidade sem misturar públicos.
+- 📐 **Google:** separar metas de vídeo das metas comerciais. Formulário e WhatsApp devem orientar campanhas de Busca; inscrições e engajamentos do YouTube ficam como observação.
+- 🔗 **Rastreamento:** padronizar UTMs com fonte, meio, campanha e anúncio em todos os links.
+- 💰 **Verba:** não alterar orçamento diário, lance ou investimento total sem nova autorização.
 
 ## Orientação para a informática
 

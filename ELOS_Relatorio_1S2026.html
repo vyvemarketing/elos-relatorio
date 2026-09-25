@@ -10,10 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07090f;--bg2:#0c111a;--bg3:#111927;
-  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
-  --amber:#f59e0b;--amberd:#d97706;--sky:#38bdf8;--em:#34d399;--rose:#f87171;
-  --txt:#f1f5f9;--txt2:#cbd5e1;--mt:#64748b;--mt2:#94a3b8;
+  --bg:#edf1f4;--bg2:#ffffff;--bg3:#e8edf2;
+  --border:rgba(23,32,38,.09);--border2:rgba(23,32,38,.16);
+  --amber:#c9242f;--amberd:#9f1c25;--sky:#1769aa;--em:#16865f;--rose:#b42318;
+  --txt:#172026;--txt2:#35424b;--mt:#76838d;--mt2:#5f6c76;
   --fd:'Bebas Neue',sans-serif;--fb:'DM Sans',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -23,40 +23,64 @@ h1,h2,h3,h4{font-family:var(--fd);letter-spacing:.05em;line-height:1}
 a{color:inherit;text-decoration:none}
 
 /* LAYOUT */
-.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
-section{padding:72px 0;border-bottom:1px solid var(--border);scroll-margin-top:120px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:58px 0;border-bottom:1px solid var(--border);scroll-margin-top:128px}
 .stag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
 .stitle{font-family:var(--fd);font-size:clamp(26px,4vw,40px);letter-spacing:.05em;color:var(--txt);margin-bottom:6px}
 .ssub{color:var(--mt2);font-size:13px;margin-bottom:36px;max-width:580px;line-height:1.7}
 
 /* HERO */
 #hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(140deg,#07090f 0%,#0c1520 55%,#07090f 100%);
-  position:relative;overflow:hidden;border-bottom:2px solid var(--amber);
+  min-height:0;display:block;padding:148px 0 44px;
+  background:#172026;position:relative;overflow:hidden;border-bottom:4px solid var(--amber);
 }
 #hero::before{
   content:'';position:absolute;inset:0;
-  background-image:linear-gradient(rgba(245,158,11,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(245,158,11,.03) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
   background-size:56px 56px;
 }
-.hero-inner{text-align:center;position:relative;z-index:1;padding:40px 20px}
+.hero-inner{text-align:left;position:relative;z-index:1;padding:0 28px;max-width:1180px;margin:0 auto}
 .eyebrow{
-  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);
-  padding:6px 20px;border-radius:2px;margin-bottom:24px;
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#ff8b92;border-left:3px solid #ff5a64;
+  padding:3px 0 3px 12px;margin-bottom:15px;
 }
-.htitle{font-family:var(--fd);font-size:clamp(68px,13vw,148px);line-height:.88;margin-bottom:20px}
-.htitle em{color:var(--amber);font-style:normal;display:block}
-.logo-badge{display:inline-block;background:#fff;border-radius:10px;padding:14px 24px;margin-bottom:26px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
-.logo-badge img{height:40px;display:block}
-.hclient{font-size:clamp(15px,2vw,20px);font-weight:300;letter-spacing:.1em;color:var(--txt2);margin-bottom:6px}
-.hperiod{font-size:12px;color:var(--mt);letter-spacing:.1em;margin-bottom:28px}
+.htitle{font-family:var(--fd);font-size:clamp(48px,7vw,82px);line-height:.94;margin-bottom:12px;color:#fff;letter-spacing:.04em}
+.htitle em{color:#ff5a64;font-style:normal;display:inline}
+.logo-badge{display:inline-block;background:#fff;border-radius:6px;padding:10px 18px;margin-bottom:20px;box-shadow:none}
+.logo-badge img{height:34px;display:block}
+.hclient{font-size:clamp(17px,2vw,23px);font-weight:600;letter-spacing:0;color:#dbe3e8;margin-bottom:6px}
+.hperiod{font-size:12px;color:#aebbc4;letter-spacing:0;margin-bottom:22px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.chip{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:5px 14px;border:1px solid var(--border2);border-radius:2px;color:var(--mt2)}
-.chip.live{border-color:var(--em);color:var(--em)}
+.chips{justify-content:flex-start}
+.chip{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 10px;border:1px solid rgba(255,255,255,.18);border-radius:3px;color:#c9d3da}
+.chip.live{border-color:#55dca9;color:#55dca9}
+
+/* RESUMO EXECUTIVO */
+#executivo{background:#f7f9fa}
+.exec-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+.exec-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.exec-kpi{background:#fff;border:1px solid var(--border2);border-radius:6px;padding:20px;min-height:142px}
+.exec-kpi.primary{border-top:4px solid var(--amber)}
+.exec-kpi.blue{border-top:4px solid var(--sky)}
+.exec-kpi.green{border-top:4px solid var(--em)}
+.exec-kpi.dark{border-top:4px solid #303a42}
+.exec-label{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mt);margin-bottom:8px}
+.exec-value{font-family:var(--fd);font-size:42px;line-height:1;color:var(--txt);margin-bottom:7px}
+.exec-note{font-size:11px;color:var(--mt2);line-height:1.45}
+.exec-priority{background:#172026;color:#fff;border-radius:6px;padding:24px}
+.exec-priority h3{font-size:30px;color:#fff;margin-bottom:12px}
+.exec-priority p{font-size:13px;color:#c9d3da;line-height:1.65;margin-bottom:18px}
+.priority-list{display:grid;gap:9px}
+.priority-item{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;padding-top:9px;border-top:1px solid rgba(255,255,255,.12)}
+.priority-num{font-family:var(--fd);font-size:20px;color:#ff6f77}
+.priority-text{font-size:12px;color:#e5eaed;line-height:1.5}
+.source-line{font-size:10px;color:var(--mt);margin-top:14px;line-height:1.5}
+.source-line strong{color:var(--txt2)}
+.source-line a{color:var(--sky);text-decoration:underline;text-underline-offset:2px}
+.data-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:4px 8px;border-radius:3px;background:rgba(22,134,95,.1);color:var(--em)}
 
 /* DADOS SOLICITADOS PELO CLIENTE */
 #dados-cliente{background:var(--bg2)}
@@ -80,7 +104,7 @@ section{padding:72px 0;border-bottom:1px solid var(--border);scroll-margin-top:1
 
 /* METRIC CARDS */
 .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-.mc{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:26px 22px;position:relative;overflow:hidden}
+.mc{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:26px 22px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(23,32,38,.035)}
 .mc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .mc.a::before{background:var(--amber)}.mc.s::before{background:var(--sky)}.mc.e::before{background:var(--em)}.mc.r::before{background:var(--rose)}
 .mc-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mt);margin-bottom:10px}
@@ -135,7 +159,7 @@ section{padding:72px 0;border-bottom:1px solid var(--border);scroll-margin-top:1
 
 /* INFO CARDS */
 .igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-.ic{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:22px}
+.ic{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:22px}
 .ic h4{font-family:var(--fd);font-size:18px;margin-bottom:14px;color:var(--txt)}
 .irow{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;gap:8px}
 .irow:last-child{border-bottom:none}
@@ -201,7 +225,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 #nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:center;gap:0;
-  background:rgba(7,9,15,.95);backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.97);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);padding:10px 20px;
   flex-wrap:wrap;
 }
@@ -239,6 +263,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 
 @media(max-width:980px){
   #filterbar{width:100%;margin-left:0;margin-top:8px;padding-left:0;border-left:0}
+  .exec-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .crow{flex-wrap:wrap}.cname{width:100%}
@@ -248,6 +273,10 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   #filterbar .range-wrap{width:100%;justify-content:center}
   #filterbar input[type="date"]{width:120px}
   #filterbar .pill,#scopeNote{width:100%}
+  #hero{padding-top:250px}
+  .hero-inner{padding:0 20px}
+  .exec-kpis{grid-template-columns:1fr}
+  .exec-value{font-size:38px}
 }
 </style>
 </head>
@@ -256,6 +285,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 <!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-a">⚡ ELOS</a>
+  <a href="#executivo" class="nav-a">Resumo</a>
   <a href="#dados-cliente" class="nav-a nav-key">★ Dados-chave</a>
   <a href="#overview" class="nav-a">Site</a>
   <a href="#mensal" class="nav-a">Por Mês</a>
@@ -267,7 +297,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   <a href="#blog" class="nav-a">Blog</a>
   <a href="#linkedin" class="nav-a">LinkedIn</a>
   <a href="#chatgptads" class="nav-a">ChatGPT Ads</a>
-  <a href="#proximos" class="nav-a">2º Sem →</a>
+  <a href="#proximos" class="nav-a">Plano →</a>
   <span id="filterbar">
     <span class="flbl">📅 Período</span>
     <select id="anoSel">
@@ -309,22 +339,65 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 <section id="hero">
   <div class="hero-inner">
     <div class="logo-badge"><img src="elos-logo-full.png" alt="ELOS Eletrotécnica"></div>
-    <div class="eyebrow">⚡ Relatório de Performance Digital</div>
-    <div class="htitle">
-      RELATÓRIO
-      <em>GERAL</em>
-    </div>
-    <div class="hclient">ELOS Eletrotécnica · Marketing Digital</div>
-    <div class="hperiod">Período: 01 jan – 08 ago 2026 · use o filtro 📅 acima para escolher a data inicial e a data final</div>
+    <div class="eyebrow">Relatório de performance digital · 2026</div>
+    <h1 class="htitle">ELOS <em>Eletrotécnica</em></h1>
+    <div class="hclient">Objetivo atual: ampliar a comunidade qualificada no LinkedIn</div>
+    <div class="hperiod">Atualização executiva: 25/09/2026 · GA4 filtrável: 01/01 a 08/08 · Ads: 01/01 a 25/09</div>
     <div class="chips">
       <span class="chip">Google Ads</span>
       <span class="chip">YouTube Ads</span>
-      <span class="chip">Meta Ads</span>
-      <span class="chip">LinkedIn</span>
-      <span class="chip">ChatGPT Ads</span>
+      <span class="chip">Meta Ads OFF</span>
+      <span class="chip">LinkedIn · prioridade</span>
       <span class="chip">SEO Orgânico</span>
-      <span class="chip live">✓ Dados validados ao vivo</span>
+      <span class="chip live">✓ Fontes e períodos identificados</span>
     </div>
+  </div>
+</section>
+
+<!-- ==============================
+     RESUMO EXECUTIVO
+============================== -->
+<section id="executivo">
+  <div class="wrap">
+    <div class="stag">Resumo executivo · 25/09/2026</div>
+    <div class="stitle">Decisão Rápida</div>
+    <div class="ssub">Os indicadores mais recentes ficam primeiro. Cada bloco informa a fonte e o período para não misturar números de plataformas diferentes.</div>
+    <div class="exec-grid">
+      <div class="exec-kpis">
+        <div class="exec-kpi primary">
+          <div class="exec-label">Seguidores no LinkedIn</div>
+          <div class="exec-value">10.487</div>
+          <div class="exec-note">+692 desde 08/08 · meta de 10 mil superada</div>
+        </div>
+        <div class="exec-kpi blue">
+          <div class="exec-label">Seguidores via LinkedIn Ads</div>
+          <div class="exec-value">2.546</div>
+          <div class="exec-note">01/01–25/09 · custo médio estimado de R$ 4,46 por seguidor pago</div>
+        </div>
+        <div class="exec-kpi green">
+          <div class="exec-label">Usuários ativos no site</div>
+          <div class="exec-value">~35 mil</div>
+          <div class="exec-note">~35 mil novos usuários · 29s de engajamento médio</div>
+        </div>
+        <div class="exec-kpi dark">
+          <div class="exec-label">Google Ads · investimento</div>
+          <div class="exec-value">R$ 15.052</div>
+          <div class="exec-note">01/01–25/09 · sem alteração de orçamento nesta revisão</div>
+        </div>
+      </div>
+      <aside class="exec-priority" aria-label="Prioridade de crescimento no LinkedIn">
+        <span class="data-status">Objetivo ativo</span>
+        <h3>Crescer até 11 mil seguidores</h3>
+        <p>Faltam 513 seguidores. A campanha atual tem boa eficiência recente, então o plano é melhorar criativos e público sem aumentar o valor investido.</p>
+        <div class="priority-list">
+          <div class="priority-item"><span class="priority-num">01</span><span class="priority-text">Manter a campanha de seguidores ativa e preservar orçamento e lances.</span></div>
+          <div class="priority-item"><span class="priority-num">02</span><span class="priority-text">Concentrar entrega nos criativos com CTR acima de 3,5% e substituir o anúncio de 0,30%.</span></div>
+          <div class="priority-item"><span class="priority-num">03</span><span class="priority-text">Acompanhar semanalmente seguidores pagos, orgânicos e custo por seguidor.</span></div>
+        </div>
+      </aside>
+    </div>
+    <div class="source-line"><strong>Fontes:</strong> <a href="https://www.linkedin.com/company/eloseletrotecnica" target="_blank" rel="noopener">LinkedIn público</a> (base de seguidores), <a href="https://datastudio.google.com/reporting/3dfb8646-c178-4245-8946-3e7a2cce7da8/page/T4YOB" target="_blank" rel="noopener">painel oficial de Ads</a> (25/09) e GA4 (captura YTD de 25/09). O filtro detalhado do site permanece limitado à exportação diária precisa até 08/08.</div>
+    <div class="callout em">📊 <strong>GA4 em 25/09, valores arredondados pela plataforma:</strong> ~35 mil usuários ativos, ~35 mil novos usuários e 29s de engajamento médio. Entre as sessões por canal: Direto ~15 mil, Busca orgânica ~11 mil e Busca paga ~8,3 mil.</div>
   </div>
 </section>
 
@@ -384,7 +457,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     </div>
 
     <div class="callout" id="clientDataNote">
-      📌 <strong>Leitura dos dados:</strong> “Retorno de visitas” representa sessões além da primeira visita. As quatro origens solicitadas não somam 100%, pois Google Ads, Cross-network, Email e Display aparecem em categorias próprias no GA4.
+      📌 <strong>Leitura dos dados:</strong> “Retorno de visitas” representa sessões além da primeira visita. As quatro origens solicitadas não somam 100%, pois Google Ads, Cross-network, Email e Display aparecem em categorias próprias no GA4. No período completo, os cards usam os totais consolidados oficiais; intervalos personalizados somam as linhas diárias da exportação.
     </div>
   </div>
 </section>
@@ -524,36 +597,42 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 <section id="google">
   <div class="wrap">
     <div class="stag">03 — Google &amp; YouTube Ads</div>
-    <div class="stitle">Campanhas no Google</div>
-    <div class="ssub">Resultados de 01 de janeiro a 08 de agosto de 2026 · conta auditada ao vivo sem alteração de verba</div>
+    <div class="stitle">Google Ads: Volume com Mensuração Separada</div>
+    <div class="ssub">Resultados de 01 de janeiro a 25 de setembro de 2026 · fonte: painel oficial conectado ao Google Ads · nenhuma verba alterada</div>
+    <div class="mgrid" style="margin-bottom:20px">
+      <div class="mc a"><div class="mc-lbl">Investimento</div><div class="mc-val" style="font-size:42px">R$ 15.052</div><div class="mc-sub">R$ 15.051,97 no período</div></div>
+      <div class="mc s"><div class="mc-lbl">Cliques</div><div class="mc-val" style="font-size:42px">43.936</div><div class="mc-sub">CTR (taxa de cliques): 7,70%</div></div>
+      <div class="mc e"><div class="mc-lbl">CPC médio</div><div class="mc-val" style="font-size:42px">R$ 0,34</div><div class="mc-sub">Custo médio por clique</div></div>
+      <div class="mc r"><div class="mc-lbl">Ações registradas</div><div class="mc-val" style="font-size:42px">23.047</div><div class="mc-sub">Não equivalem a leads comerciais</div></div>
+    </div>
     <div class="igrid">
       <div class="ic">
-        <h4>🔍 Campanha — Marca</h4>
-        <div class="irow"><span>Impressões / Cliques</span><span style="color:var(--amber)">46.730 · 6.527</span></div>
-        <div class="irow"><span>CTR (taxa de cliques)</span><span style="color:var(--em)">13,97%</span></div>
-        <div class="irow"><span>Custo / CPC</span><span>R$ 3.776,08 · R$ 0,58</span></div>
-        <div class="irow"><span>Orçamento</span><span>R$ 21/dia · mantido</span></div>
+        <h4>🔍 Busca — Marca</h4>
+        <div class="irow"><span>Campanha</span><span>brand_home_aon</span></div>
+        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 5.465,96</span></div>
+        <div class="irow"><span>Ações atribuídas</span><span>5.024,59</span></div>
+        <div class="irow"><span>Custo por ação</span><span style="color:var(--em)">R$ 1,09</span></div>
       </div>
       <div class="ic">
-        <h4>🔎 Campanha — QDEP Regional</h4>
-        <div class="irow"><span>Impressões / Cliques</span><span style="color:var(--amber)">19.317 · 2.263</span></div>
-        <div class="irow"><span>CTR (taxa de cliques)</span><span style="color:var(--em)">11,72%</span></div>
-        <div class="irow"><span>Custo / CPC</span><span>R$ 3.702,66 · R$ 1,64</span></div>
-        <div class="irow"><span>Orçamento</span><span>R$ 21/dia · mantido</span></div>
+        <h4>🔎 Busca — QDEP Regional</h4>
+        <div class="irow"><span>Campanha</span><span>qdp_regional</span></div>
+        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 3.782,15</span></div>
+        <div class="irow"><span>Ações atribuídas</span><span>1.661,86</span></div>
+        <div class="irow"><span>Custo por ação</span><span style="color:var(--em)">R$ 2,28</span></div>
       </div>
       <div class="ic">
-        <h4>▶️ YouTube Ads</h4>
-        <div class="irow"><span>Impressões / Interações</span><span style="color:var(--sky)">275.948 · 32.896</span></div>
-        <div class="irow"><span>Taxa de interação</span><span style="color:var(--em)">11,92%</span></div>
-        <div class="irow"><span>Custo / CPC</span><span>R$ 3.721,02 · R$ 0,18</span></div>
-        <div class="irow"><span>Orçamento</span><span>R$ 44/dia · mantido</span></div>
+        <h4>▶️ YouTube — Institucional + Técnico</h4>
+        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 5.803,87</span></div>
+        <div class="irow"><span>Ações de vídeo</span><span>16.361</span></div>
+        <div class="irow"><span>Custo por ação</span><span style="color:var(--em)">R$ 0,35</span></div>
+        <div class="irow"><span>Leitura</span><span>Alcance e engajamento</span></div>
       </div>
     </div>
     <div class="callout em">
-      ⚠️ <strong>Auditoria de conversões:</strong> <code>page_view</code> já está como ação secundária e fora das metas da conta. Porém, <code>generate_lead</code> ainda não foi importado no Google Ads; as 17,7 mil “conversões” exibidas são majoritariamente inscrições e engajamentos do YouTube, não leads comerciais.
+      ⚠️ <strong>Leitura correta:</strong> as 23.047 ações registradas incluem engajamentos e inscrições do YouTube. Elas não devem ser apresentadas como leads. Busca e YouTube precisam continuar com metas distintas para a automação não priorizar volume de vídeo no lugar de contato comercial.
     </div>
     <div class="callout">
-      📌 <strong>Ação técnica:</strong> importar do GA4 os eventos <code>generate_lead</code> e <code>click_whatsapp</code>, torná-los primários nas campanhas de Busca e separar as métricas de engajamento do YouTube. O fluxo atual do Google Ads não expôs a importação de eventos GA4; para evitar duplicidade, nenhuma conversão nova foi publicada nesta auditoria.
+      🛠️ <strong>Otimização sem aumento de preço:</strong> manter orçamento e lances; usar <code>generate_lead</code> e <code>click_whatsapp</code> como metas comerciais da Busca; manter ações de vídeo somente como metas de observação do YouTube; revisar termos não comerciais e padronizar UTMs (<code>utm_source=google</code>, <code>utm_medium=cpc</code>, campanha e anúncio).
     </div>
   </div>
 </section>
@@ -567,7 +646,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     <div class="stitle">Instagram Ads</div>
     <div class="ssub">Período: 01 de abril a 08 de junho de 2026 — ~2,5 meses de campanha (validado pela exportação do Meta)</div>
     <div class="callout" style="margin-top:-14px;margin-bottom:24px">
-      ⏸️ <strong>Status atual conferido em 08/08:</strong> as campanhas de seguidores e acesso ao site estão <strong>desativadas</strong>, com <strong>R$ 0,00 de gasto atual</strong>. Permaneceram OFF, conforme orientação.
+      ⏸️ <strong>Status mantido em 25/09:</strong> Instagram e Facebook permanecem <strong>OFF</strong>, conforme orientação. Nenhuma campanha foi reativada e os dados abaixo são apenas históricos.
     </div>
     <div class="mgrid">
       <div class="mc a">
@@ -757,74 +836,79 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 ============================== -->
 <section id="linkedin">
   <div class="wrap">
-    <div class="stag">06 — LinkedIn</div>
-    <div class="stitle">Audiência Qualificada no LinkedIn</div>
-    <div class="ssub">Crescimento, engajamento e perfil do público · dados conferidos no LinkedIn em 08/08/2026</div>
+    <div class="stag">06 — LinkedIn · prioridade atual</div>
+    <div class="stitle">Crescimento de Seguidores</div>
+    <div class="ssub">Base pública da página e desempenho de mídia atualizados em 25/09/2026 · objetivo: crescer sem aumentar orçamento ou lance</div>
     <div class="mgrid">
       <div class="mc s">
         <div class="mc-lbl">Base de Seguidores</div>
-        <div class="mc-val" style="font-size:44px">9.795</div>
-        <div class="mc-sub">Seguidores da página · 98% da meta de 10K</div>
+        <div class="mc-val" style="font-size:44px">10.487</div>
+        <div class="mc-sub">Meta de 10 mil superada</div>
+        <div class="badge g">+692 desde 08/08</div>
       </div>
       <div class="mc a">
-        <div class="mc-lbl">Novos no Semestre</div>
-        <div class="mc-val" style="font-size:44px">+2.918</div>
-        <div class="mc-sub">2.020 via Ads + 898 orgânicos</div>
-        <div class="badge g">↑ crescimento</div>
+        <div class="mc-lbl">Seguidores via Ads</div>
+        <div class="mc-val" style="font-size:44px">2.546</div>
+        <div class="mc-sub">01/01–25/09 · registrados pelo LinkedIn Ads</div>
       </div>
       <div class="mc e">
-        <div class="mc-lbl">Impressões (posts)</div>
-        <div class="mc-val" style="font-size:44px">805K</div>
-        <div class="mc-sub">53K orgânicas + 752K patrocinadas</div>
+        <div class="mc-lbl">Custo por seguidor pago</div>
+        <div class="mc-val" style="font-size:44px">R$ 4,46</div>
+        <div class="mc-sub">R$ 11.366,75 / 2.546 follows</div>
       </div>
       <div class="mc r">
-        <div class="mc-lbl">Top Posts Públicos</div>
-        <div class="mc-val" style="font-size:44px">1.469</div>
-        <div class="mc-sub">Reações em 12 publicações analisadas</div>
+        <div class="mc-lbl">Próxima Meta</div>
+        <div class="mc-val" style="font-size:44px">11.000</div>
+        <div class="mc-sub">Faltam 513 seguidores</div>
       </div>
     </div>
     <div class="igrid" style="margin-top:20px">
       <div class="ic">
-        <h4>📣 LinkedIn Ads — 01/01 a 08/08</h4>
-        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 10.013,00</span></div>
-        <div class="irow"><span>Impressões</span><span>1.104.459</span></div>
-        <div class="irow"><span>Cliques</span><span>20.101</span></div>
-        <div class="irow"><span>CTR / CPC</span><span style="color:var(--em)">1,82% · R$ 0,50</span></div>
-        <div class="irow"><span>Leads registrados</span><span style="color:var(--rose)">0</span></div>
+        <h4>📣 LinkedIn Ads — acumulado</h4>
+        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 11.366,75</span></div>
+        <div class="irow"><span>Impressões</span><span>1.269.814</span></div>
+        <div class="irow"><span>Cliques</span><span>22.324</span></div>
+        <div class="irow"><span>CTR / CPC</span><span style="color:var(--em)">1,76% · R$ 0,51</span></div>
+        <div class="irow"><span>Período</span><span>01/01–25/09</span></div>
       </div>
       <div class="ic">
-        <h4>🎯 Quem é o público (o decisor!)</h4>
-        <div class="irow"><span>Cargos</span><span>Eletricista · Téc./Eng. Elétrico</span></div>
-        <div class="irow"><span>Funções</span><span>Operações · Engenharia</span></div>
-        <div class="irow"><span>Setores</span><span>Energia/Utilities · Construção</span></div>
-        <div class="irow"><span>Cidades</span><span>SP · Curitiba · RJ</span></div>
+        <h4>⚡ Ritmo recente — 18 a 24/09</h4>
+        <div class="irow"><span>Investimento</span><span>R$ 153,64</span></div>
+        <div class="irow"><span>Impressões / Cliques</span><span>8.433 · 230</span></div>
+        <div class="irow"><span>CTR / CPC</span><span style="color:var(--em)">2,73% · R$ 0,67</span></div>
+        <div class="irow"><span>Seguidores pagos</span><span>17 · R$ 9,04 cada</span></div>
+        <div class="irow"><span>Vs. 7 dias anteriores</span><span>CTR +49,2%</span></div>
       </div>
       <div class="ic">
-        <h4>👀 Visitas à Página</h4>
-        <div class="irow"><span>Visitantes únicos</span><span style="color:var(--amber)">1.709</span></div>
-        <div class="irow"><span>Visualizações</span><span>3.194</span></div>
-        <div class="irow"><span>Dispositivo</span><span>~82% mobile</span></div>
-        <div class="irow"><span>Página "Vagas"</span><span>1.199 visitantes</span></div>
+        <h4>🎯 Público que recebeu os anúncios</h4>
+        <div class="irow"><span>País</span><span>Brasil</span></div>
+        <div class="irow"><span>Cargos líderes</span><span>Eletricista · Manutenção</span></div>
+        <div class="irow"><span>Cargos técnicos</span><span>Téc. e Eng. Elétrica</span></div>
+        <div class="irow"><span>Setores aderentes</span><span>Utilities · Construção · Energia</span></div>
+        <div class="irow"><span>Empresas fortes</span><span>1.001+ funcionários</span></div>
       </div>
     </div>
     <div class="chart-box" style="margin-top:24px">
-      <div style="font-family:var(--fd);font-size:18px;color:var(--txt);margin-bottom:14px">📈 Novos seguidores por mês</div>
+      <div style="font-family:var(--fd);font-size:18px;color:var(--txt);margin-bottom:14px">📈 Seguidores pagos por mês</div>
       <div class="chart-bars">
-        <div class="bcol"><div class="bar" style="height:220px"><span class="bval" style="color:var(--em)">929 ⭐</span></div><span class="blbl pk">Jan</span></div>
-        <div class="bcol"><div class="bar" style="height:93px"><span class="bval">394</span></div><span class="blbl">Fev</span></div>
-        <div class="bcol"><div class="bar" style="height:89px"><span class="bval">375</span></div><span class="blbl">Mar</span></div>
-        <div class="bcol"><div class="bar" style="height:136px"><span class="bval">574</span></div><span class="blbl">Abr</span></div>
-        <div class="bcol"><div class="bar" style="height:125px"><span class="bval">530</span></div><span class="blbl">Mai</span></div>
-        <div class="bcol"><div class="bar gray" style="height:27px"><span class="bval">116</span></div><span class="blbl" style="color:var(--mt)">Jun*</span></div>
+        <div class="bcol"><div class="bar" style="height:220px"><span class="bval" style="color:var(--em)">721</span></div><span class="blbl pk">Jan</span></div>
+        <div class="bcol"><div class="bar" style="height:66px"><span class="bval">216</span></div><span class="blbl">Fev</span></div>
+        <div class="bcol"><div class="bar" style="height:70px"><span class="bval">231</span></div><span class="blbl">Mar</span></div>
+        <div class="bcol"><div class="bar" style="height:123px"><span class="bval">403</span></div><span class="blbl">Abr</span></div>
+        <div class="bcol"><div class="bar" style="height:117px"><span class="bval">385</span></div><span class="blbl">Mai</span></div>
+        <div class="bcol"><div class="bar" style="height:79px"><span class="bval">258</span></div><span class="blbl">Jun</span></div>
+        <div class="bcol"><div class="bar" style="height:67px"><span class="bval">220</span></div><span class="blbl">Jul</span></div>
+        <div class="bcol"><div class="bar gray" style="height:18px"><span class="bval">59</span></div><span class="blbl">Ago</span></div>
+        <div class="bcol"><div class="bar gray" style="height:16px"><span class="bval">53</span></div><span class="blbl">Set*</span></div>
       </div>
-      <p style="font-size:11px;color:var(--mt);margin-top:10px">* Junho parcial na exportação original · total: <strong>+2.918 seguidores</strong> no semestre (2.020 via Ads). Forte impulso em janeiro; ritmo constante até maio.</p>
+      <p style="font-size:11px;color:var(--mt);margin-top:10px">* Setembro até 25/09 · total: <strong>2.546 seguidores pagos</strong>. A desaceleração de agosto e setembro torna a renovação criativa a principal alavanca sem aumentar verba.</p>
     </div>
 
     <div class="callout em">
-      💡 <strong>Insight:</strong> O público do LinkedIn é exatamente o decisor do setor — <strong>eletricistas, técnicos e engenheiros elétricos</strong> de empresas de <strong>energia, utilities e construção</strong>. A página está com <strong>9.795 seguidores</strong>, a apenas 205 da meta de 10K. A campanha ativa entrega CTR de 1,84% e CPC de R$0,46, mas ainda não registra leads.
+      💡 <strong>O que manter:</strong> o melhor criativo recente alcançou <strong>CTR de 4,57%</strong> e <strong>CPC de R$ 0,55</strong>. O segundo chegou a 3,61% e R$ 0,63. Esses dois formatos devem orientar as próximas variações de conteúdo técnico.
     </div>
     <div class="callout">
-      📌 <strong>Observação:</strong> Nos últimos 30 dias (09/07 a 07/08), a página ganhou <strong>397 seguidores</strong>: 178 patrocinados e 219 orgânicos. A base histórica de +2.918 no semestre foi preservada, e o próximo avanço deve ser mensurar geração de demanda, sem alterar a verba atual.
+      🛠️ <strong>O que corrigir sem elevar custo:</strong> substituir o criativo com <strong>CTR de 0,30%</strong> e <strong>CPC de R$ 2,35</strong>; manter orçamento e lance; separar um grupo de teste focado em Utilities, Construção, Energia e fabricantes elétricos; usar UTMs padronizadas e registrar semanalmente seguidores pagos, orgânicos e custo por seguidor.
     </div>
   </div>
 </section>
@@ -835,24 +919,24 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 <section id="chatgptads" style="background:var(--bg2)">
   <div class="wrap">
     <div class="stag">07 — ChatGPT Ads</div>
-    <div class="stitle">Plano de Entrada no ChatGPT Ads</div>
-    <div class="ssub">Conta Vyve Marketing verificada em 08/08/2026 · nenhuma campanha ou cobrança iniciada</div>
+    <div class="stitle">Teste Controlado no ChatGPT Ads</div>
+    <div class="ssub">Plataforma ativa no Brasil e conta criada · nenhuma campanha lançada nesta revisão</div>
     <div class="callout" style="margin-bottom:24px">
-      ⚠️ <strong>Status da conta:</strong> a plataforma está ativa, mas informou que o setor cadastrado não está elegível para anunciar no momento. É necessário usar o link de recurso enviado por e-mail e classificar a ELOS como empresa B2B do setor elétrico/industrial.
+      📌 <strong>Status:</strong> antes de investir, o tracking precisa distinguir visita qualificada, formulário e clique no WhatsApp. Como a orientação atual é não aumentar preços nem alterar verbas, o piloto permanece planejado e sem gasto.
     </div>
     <div class="igrid">
       <div class="ic">
         <h4>💰 Verba recomendada</h4>
         <div class="irow"><span>Piloto</span><span style="color:var(--amber)">R$ 1.300 / 30 dias</span></div>
-        <div class="irow"><span>Origem da verba</span><span>Adicional no primeiro teste</span></div>
+        <div class="irow"><span>Origem da verba</span><span>Somente após aprovação</span></div>
         <div class="irow"><span>YouTube</span><span>Manter verba atual</span></div>
-        <div class="irow"><span>Início</span><span>Somente após elegibilidade</span></div>
+        <div class="irow"><span>Início</span><span>Não iniciado</span></div>
       </div>
       <div class="ic">
         <h4>🧭 Plano de implementação</h4>
-        <div class="irow"><span>1</span><span>Recorrer da elegibilidade</span></div>
-        <div class="irow"><span>2</span><span>Inserir logo e faturamento</span></div>
-        <div class="irow"><span>3</span><span>Configurar UTMs e conversões</span></div>
+        <div class="irow"><span>1</span><span>Validar faturamento e domínio</span></div>
+        <div class="irow"><span>2</span><span>Configurar UTMs e conversões</span></div>
+        <div class="irow"><span>3</span><span>Criar campanha B2B técnica</span></div>
         <div class="irow"><span>4</span><span>Rodar teste controlado por 30 dias</span></div>
       </div>
       <div class="ic">
@@ -864,87 +948,81 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       </div>
     </div>
     <div class="callout em">
-      💡 <strong>Recomendação:</strong> não retirar verba do YouTube antes de o ChatGPT Ads estar elegível e com conversões configuradas. O piloto adicional de R$ 1.300 preserva a referência atual e permite decidir com dados, sem comprometer campanhas existentes.
+      💡 <strong>Recomendação:</strong> manter Google, LinkedIn, YouTube e Meta como estão até aprovação de uma verba específica. O piloto de R$ 1.300 continua sendo uma hipótese separada e não foi executado nesta atualização.
     </div>
   </div>
 </section>
 
 <!-- ==============================
-     PRÓXIMOS 6 MESES
+     PLANO DE AÇÃO
 ============================== -->
 <section id="proximos" style="background:var(--bg2)">
   <div class="wrap">
     <div class="stag">08 — Planejamento</div>
-    <div class="stitle">O Que Esperar do 2º Semestre</div>
-    <div class="ssub">Estratégias e prioridades para julho – dezembro de 2026</div>
+    <div class="stitle">Plano de Ação Objetivo</div>
+    <div class="ssub">Prioridades a partir de 25/09/2026 · sem aumento de orçamento, lance ou preço</div>
     <div class="nsgrid">
-      <div class="ns done">
-        <div class="ns-num">✓</div>
-        <div class="ns-title">⚠️ Mensuração — GA4 OK / Ads pendente</div>
-        <div class="ns-desc">O relatório usa leads e WhatsApp do GA4. No Google Ads, page_view já foi retirado das metas, mas generate_lead ainda precisa ser importado antes de a automação otimizar para contatos comerciais.</div>
-        <span class="ns-tag" style="background:rgba(245,158,11,.1);color:var(--amber)">Analytics · Parcial</span>
-      </div>
       <div class="ns">
         <div class="ns-num">01</div>
-        <div class="ns-title">🎯 LinkedIn → Leads qualificados</div>
-        <div class="ns-desc">A base já é altamente qualificada (eletricistas, técnicos e engenheiros do setor de energia). Próximo passo: além de crescer seguidores, ativar campanhas de geração de leads com formulário para esse público decisor.</div>
-        <span class="ns-tag">LinkedIn Ads</span>
+        <div class="ns-title">🎯 LinkedIn → 11 mil seguidores</div>
+        <div class="ns-desc">Manter a campanha de seguidores e chegar aos próximos 513 seguidores com o valor atual. Reportar semanalmente pagos, orgânicos e custo por seguidor.</div>
+        <span class="ns-tag">Prioridade máxima</span>
       </div>
       <div class="ns">
         <div class="ns-num">02</div>
-        <div class="ns-title">⏸️ Meta Ads — manter OFF</div>
-        <div class="ns-desc">As duas campanhas continuam desativadas e sem gasto atual. Os dados históricos permanecem como referência, sem recomendação de reativação ou mudança de verba neste ciclo.</div>
-        <span class="ns-tag">Meta Ads · Pausado</span>
+        <div class="ns-title">🧪 Renovar criativos do LinkedIn</div>
+        <div class="ns-desc">Preservar os dois formatos com CTR de 4,57% e 3,61%. Substituir a peça com CTR de 0,30% por uma nova variação técnica, sem elevar investimento.</div>
+        <span class="ns-tag">Criativos</span>
       </div>
       <div class="ns">
         <div class="ns-num">03</div>
-        <div class="ns-title">🔍 Google Ads — Novos Produtos</div>
-        <div class="ns-desc">Criar campanhas específicas para Média Tensão, Baixa Tensão e Locação de Equipamentos — páginas com alto tráfego orgânico que ainda não têm campanhas pagas próprias.</div>
-        <span class="ns-tag">Google Ads</span>
+        <div class="ns-title">📐 Corrigir metas do Google Ads</div>
+        <div class="ns-desc">Separar ações de vídeo das conversões comerciais. Usar formulário e WhatsApp como metas da Busca antes de abrir qualquer campanha nova.</div>
+        <span class="ns-tag">Tracking</span>
       </div>
       <div class="ns">
         <div class="ns-num">04</div>
-        <div class="ns-title">💬 WhatsApp como conversão principal</div>
-        <div class="ns-desc">O evento de WhatsApp já registra 656 cliques até 08/08. Próximo passo: importá-lo no Google Ads junto com generate_lead e acompanhar origem/campanha para priorizar canais que geram conversa real.</div>
-        <span class="ns-tag">Tag Manager · Tracking</span>
+        <div class="ns-title">🔍 Higiene de termos de pesquisa</div>
+        <div class="ns-desc">Revisar buscas sem intenção comercial, negativas e páginas de destino. Só criar campanhas de produtos depois que as conversões comerciais estiverem validadas.</div>
+        <span class="ns-tag">Google Ads</span>
       </div>
       <div class="ns">
         <div class="ns-num">05</div>
-        <div class="ns-title">🌿 SEO — Crescimento Orgânico</div>
-        <div class="ns-desc">O SEO já representa 24% das sessões atribuídas sem custo por clique e aparece como canal de alta intenção. Otimizar páginas de produto e blog pode ampliar esse volume, reduzindo o custo total por lead.</div>
-        <span class="ns-tag">SEO · Orgânico</span>
+        <div class="ns-title">⏸️ Meta Ads permanece OFF</div>
+        <div class="ns-desc">Não reativar campanhas de Instagram ou Facebook. Os dados históricos continuam no relatório apenas como referência.</div>
+        <span class="ns-tag">Meta Ads</span>
       </div>
       <div class="ns">
         <div class="ns-num">06</div>
-        <div class="ns-title">📊 Dashboard Mensal ao Vivo</div>
-        <div class="ns-desc">Relatório mensal automático com acessos, leads, WhatsApp, páginas top e evolução por campanha — acompanhamento contínuo sem depender de reunião.</div>
-        <span class="ns-tag">Automação · Relatório</span>
+        <div class="ns-title">📊 Atualização semanal do painel</div>
+        <div class="ns-desc">Atualizar mídia e seguidores semanalmente. Incorporar nova exportação diária do GA4 para ampliar o filtro além de 08/08 sem estimativas.</div>
+        <span class="ns-tag">Relatório</span>
       </div>
     </div>
 
     <!-- META BOX -->
     <div style="margin-top:36px;padding:28px 32px;background:var(--bg3);border:1px solid var(--amber);border-radius:6px;max-width:680px">
-      <div style="font-family:var(--fd);font-size:26px;color:var(--amber);margin-bottom:20px;letter-spacing:.05em">METAS DO 2º SEMESTRE 2026</div>
+      <div style="font-family:var(--fd);font-size:26px;color:var(--amber);margin-bottom:20px;letter-spacing:.05em">METAS OPERACIONAIS</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
         <div>
-          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Novos Visitantes</div>
-          <div style="font-family:var(--fd);font-size:32px;color:var(--txt)">25.000+</div>
-          <div style="font-size:11px;color:var(--mt)">27.496 até 08/08</div>
-        </div>
-        <div>
-          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Leads Gerados</div>
-          <div style="font-family:var(--fd);font-size:32px;color:var(--txt)">800+</div>
-          <div style="font-size:11px;color:var(--mt)">544 até 08/08</div>
-        </div>
-        <div>
           <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">LinkedIn</div>
-          <div style="font-family:var(--fd);font-size:32px;color:var(--sky)">10K + Leads</div>
-          <div style="font-size:11px;color:var(--mt)">9.795 hoje · foco em leads B2B</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--txt)">11.000</div>
+          <div style="font-size:11px;color:var(--mt)">10.487 em 25/09</div>
+        </div>
+        <div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">LinkedIn Ads</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--txt)">CTR ≥ 2,5%</div>
+          <div style="font-size:11px;color:var(--mt)">2,73% nos últimos 7 dias</div>
+        </div>
+        <div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Google Ads</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--sky)">Tracking comercial</div>
+          <div style="font-size:11px;color:var(--mt)">Formulário + WhatsApp</div>
         </div>
         <div>
           <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">ChatGPT Ads</div>
-          <div style="font-family:var(--fd);font-size:32px;color:var(--em)">Piloto R$ 1.300</div>
-          <div style="font-size:11px;color:var(--mt)">Após aprovação da elegibilidade</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--em)">Teste planejado</div>
+          <div style="font-size:11px;color:var(--mt)">Sem gasto nesta revisão</div>
         </div>
       </div>
     </div>
@@ -955,8 +1033,8 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 <footer>
   <div class="wrap">
     <p>ELOS Eletrotécnica · Relatório de Performance Digital · Relatório Geral 2026</p>
-    <p style="margin-top:4px">Produzido por Eros — Marketing Digital · jan – ago 2026</p>
-    <p style="margin-top:8px;color:var(--em)">✓ GA4, Google Ads, LinkedIn Ads, página do LinkedIn e Meta Ads conferidos ao vivo em 08/08/2026</p>
+    <p style="margin-top:4px">Produzido por Vyve Marketing · atualizado em 25/09/2026</p>
+    <p style="margin-top:8px;color:var(--em)">✓ LinkedIn e Google Ads atualizados · GA4 preciso filtrável até 08/08 · Meta Ads mantido OFF</p>
   </div>
 </footer>
 
@@ -1226,7 +1304,7 @@ function renderRange(start, end){
   if(ovObservation){
     ovObservation.innerHTML = result.total
       ? ovObservationTotal
-      : `📌 <strong>Observação:</strong> Os cards acima foram recalculados com <strong>dados precisos do GA4</strong> para <strong>${result.label}</strong>. As análises estratégicas abaixo continuam usando a base geral validada até 08/08.`;
+      : `📌 <strong>Observação:</strong> Os cards acima foram recalculados com <strong>dados precisos do GA4</strong> para <strong>${result.label}</strong>. A base diária filtrável termina em 08/08; Google Ads e LinkedIn têm blocos próprios atualizados até 25/09.`;
   }
 
   if(leadsSub){
@@ -1238,7 +1316,7 @@ function renderRange(start, end){
   if(leadObservation){
     leadObservation.innerHTML = result.total
       ? leadObservationTotal
-      : `📌 <strong>Observação:</strong> Os cards de leads acima acompanham <strong>${result.label}</strong> com dados precisos do GA4. O gráfico mensal, a auditoria de mensuração e os insights abaixo continuam na base completa do relatório, validada até 08/08.`;
+      : `📌 <strong>Observação:</strong> Os cards de leads acima acompanham <strong>${result.label}</strong> com dados precisos do GA4. O gráfico mensal e as análises de site continuam na exportação detalhada até 08/08.`;
   }
 }
 
