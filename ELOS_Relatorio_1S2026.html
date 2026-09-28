@@ -279,25 +279,205 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   .exec-value{font-size:38px}
 }
 </style>
+<style id="dashboard-redesign">
+:root{
+  --bg:#080d14;--bg2:#111925;--bg3:#182231;
+  --panel:#101823;--panel2:#141f2d;
+  --border:rgba(163,184,204,.12);--border2:rgba(163,184,204,.22);
+  --amber:#f2aa22;--amberd:#c87b08;--sky:#3da1ff;--em:#3ed598;--rose:#ff6b76;
+  --txt:#f2f6fa;--txt2:#c3ced8;--mt:#8291a4;--mt2:#9eacba;
+  --fd:'DM Sans',sans-serif;--fb:'DM Sans',sans-serif;
+}
+html{scroll-padding-top:118px;color-scheme:dark}
+body{background:var(--bg);color:var(--txt);font-size:14px;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--fb);letter-spacing:0}
+.report-main{margin-left:236px;min-width:0}
+.wrap{max-width:1320px;padding:0 32px}
+section{padding:34px 0;border-bottom:1px solid var(--border);scroll-margin-top:116px;background:transparent!important}
+.stag{font-size:10px;letter-spacing:.1em;color:var(--sky);margin-bottom:7px}
+.stitle{font-family:var(--fb);font-size:24px;font-weight:700;letter-spacing:0;color:var(--txt);margin-bottom:5px}
+.ssub{color:var(--mt2);font-size:12px;margin-bottom:24px;max-width:760px;line-height:1.55}
+
+/* Menu lateral */
+#nav{
+  position:fixed;inset:0 auto 0 0;width:236px;height:100vh;z-index:110;
+  display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
+  padding:18px 14px;background:#0c1520;border:0;border-right:1px solid var(--border);
+  overflow-y:auto;flex-wrap:nowrap;backdrop-filter:none;
+}
+.side-brand{display:flex;align-items:center;gap:11px;padding:4px 8px 18px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.side-brand-logo{width:54px;height:42px;object-fit:contain;background:#fff;border-radius:4px;padding:6px}
+.side-brand-copy strong{display:block;font-size:13px;line-height:1.2;color:var(--txt)}
+.side-brand-copy span{display:block;font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.nav-group{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#536275;padding:14px 12px 7px}
+.nav-a{
+  display:flex;align-items:center;gap:9px;width:100%;min-height:38px;padding:8px 11px;margin:1px 0;
+  border-radius:5px;color:var(--mt2);font-size:11px;font-weight:650;letter-spacing:0;text-transform:none;
+  border:1px solid transparent;transition:background .18s,color .18s,border-color .18s;
+}
+.nav-a:hover,.nav-a.is-active{color:#fff;background:#16283c;border-color:#22466a}
+.nav-a.nav-key{color:#fff;border:0;background:#183252}
+.nav-ico{width:20px;text-align:center;font-size:14px;line-height:1}
+.side-foot{margin-top:auto;padding:16px 10px 4px;border-top:1px solid var(--border);font-size:9px;line-height:1.55;color:var(--mt)}
+
+/* Barra superior e filtro */
+.topbar{
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:18px;min-height:88px;
+  padding:12px 24px;background:rgba(8,13,20,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(14px)
+}
+.topbar-title{min-width:205px}
+.topbar-title strong{display:block;font-size:14px;color:var(--txt);line-height:1.25}
+.topbar-title span{display:block;font-size:10px;color:var(--mt);margin-top:3px}
+#filterbar{display:flex;align-items:center;gap:7px;flex:1;flex-wrap:wrap;justify-content:flex-end;margin:0;padding:0;border:0}
+#filterbar .flbl{font-size:9px;color:var(--mt2)}
+#filterbar select,#filterbar input{height:34px;background:var(--bg3);color:var(--txt);border:1px solid var(--border2);border-radius:4px;padding:5px 9px;font-size:10px}
+#filterbar input[type="date"]{width:121px;height:30px;background:transparent;border:0;padding:3px 5px}
+#filterbar .range-wrap{height:34px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding:1px 5px}
+#filterbar .range-label{font-size:8px;color:var(--mt)}
+#applyRange{height:34px;min-width:62px;border-color:rgba(62,213,152,.38);background:rgba(62,213,152,.1);color:var(--em)}
+#filterbar .pill{font-size:9px;border-radius:4px;padding:7px 9px;background:rgba(62,213,152,.08);white-space:nowrap}
+#scopeNote{flex-basis:100%;margin-left:auto;max-width:max-content;background:rgba(242,170,34,.08);border-color:rgba(242,170,34,.24);color:var(--amber)}
+.menu-toggle{display:none;position:fixed;top:13px;left:13px;z-index:130;width:40px;height:40px;border:1px solid var(--border2);border-radius:5px;background:var(--panel2);color:var(--txt);font-size:19px;cursor:pointer}
+
+/* Cabeçalho do painel */
+#hero{min-height:0;padding:30px 0;background:transparent;border-bottom:1px solid var(--border)}
+#hero::before{display:none}
+.hero-inner{max-width:1320px;padding:0 32px;text-align:left}
+.logo-badge{display:none}
+.eyebrow{font-size:9px;letter-spacing:.1em;color:var(--sky);border-left:2px solid var(--sky);padding-left:9px;margin-bottom:10px}
+.htitle{font-family:var(--fb);font-size:30px;line-height:1.15;font-weight:700;letter-spacing:0;margin-bottom:7px;color:var(--txt)}
+.htitle em{color:var(--txt);display:inline}
+.hclient{font-size:13px;font-weight:500;color:var(--txt2);margin-bottom:4px}
+.hperiod{font-size:10px;color:var(--mt);margin-bottom:16px}
+.chips{gap:7px}
+.chip{font-size:8px;letter-spacing:.05em;padding:5px 8px;border-color:var(--border2);border-radius:3px;color:var(--mt2);background:var(--panel)}
+.chip.live{border-color:rgba(62,213,152,.45);color:var(--em);background:rgba(62,213,152,.06)}
+
+/* Componentes */
+#executivo{background:transparent}
+.exec-grid{grid-template-columns:minmax(0,1.65fr) minmax(300px,.75fr);gap:16px}
+.exec-kpis{gap:10px}
+.exec-kpi,.mc,.ic,.cvc,.pgrow,.lnbox,.ns{background:var(--panel);border-color:var(--border);box-shadow:none}
+.exec-kpi{padding:18px;min-height:122px;border-radius:5px}
+.exec-kpi.primary,.exec-kpi.blue,.exec-kpi.green,.exec-kpi.dark{border-top-width:2px}
+.exec-label,.mc-lbl{color:var(--mt);letter-spacing:.07em}
+.exec-value{font-family:var(--fb);font-size:32px;font-weight:700;color:var(--txt);letter-spacing:0}
+.exec-note,.mc-sub{color:var(--mt2)}
+.exec-priority{background:#132031;border:1px solid #254261;border-radius:5px;padding:20px}
+.exec-priority h3{font-family:var(--fb);font-size:20px;font-weight:700;letter-spacing:0;margin-top:8px}
+.priority-num{font-family:var(--fb);font-size:13px;font-weight:800;color:var(--sky)}
+.data-status{border-radius:3px;background:rgba(62,213,152,.09);color:var(--em)}
+.source-line{color:var(--mt)}.source-line strong{color:var(--txt2)}.source-line a{color:var(--sky)}
+.client-grid{gap:18px}
+.client-column{background:var(--panel);border:1px solid var(--border);border-top:2px solid var(--amber);border-radius:5px;padding:19px}
+.client-column.origin{border-top-color:var(--em)}
+.client-head{font-family:var(--fb);font-size:15px;font-weight:700;letter-spacing:0}
+.client-label,.origin-label{color:var(--txt2)}
+.client-value{font-family:var(--fb);font-size:26px;font-weight:700;color:var(--amber)}
+.client-column.origin .client-value{color:var(--em)}
+.origin-value{font-family:var(--fb);font-size:17px;font-weight:700}
+.origin-track,.cbwrap,.pbwrap{background:#202c3b}
+.origin-fill,.cbar,.bar,.pbfill{background-image:none!important}
+.origin-fill,.cbar.grn,.pbfill{background:var(--em)}
+.cbar.sky{background:var(--sky)}.cbar.amb,.bar{background:var(--amber)}.cbar.gray,.bar.gray{background:#526072}
+.mgrid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.mc{border-radius:5px;padding:19px 17px}
+.mc::before{height:2px}
+.mc-val{font-family:var(--fb);font-size:36px!important;font-weight:700;letter-spacing:0;color:var(--txt)!important}
+.mc.a .mc-val{color:var(--amber)!important}.mc.s .mc-val{color:var(--sky)!important}.mc.e .mc-val{color:var(--em)!important}.mc.r .mc-val{color:var(--rose)!important}
+.badge{border-radius:3px;background:rgba(62,213,152,.08);color:var(--em)}
+.chart-box{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:20px;margin-top:18px}
+.chart-bars{height:210px;border-color:var(--border);gap:8px}
+.bval{font-family:var(--fb);font-size:10px;font-weight:700;color:var(--amber)}
+.bar.gray .bval{color:var(--mt2)}
+.chlist{max-width:none;background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:20px}
+.cname{color:var(--txt2)}.cnum{color:var(--txt)}
+.igrid{grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:10px}
+.ic{border-radius:5px;padding:18px}.ic h4{font-family:var(--fb);font-size:14px;font-weight:700;color:var(--txt)}
+.irow{color:var(--txt2);border-color:var(--border)}.irow span:first-child{color:var(--mt)}.irow span:last-child{color:var(--txt2)}
+.cvgrid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.cvc{border-radius:5px;padding:17px}.cvv{font-family:var(--fb);font-size:29px;font-weight:700;color:var(--sky)}
+.pglist{max-width:none}.pgrow{border-radius:4px;padding:11px 14px}.pgrank,.pgviews{font-family:var(--fb);font-weight:700}.pgrank{font-size:16px;color:#4b5b6d}.pgviews{font-size:16px;color:var(--sky)}
+.callout{background:#121d2a;border-color:#253449;color:var(--txt2);border-radius:4px;padding:13px 16px;margin-top:14px}
+.callout strong{color:var(--amber)}.callout.em{background:rgba(62,213,152,.055);border-color:rgba(62,213,152,.22)}.callout.em strong{color:var(--em)}
+code{background:var(--bg3)!important;color:#9acfff}
+.nsgrid{gap:10px}.ns{border-radius:4px;padding:18px}.ns-num{font-family:var(--fb);font-size:25px;font-weight:800}.ns-title{color:var(--amber)}
+footer{background:#0c1520;border-top:1px solid var(--border);padding:28px 0}
+
+@media(max-width:1100px){
+  .topbar{align-items:flex-start;flex-direction:column;gap:8px}.topbar-title{min-width:0}
+  #filterbar{justify-content:flex-start;width:100%}
+  .exec-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:178px}
+  .menu-toggle{display:block}
+  #nav{transform:translateX(-102%);transition:transform .22s ease;box-shadow:18px 0 50px rgba(0,0,0,.35)}
+  body.nav-open #nav{transform:translateX(0)}
+  .report-main{margin-left:0}
+  .topbar{padding:12px 12px 12px 62px;min-height:70px}
+  #filterbar{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  #filterbar .flbl{display:none}
+  #filterbar select{width:100%}
+  #filterbar .range-wrap{grid-column:1/-1;width:100%;justify-content:space-between}
+  #filterbar input[type="date"]{width:42%}
+  #applyRange{width:100%}
+  #filterbar .pill{display:flex;align-items:center;justify-content:center;width:100%;white-space:normal;text-align:center}
+  #scopeNote{grid-column:1/-1;max-width:none}
+  .wrap,.hero-inner{padding:0 16px}
+  section{padding:28px 0;scroll-margin-top:188px}
+  #hero{padding:25px 0}
+  .htitle{font-size:24px}
+  .client-grid{grid-template-columns:1fr}
+  .exec-kpis{grid-template-columns:1fr 1fr}
+  .chart-box{overflow-x:auto}
+  .chart-bars{min-width:560px}
+  .pgrow{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:8px}
+  .pgrow>div:nth-child(3){grid-column:2}.pgrow>div:nth-child(4){grid-column:3;grid-row:1/3}
+}
+@media(max-width:480px){
+  .exec-kpis{grid-template-columns:1fr}
+  .mgrid{grid-template-columns:1fr 1fr}.mc{min-width:0;padding:15px}.mc-val{font-size:27px!important}
+  .cvgrid{grid-template-columns:1fr 1fr}.client-row{grid-template-columns:28px minmax(0,1fr) auto}.client-value{font-size:21px}
+  .origin-line{grid-template-columns:minmax(0,1fr) auto auto}
+}
+@media print{
+  #nav,.topbar,.menu-toggle{display:none!important}.report-main{margin:0}.wrap{max-width:none}section{break-inside:avoid;padding:22px 0}
+}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-a">⚡ ELOS</a>
-  <a href="#executivo" class="nav-a">Resumo</a>
-  <a href="#dados-cliente" class="nav-a nav-key">★ Dados-chave</a>
-  <a href="#overview" class="nav-a">Site</a>
-  <a href="#mensal" class="nav-a">Por Mês</a>
-  <a href="#canais" class="nav-a">Canais</a>
-  <a href="#google" class="nav-a">Google Ads</a>
-  <a href="#meta" class="nav-a">Meta Ads</a>
-  <a href="#leads" class="nav-a">Leads</a>
-  <a href="#paginas" class="nav-a">Páginas</a>
-  <a href="#blog" class="nav-a">Blog</a>
-  <a href="#linkedin" class="nav-a">LinkedIn</a>
-  <a href="#chatgptads" class="nav-a">ChatGPT Ads</a>
-  <a href="#proximos" class="nav-a">Plano →</a>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false">☰</button>
+<nav id="nav" aria-label="Navegação do relatório">
+  <div class="side-brand">
+    <img class="side-brand-logo" src="elos-logo-full.png" alt="ELOS Eletrotécnica" data-client-logo>
+    <div class="side-brand-copy"><strong data-client-name>ELOS Eletrotécnica</strong><span>Performance digital</span></div>
+  </div>
+  <div class="nav-group">Visão geral</div>
+  <a href="#hero" class="nav-a"><span class="nav-ico">⌂</span>Início</a>
+  <a href="#executivo" class="nav-a"><span class="nav-ico">↗</span>Resumo executivo</a>
+  <a href="#dados-cliente" class="nav-a nav-key"><span class="nav-ico">★</span>Dados-chave</a>
+  <div class="nav-group">Aquisição</div>
+  <a href="#overview" class="nav-a"><span class="nav-ico">◫</span>Site</a>
+  <a href="#mensal" class="nav-a"><span class="nav-ico">▥</span>Evolução mensal</a>
+  <a href="#canais" class="nav-a"><span class="nav-ico">⌁</span>Canais</a>
+  <a href="#google" class="nav-a"><span class="nav-ico">G</span>Google Ads</a>
+  <a href="#meta" class="nav-a"><span class="nav-ico">M</span>Meta Ads</a>
+  <a href="#linkedin" class="nav-a"><span class="nav-ico">in</span>LinkedIn</a>
+  <div class="nav-group">Conteúdo e conversão</div>
+  <a href="#leads" class="nav-a"><span class="nav-ico">◎</span>Leads</a>
+  <a href="#paginas" class="nav-a"><span class="nav-ico">▤</span>Páginas</a>
+  <a href="#blog" class="nav-a"><span class="nav-ico">✎</span>Blog e SEO</a>
+  <div class="nav-group">Gestão</div>
+  <a href="#proximos" class="nav-a"><span class="nav-ico">✓</span>Ações e comentários</a>
+  <div class="side-foot">Vyve Marketing<br>Modelo de relatório reutilizável · 2026</div>
+</nav>
+
+<main class="report-main">
+<header class="topbar">
+  <div class="topbar-title"><strong>Relatório de Performance</strong><span data-client-name>ELOS Eletrotécnica</span></div>
   <span id="filterbar">
     <span class="flbl">📅 Período</span>
     <select id="anoSel">
@@ -331,7 +511,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     <span class="pill" id="periodPill">01 jan – 08 ago · 220 dias</span>
     <span id="scopeNote">Dados-chave, Site, Origem &amp; Leads recalculados para o período selecionado · demais seções = base atual</span>
   </span>
-</nav>
+</header>
 
 <!-- ==============================
      CAPA
@@ -342,7 +522,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     <div class="eyebrow">Relatório de performance digital · 2026</div>
     <h1 class="htitle">ELOS <em>Eletrotécnica</em></h1>
     <div class="hclient">Objetivo atual: ampliar a comunidade qualificada no LinkedIn</div>
-    <div class="hperiod">Atualização executiva: 25/09/2026 · GA4 filtrável: 01/01 a 08/08 · Ads: 01/01 a 25/09</div>
+    <div class="hperiod">Revisão: <span data-updated>28/09/2026</span> · GA4 filtrável: 01/01 a 08/08 · Google Ads recente: 01 a 27/09 · LinkedIn: base validada até 25/09</div>
     <div class="chips">
       <span class="chip">Google Ads</span>
       <span class="chip">YouTube Ads</span>
@@ -359,7 +539,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 ============================== -->
 <section id="executivo">
   <div class="wrap">
-    <div class="stag">Resumo executivo · 25/09/2026</div>
+    <div class="stag">Resumo executivo · revisão de 28/09/2026</div>
     <div class="stitle">Decisão Rápida</div>
     <div class="ssub">Os indicadores mais recentes ficam primeiro. Cada bloco informa a fonte e o período para não misturar números de plataformas diferentes.</div>
     <div class="exec-grid">
@@ -396,7 +576,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
         </div>
       </aside>
     </div>
-    <div class="source-line"><strong>Fontes:</strong> <a href="https://www.linkedin.com/company/eloseletrotecnica" target="_blank" rel="noopener">LinkedIn público</a> (base de seguidores), <a href="https://datastudio.google.com/reporting/3dfb8646-c178-4245-8946-3e7a2cce7da8/page/T4YOB" target="_blank" rel="noopener">painel oficial de Ads</a> (25/09) e GA4 (captura YTD de 25/09). O filtro detalhado do site permanece limitado à exportação diária precisa até 08/08.</div>
+    <div class="source-line"><strong>Fontes:</strong> <a href="https://www.linkedin.com/company/eloseletrotecnica" target="_blank" rel="noopener">LinkedIn público</a> e Campaign Manager (base até 25/09), <a href="https://datastudio.google.com/reporting/3dfb8646-c178-4245-8946-3e7a2cce7da8/page/T4YOB" target="_blank" rel="noopener">painel oficial de Ads</a> (Google até 27/09) e GA4 (captura YTD de 25/09). O filtro detalhado do site permanece limitado à exportação diária precisa até 08/08.</div>
     <div class="callout em">📊 <strong>GA4 em 25/09, valores arredondados pela plataforma:</strong> ~35 mil usuários ativos, ~35 mil novos usuários e 29s de engajamento médio. Entre as sessões por canal: Direto ~15 mil, Busca orgânica ~11 mil e Busca paga ~8,3 mil.</div>
   </div>
 </section>
@@ -598,12 +778,38 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
   <div class="wrap">
     <div class="stag">03 — Google &amp; YouTube Ads</div>
     <div class="stitle">Google Ads: Volume com Mensuração Separada</div>
-    <div class="ssub">Resultados de 01 de janeiro a 25 de setembro de 2026 · fonte: painel oficial conectado ao Google Ads · nenhuma verba alterada</div>
+    <div class="ssub">Acumulado de 01 de janeiro a 25 de setembro e recorte recente de 01 a 27 de setembro de 2026 · fonte: painel oficial conectado ao Google Ads</div>
     <div class="mgrid" style="margin-bottom:20px">
       <div class="mc a"><div class="mc-lbl">Investimento</div><div class="mc-val" style="font-size:42px">R$ 15.052</div><div class="mc-sub">R$ 15.051,97 no período</div></div>
       <div class="mc s"><div class="mc-lbl">Cliques</div><div class="mc-val" style="font-size:42px">43.936</div><div class="mc-sub">CTR (taxa de cliques): 7,70%</div></div>
       <div class="mc e"><div class="mc-lbl">CPC médio</div><div class="mc-val" style="font-size:42px">R$ 0,34</div><div class="mc-sub">Custo médio por clique</div></div>
       <div class="mc r"><div class="mc-lbl">Ações registradas</div><div class="mc-val" style="font-size:42px">23.047</div><div class="mc-sub">Não equivalem a leads comerciais</div></div>
+    </div>
+    <div class="igrid" style="margin:0 0 20px">
+      <div class="ic">
+        <h4>📅 Setembro · 01 a 27/09</h4>
+        <div class="irow"><span>Investimento</span><span style="color:var(--amber)">R$ 2.501,57</span></div>
+        <div class="irow"><span>Cliques</span><span>9.013</span></div>
+        <div class="irow"><span>CTR / CPC médio</span><span>4,95% · R$ 0,28</span></div>
+        <div class="irow"><span>Campanhas ativas</span><span>Busca + YouTube</span></div>
+      </div>
+      <div class="ic">
+        <h4>🎯 Conversões comerciais</h4>
+        <div class="irow"><span>Busca de marca</span><span>1 conversão no painel</span></div>
+        <div class="irow"><span>Telefone oficial</span><span>(41) 3383-9290</span></div>
+        <div class="irow"><span>WhatsApp</span><span>Disparo validado</span></div>
+        <div class="irow"><span>Orçamentos</span><span>R$ 44/dia por campanha</span></div>
+      </div>
+      <div class="ic">
+        <h4>▶️ Ações de YouTube separadas</h4>
+        <div class="irow"><span>Ações registradas</span><span>3.087</span></div>
+        <div class="irow"><span>Investimento</span><span>R$ 1.219,03</span></div>
+        <div class="irow"><span>Classificação</span><span>Engajamento de vídeo</span></div>
+        <div class="irow"><span>Leads comerciais</span><span style="color:var(--rose)">Não contabilizar</span></div>
+      </div>
+    </div>
+    <div class="callout">
+      🔎 <strong>Validação cruzada:</strong> a exportação fechada de 01 a 26/09 registrou R$ 2.339,03, 175.781 impressões e 8.680 cliques. A captura do painel em 28/09, já incluindo o dia 27, registrou R$ 2.501,57 e 9.013 cliques. Os períodos foram mantidos separados para evitar comparação incorreta.
     </div>
     <div class="igrid">
       <div class="ic">
@@ -632,7 +838,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       ⚠️ <strong>Leitura correta:</strong> as 23.047 ações registradas incluem engajamentos e inscrições do YouTube. Elas não devem ser apresentadas como leads. Busca e YouTube precisam continuar com metas distintas para a automação não priorizar volume de vídeo no lugar de contato comercial.
     </div>
     <div class="callout">
-      🛠️ <strong>Otimização sem aumento de preço:</strong> manter orçamento e lances; usar <code>generate_lead</code> e <code>click_whatsapp</code> como metas comerciais da Busca; manter ações de vídeo somente como metas de observação do YouTube; revisar termos não comerciais e padronizar UTMs (<code>utm_source=google</code>, <code>utm_medium=cpc</code>, campanha e anúncio).
+      🛠️ <strong>Otimizações aplicadas:</strong> Display desligado nas campanhas de Busca, termo exato <code>[elos trabalhe conosco]</code> negativado, textos corrigidos e metas comerciais separadas das ações de YouTube. Orçamentos e lances permaneceram inalterados.
     </div>
   </div>
 </section>
@@ -646,7 +852,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
     <div class="stitle">Instagram Ads</div>
     <div class="ssub">Período: 01 de abril a 08 de junho de 2026 — ~2,5 meses de campanha (validado pela exportação do Meta)</div>
     <div class="callout" style="margin-top:-14px;margin-bottom:24px">
-      ⏸️ <strong>Status mantido em 25/09:</strong> Instagram e Facebook permanecem <strong>OFF</strong>, conforme orientação. Nenhuma campanha foi reativada e os dados abaixo são apenas históricos.
+      ⏸️ <strong>Status confirmado em 28/09:</strong> Instagram e Facebook permanecem <strong>OFF</strong>, com 0 campanha ativa no recorte de 01 a 27/09. Nenhuma campanha foi reativada e os dados abaixo são apenas históricos.
     </div>
     <div class="mgrid">
       <div class="mc a">
@@ -742,19 +948,21 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 
     <div class="igrid" style="margin-top:22px">
       <div class="ic" style="border-left:3px solid var(--em)">
-        <h4 style="color:var(--em)">✅ GA4 corrigido · Google Ads pendente</h4>
+        <h4 style="color:var(--em)">✅ Mensuração comercial validada</h4>
         <p style="font-size:12px;color:var(--txt2);line-height:1.7;margin-top:4px">
           Fizemos uma auditoria no GA4 e ajustamos as <strong style="color:var(--em)">conversões</strong>:<br><br>
           • Antes, "visualização de página" contava como conversão (inflava tudo) → <strong>removido</strong>.<br>
           • No GA4, <code style="background:var(--bg3);padding:2px 6px;border-radius:2px;font-size:11px">generate_lead</code> (leads) e <code style="background:var(--bg3);padding:2px 6px;border-radius:2px;font-size:11px">click_whatsapp</code> (WhatsApp) medem contatos.<br><br>
-          Resultado: o relatório mede os contatos reais; a importação dessas ações no Google Ads ainda precisa ser concluída.
+          • Nas campanhas de Busca, formulário, ligação e mensagem são as metas comerciais.<br>
+          • Ações e inscrições do YouTube permanecem separadas e não são leads.<br><br>
+          Resultado: o relatório e a otimização de Busca deixam de usar visualizações de página ou engajamento de vídeo como contato comercial.
         </p>
       </div>
       <div class="ic" style="border-left:3px solid var(--amber)">
         <h4 style="color:var(--amber)">📈 WhatsApp — rastreamento validado</h4>
         <p style="font-size:12px;color:var(--txt2);line-height:1.7;margin-top:4px">
-          O evento de WhatsApp acumula <strong style="color:var(--amber)">656 cliques</strong> até 08/08. O volume confirma que o gatilho está registrando conversas iniciadas pelo site.<br><br>
-          <strong style="color:var(--amber)">Ação:</strong> usar esse evento como referência de contato direto no GA4 e no Google Ads, porque agora ele reflete melhor o volume real de conversas iniciadas pelo site.
+          O evento de WhatsApp acumula <strong style="color:var(--amber)">656 cliques</strong> até 08/08. Em 28/09, o botão oficial <strong>(41) 3383-9290</strong> foi testado no Tag Assistant e a tag disparou uma única vez.<br><br>
+          <strong style="color:var(--amber)">Status:</strong> rastreamento técnico validado sem envio de mensagem ou formulário durante o teste.
         </p>
       </div>
     </div>
@@ -872,20 +1080,20 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
         <div class="irow"><span>Período</span><span>01/01–25/09</span></div>
       </div>
       <div class="ic">
-        <h4>⚡ Ritmo recente — 18 a 24/09</h4>
-        <div class="irow"><span>Investimento</span><span>R$ 153,64</span></div>
-        <div class="irow"><span>Impressões / Cliques</span><span>8.433 · 230</span></div>
-        <div class="irow"><span>CTR / CPC</span><span style="color:var(--em)">2,73% · R$ 0,67</span></div>
-        <div class="irow"><span>Seguidores pagos</span><span>17 · R$ 9,04 cada</span></div>
-        <div class="irow"><span>Vs. 7 dias anteriores</span><span>CTR +49,2%</span></div>
+        <h4>⚡ Ritmo recente · verificado em 26/09</h4>
+        <div class="irow"><span>Últimos 7 dias</span><span>R$ 152,75 · 18 seguidores</span></div>
+        <div class="irow"><span>Custo / frequência · 7d</span><span style="color:var(--em)">R$ 8,49 · 3,28</span></div>
+        <div class="irow"><span>Últimos 14 dias</span><span>R$ 307,20 · 32 seguidores</span></div>
+        <div class="irow"><span>Últimos 30 dias</span><span>R$ 654,61 · 54 seguidores</span></div>
+        <div class="irow"><span>Custo / frequência · 30d</span><span>R$ 12,12 · 3,21</span></div>
       </div>
       <div class="ic">
-        <h4>🎯 Público que recebeu os anúncios</h4>
-        <div class="irow"><span>País</span><span>Brasil</span></div>
-        <div class="irow"><span>Cargos líderes</span><span>Eletricista · Manutenção</span></div>
-        <div class="irow"><span>Cargos técnicos</span><span>Téc. e Eng. Elétrica</span></div>
-        <div class="irow"><span>Setores aderentes</span><span>Utilities · Construção · Energia</span></div>
-        <div class="irow"><span>Empresas fortes</span><span>1.001+ funcionários</span></div>
+        <h4>🎯 Campanha e público atuais</h4>
+        <div class="irow"><span>Campanha ativa</span><span>Seguidores_ELoS_44pd_4ads</span></div>
+        <div class="irow"><span>Orçamento diário</span><span>R$ 22 · preservado</span></div>
+        <div class="irow"><span>30 dias</span><span>53.176 imp. · alcance 16.568</span></div>
+        <div class="irow"><span>CTR em 30 dias</span><span>1,82%</span></div>
+        <div class="irow"><span>Criativos</span><span>7 ativos · 2 pausados</span></div>
       </div>
     </div>
     <div class="chart-box" style="margin-top:24px">
@@ -914,53 +1122,13 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 </section>
 
 <!-- ==============================
-     CHATGPT ADS
-============================== -->
-<section id="chatgptads" style="background:var(--bg2)">
-  <div class="wrap">
-    <div class="stag">07 — ChatGPT Ads</div>
-    <div class="stitle">Teste Controlado no ChatGPT Ads</div>
-    <div class="ssub">Plataforma ativa no Brasil e conta criada · nenhuma campanha lançada nesta revisão</div>
-    <div class="callout" style="margin-bottom:24px">
-      📌 <strong>Status:</strong> antes de investir, o tracking precisa distinguir visita qualificada, formulário e clique no WhatsApp. Como a orientação atual é não aumentar preços nem alterar verbas, o piloto permanece planejado e sem gasto.
-    </div>
-    <div class="igrid">
-      <div class="ic">
-        <h4>💰 Verba recomendada</h4>
-        <div class="irow"><span>Piloto</span><span style="color:var(--amber)">R$ 1.300 / 30 dias</span></div>
-        <div class="irow"><span>Origem da verba</span><span>Somente após aprovação</span></div>
-        <div class="irow"><span>YouTube</span><span>Manter verba atual</span></div>
-        <div class="irow"><span>Início</span><span>Não iniciado</span></div>
-      </div>
-      <div class="ic">
-        <h4>🧭 Plano de implementação</h4>
-        <div class="irow"><span>1</span><span>Validar faturamento e domínio</span></div>
-        <div class="irow"><span>2</span><span>Configurar UTMs e conversões</span></div>
-        <div class="irow"><span>3</span><span>Criar campanha B2B técnica</span></div>
-        <div class="irow"><span>4</span><span>Rodar teste controlado por 30 dias</span></div>
-      </div>
-      <div class="ic">
-        <h4>🎯 Critérios de decisão</h4>
-        <div class="irow"><span>Qualidade</span><span>Visitas técnicas qualificadas</span></div>
-        <div class="irow"><span>Conversão</span><span>WhatsApp + formulários</span></div>
-        <div class="irow"><span>Eficiência</span><span>Custo por lead qualificado</span></div>
-        <div class="irow"><span>Decisão</span><span>Comparar com YouTube após 30 dias</span></div>
-      </div>
-    </div>
-    <div class="callout em">
-      💡 <strong>Recomendação:</strong> manter Google, LinkedIn, YouTube e Meta como estão até aprovação de uma verba específica. O piloto de R$ 1.300 continua sendo uma hipótese separada e não foi executado nesta atualização.
-    </div>
-  </div>
-</section>
-
-<!-- ==============================
      PLANO DE AÇÃO
 ============================== -->
 <section id="proximos" style="background:var(--bg2)">
   <div class="wrap">
-    <div class="stag">08 — Planejamento</div>
-    <div class="stitle">Plano de Ação Objetivo</div>
-    <div class="ssub">Prioridades a partir de 25/09/2026 · sem aumento de orçamento, lance ou preço</div>
+    <div class="stag">07 — Gestão</div>
+    <div class="stitle">Ações, Comentários e Próxima Revisão</div>
+    <div class="ssub">Registro objetivo do que foi concluído, do que deve ser acompanhado e das observações para o próximo ciclo.</div>
     <div class="nsgrid">
       <div class="ns">
         <div class="ns-num">01</div>
@@ -974,11 +1142,11 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
         <div class="ns-desc">Preservar os dois formatos com CTR de 4,57% e 3,61%. Substituir a peça com CTR de 0,30% por uma nova variação técnica, sem elevar investimento.</div>
         <span class="ns-tag">Criativos</span>
       </div>
-      <div class="ns">
+      <div class="ns done">
         <div class="ns-num">03</div>
-        <div class="ns-title">📐 Corrigir metas do Google Ads</div>
-        <div class="ns-desc">Separar ações de vídeo das conversões comerciais. Usar formulário e WhatsApp como metas da Busca antes de abrir qualquer campanha nova.</div>
-        <span class="ns-tag">Tracking</span>
+        <div class="ns-title">✅ Metas comerciais revisadas</div>
+        <div class="ns-desc">Busca passou a priorizar formulário, ligação e WhatsApp. Ações de vídeo permanecem separadas e não são apresentadas como leads comerciais.</div>
+        <span class="ns-tag">Concluído</span>
       </div>
       <div class="ns">
         <div class="ns-num">04</div>
@@ -994,7 +1162,7 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
       </div>
       <div class="ns">
         <div class="ns-num">06</div>
-        <div class="ns-title">📊 Atualização semanal do painel</div>
+        <div class="ns-title">📊 Atualização periódica do painel</div>
         <div class="ns-desc">Atualizar mídia e seguidores semanalmente. Incorporar nova exportação diária do GA4 para ampliar o filtro além de 08/08 sem estimativas.</div>
         <span class="ns-tag">Relatório</span>
       </div>
@@ -1020,9 +1188,9 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
           <div style="font-size:11px;color:var(--mt)">Formulário + WhatsApp</div>
         </div>
         <div>
-          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">ChatGPT Ads</div>
-          <div style="font-family:var(--fd);font-size:32px;color:var(--em)">Teste planejado</div>
-          <div style="font-size:11px;color:var(--mt)">Sem gasto nesta revisão</div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);margin-bottom:4px">Blog e SEO</div>
+          <div style="font-family:var(--fd);font-size:32px;color:var(--em)">Conteúdo técnico</div>
+          <div style="font-size:11px;color:var(--mt)">Orgânico representa 24% das sessões atribuídas</div>
         </div>
       </div>
     </div>
@@ -1033,12 +1201,42 @@ footer{padding:40px 0;text-align:center;font-size:11px;color:var(--mt)}
 <footer>
   <div class="wrap">
     <p>ELOS Eletrotécnica · Relatório de Performance Digital · Relatório Geral 2026</p>
-    <p style="margin-top:4px">Produzido por Vyve Marketing · atualizado em 25/09/2026</p>
-    <p style="margin-top:8px;color:var(--em)">✓ LinkedIn e Google Ads atualizados · GA4 preciso filtrável até 08/08 · Meta Ads mantido OFF</p>
+    <p style="margin-top:4px">Produzido por Vyve Marketing · revisão publicada em <span data-updated>28/09/2026</span></p>
+    <p style="margin-top:8px;color:var(--em)">✓ Google Ads verificado até 27/09 · LinkedIn validado até 25/09 · GA4 preciso filtrável até 08/08 · Meta Ads mantido OFF</p>
   </div>
 </footer>
 
+</main>
+
 <script>
+const REPORT_CONFIG = {
+  clientName: 'ELOS Eletrotécnica',
+  reportYear: '2026',
+  updatedAt: '28/09/2026',
+  logo: 'elos-logo-full.png',
+  accent: '#3da1ff'
+};
+
+document.title = `${REPORT_CONFIG.clientName} · Relatório Geral ${REPORT_CONFIG.reportYear}`;
+document.documentElement.style.setProperty('--sky', REPORT_CONFIG.accent);
+document.querySelectorAll('[data-client-name]').forEach(el => { el.textContent = REPORT_CONFIG.clientName; });
+document.querySelectorAll('[data-updated]').forEach(el => { el.textContent = REPORT_CONFIG.updatedAt; });
+document.querySelectorAll('[data-client-logo]').forEach(el => { el.src = REPORT_CONFIG.logo; el.alt = REPORT_CONFIG.clientName; });
+
+const menuToggle = document.getElementById('menuToggle');
+menuToggle.addEventListener('click', () => {
+  const open = document.body.classList.toggle('nav-open');
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  menuToggle.textContent = open ? '×' : '☰';
+});
+document.querySelectorAll('#nav .nav-a').forEach(link => link.addEventListener('click', () => {
+  document.body.classList.remove('nav-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Abrir menu');
+  menuToggle.textContent = '☰';
+}));
+
 // Intersection observer - trigger animations on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1059,10 +1257,10 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-a');
 function updateActiveNav(){
   let cur = '';
-  const navOffset = document.getElementById('nav').offsetHeight + 16;
+  const navOffset = document.querySelector('.topbar').offsetHeight + 24;
   sections.forEach(s => { if(scrollY >= s.offsetTop - navOffset) cur = s.id; });
   navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--amber)' : '';
+    a.classList.toggle('is-active', a.getAttribute('href') === '#' + cur);
   });
 }
 window.addEventListener('scroll', updateActiveNav, {passive: true});
@@ -1304,7 +1502,7 @@ function renderRange(start, end){
   if(ovObservation){
     ovObservation.innerHTML = result.total
       ? ovObservationTotal
-      : `📌 <strong>Observação:</strong> Os cards acima foram recalculados com <strong>dados precisos do GA4</strong> para <strong>${result.label}</strong>. A base diária filtrável termina em 08/08; Google Ads e LinkedIn têm blocos próprios atualizados até 25/09.`;
+      : `📌 <strong>Observação:</strong> Os cards acima foram recalculados com <strong>dados precisos do GA4</strong> para <strong>${result.label}</strong>. A base diária filtrável termina em 08/08; Google Ads e LinkedIn têm períodos próprios identificados em seus blocos.`;
   }
 
   if(leadsSub){

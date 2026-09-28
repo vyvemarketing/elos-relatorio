@@ -10,9 +10,9 @@
 
 1. 📅 No topo, escolha um atalho de período ou preencha as datas **De** e **Até**.
 2. ✅ Ao alterar uma data, o relatório aplica o intervalo automaticamente. O botão **Aplicar** confirma a seleção.
-3. 🔎 Use o menu para navegar. O atalho **★ Dados-chave** abre diretamente os números pedidos pelo cliente.
-4. 🎯 O bloco **Resumo** abre a prioridade de crescimento no LinkedIn e os números mais recentes de mídia.
-5. 📱 No celular, o menu e o filtro quebram em linhas para manter todos os atalhos visíveis.
+3. 🔎 Use o menu lateral para navegar. O atalho **★ Dados-chave** abre diretamente os números pedidos pelo cliente.
+4. 🎯 O bloco **Resumo executivo** reúne a prioridade atual e os números mais recentes de mídia.
+5. 📱 No celular, toque no botão **☰** para abrir ou fechar o menu.
 
 ### Limite atual dos dados
 
@@ -25,7 +25,7 @@ A base precisa do GA4 (Google Analytics 4) cobre **01/01/2026 a 08/08/2026**. O 
 - 📊 **Origem:** distribuição das sessões por canal.
 - 🎯 **Leads:** leads, downloads, WhatsApp, cliques e buscas.
 
-Os gráficos mensais, páginas, artigos do blog e leads continuam mostrando a exportação detalhada do GA4 indicada em cada seção. Google Ads e LinkedIn têm atualização própria até 25/09/2026. Quando o filtro está fora do período completo, um aviso aparece no topo para deixar esse escopo explícito.
+Os gráficos mensais, páginas, artigos do blog e leads continuam mostrando a exportação detalhada do GA4 indicada em cada seção. Google Ads e LinkedIn têm períodos próprios identificados em cada bloco. Quando o filtro está fora do período completo, um aviso aparece no topo para deixar esse escopo explícito.
 
 ## Definições das métricas
 
@@ -90,20 +90,33 @@ O GitHub Pages publica automaticamente a branch `main`. Após o envio, aguarde a
 
 Sempre informe **métrica + dimensão + intervalo**. Exemplo correto: “36.066 sessões, agrupadas pelo canal da sessão, de 01/01/2026 a 08/08/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica ou a dimensão muda.
 
-## Situação das plataformas em 25/09/2026
+## Situação das plataformas na revisão de 28/09/2026
 
-- 🔎 **Google Ads:** R$ 15.051,97 investidos, 43.936 cliques, CTR de 7,70% e CPC médio de R$ 0,34 no acumulado do ano. As 23.047 ações registradas incluem eventos de YouTube e não devem ser tratadas como leads. Campanhas e verbas foram mantidas.
-- 💼 **LinkedIn Ads:** 10.487 seguidores na página, 2.546 seguidores pagos no ano e custo médio de R$ 4,46 por seguidor pago. Nos últimos 7 dias fechados, o CTR chegou a 2,73%. O objetivo seguinte é 11 mil seguidores sem aumento de verba.
-- ⏸️ **Meta Ads:** campanhas de seguidores e site estão desativadas e devem permanecer OFF.
-- 🤖 **ChatGPT Ads:** plataforma ativa no Brasil e conta criada. O piloto de R$ 1.300 permanece planejado e sem gasto até aprovação específica e validação do tracking.
+- 🔎 **Google Ads:** acumulado até 25/09 preservado no painel. A exportação de 01 a 26/09 registrou R$ 2.339,03, 175.781 impressões e 8.680 cliques; a captura do painel incluindo 27/09 registrou R$ 2.501,57 e 9.013 cliques. Orçamentos seguem em R$ 44/dia por campanha.
+- 🎯 **Conversões Google:** formulário, ligação e mensagem são metas comerciais da Busca. Ações de YouTube ficam separadas e nunca são apresentadas como leads.
+- 💼 **LinkedIn Ads:** 10.487 seguidores na última base pública validada; 18 seguidores pagos nos 7 dias verificados em 26/09, a R$ 8,49 cada. A campanha segue em R$ 22/dia.
+- ⏸️ **Meta Ads:** campanhas de Instagram e Facebook estão desativadas e devem permanecer OFF. A tela de 01 a 27/09 mostrou 0 campanha ativa.
+- 📞 **Tracking:** telefone e WhatsApp oficiais usam (41) 3383-9290. O clique de WhatsApp foi validado com um único disparo no Tag Assistant.
 
 ## Plano de otimização sem aumento de preço
 
 - 🎯 **LinkedIn:** preservar os dois criativos com CTR de 4,57% e 3,61%; substituir a peça com CTR de 0,30% e CPC de R$ 2,35.
 - 👥 **Audiência:** priorizar cargos elétricos e setores Utilities, Construção, Energia e fabricantes elétricos; separar o teste para medir qualidade sem misturar públicos.
-- 📐 **Google:** separar metas de vídeo das metas comerciais. Formulário e WhatsApp devem orientar campanhas de Busca; inscrições e engajamentos do YouTube ficam como observação.
+- 📐 **Google:** manter metas de vídeo separadas das metas comerciais. Formulário, ligação e WhatsApp orientam campanhas de Busca; inscrições e engajamentos do YouTube ficam fora da contagem de leads.
 - 🔗 **Rastreamento:** padronizar UTMs com fonte, meio, campanha e anúncio em todos os links.
 - 💰 **Verba:** não alterar orçamento diário, lance ou investimento total sem nova autorização.
+
+## Reutilizar para futuros clientes
+
+1. Duplique `ELOS_Relatorio_1S2026.html` e renomeie o arquivo com o cliente e o período.
+2. No objeto `REPORT_CONFIG`, altere nome, ano, data de atualização e cor principal.
+3. Troque o arquivo de logo e mantenha a mesma proporção do cabeçalho lateral.
+4. Substitua os números somente com exportações identificadas por fonte e período.
+5. Oculte canais que não fazem parte do contrato, mas preserve Site, Leads, Páginas, Blog/SEO e Comentários quando existirem dados.
+6. Atualize `GA4_PRECISE` para habilitar o filtro diário do novo cliente.
+7. Valide desktop, celular, todos os atalhos do filtro e o fechamento das origens antes de publicar.
+
+O modelo não depende do Looker Studio para abrir. Ele é um arquivo estático publicado no GitHub Pages, com dados incorporados e configuração visual centralizada.
 
 ## Orientação para a informática
 
@@ -112,3 +125,4 @@ Sempre informe **métrica + dimensão + intervalo**. Exemplo correto: “36.066 
 3. Publicar somente depois de testar período completo, um mês, últimos 7 dias e um intervalo personalizado.
 4. Não inserir credenciais, tokens ou links de sessão no repositório.
 5. O GitHub Pages publica a branch `main`; validar o workflow antes de enviar o link ao cliente.
+6. No rodapé e nas seções de mídia, manter visíveis as datas diferentes de GA4, Google Ads, LinkedIn e Meta para evitar que o cliente compare períodos incompatíveis.
