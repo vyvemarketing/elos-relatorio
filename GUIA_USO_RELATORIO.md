@@ -3,6 +3,7 @@
 ## Links oficiais
 
 - Relatório ao vivo: https://vyvemarketing.github.io/elos-relatorio/
+- Setembro: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#setembro
 - Dados solicitados pelo cliente: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#dados-cliente
 - Repositório: https://github.com/vyvemarketing/elos-relatorio
 
@@ -14,9 +15,11 @@
 4. 🎯 O bloco **Resumo executivo** reúne a prioridade atual e os números mais recentes de mídia.
 5. 📱 No celular, toque no botão **☰** para abrir ou fechar o menu.
 
-### Limite atual dos dados
+### Cobertura atual dos dados
 
-A base precisa do GA4 (Google Analytics 4) cobre **01/01/2026 a 08/08/2026**. O seletor não permite datas fora desse intervalo até que uma nova exportação seja incorporada ao relatório.
+O calendário cobre **01/01/2026 a 27/09/2026**. A base diária exata do GA4 (Google Analytics 4) contém **01/01 a 22/08** e o recorte de **27/09**. Os dias de **23/08 a 26/09** ainda não foram exportados.
+
+Quando o intervalo contém uma lacuna, os cards mostram um asterisco e o aviso informa quantos dias estão cobertos. O relatório nunca converte um dia ausente em resultado zero. O bloco **Setembro** reúne os recortes mais recentes de Google Ads, LinkedIn, GA4 e Meta com a data de cada fonte.
 
 ### O que acompanha o filtro
 
@@ -25,7 +28,7 @@ A base precisa do GA4 (Google Analytics 4) cobre **01/01/2026 a 08/08/2026**. O 
 - 📊 **Origem:** distribuição das sessões por canal.
 - 🎯 **Leads:** leads, downloads, WhatsApp, cliques e buscas.
 
-Os gráficos mensais, páginas, artigos do blog e leads continuam mostrando a exportação detalhada do GA4 indicada em cada seção. Google Ads e LinkedIn têm períodos próprios identificados em cada bloco. Quando o filtro está fora do período completo, um aviso aparece no topo para deixar esse escopo explícito.
+Os gráficos mensais, páginas e artigos do blog continuam mostrando a exportação detalhada do GA4 indicada em cada seção. Google Ads e LinkedIn têm períodos próprios identificados em cada bloco. O aviso de cobertura permanece no topo para deixar esse escopo explícito.
 
 ## Definições das métricas
 
@@ -45,7 +48,7 @@ O quadro antigo de origem mostrava **novos usuários pela primeira origem do usu
 
 O relatório foi padronizado em **sessões pela origem da sessão**. O quadro **De onde vieram as sessões** e o quadro **Dados-chave** agora usam a mesma base, o mesmo intervalo e os mesmos agrupamentos. Não use capturas antigas como referência.
 
-No período completo, os cards usam a consulta consolidada oficial do GA4. Nos intervalos personalizados, o relatório soma as linhas diárias exportadas. Pequenas diferenças entre essas duas leituras podem ocorrer pelo processamento e pela granularidade das consultas do GA4; não distribua a diferença manualmente entre os dias.
+De 01/01 a 08/08, os cards usam a consulta consolidada oficial do GA4. Depois dessa data, o relatório soma somente as linhas diárias efetivamente exportadas. Pequenas diferenças entre a consulta consolidada e as leituras diárias podem ocorrer pelo processamento e pela granularidade do GA4; não distribua a diferença manualmente entre os dias.
 
 ## Manutenção técnica
 
@@ -60,9 +63,9 @@ No período completo, os cards usam a consulta consolidada oficial do GA4. Nos i
 
 1. Exporte no GA4 os dados diários do novo intervalo.
 2. Preserve os campos usados no objeto `GA4_PRECISE`: usuários ativos, novos usuários, visualizações, eventos, leads, downloads, WhatsApp, cliques, buscas, sessões e origens.
-3. Atualize `start`, `end`, `totals` e `daily` dentro de `ELOS_Relatorio_1S2026.html`.
+3. Atualize `start`, `end`, `consolidatedEnd`, `coverageRanges`, `totals` e `daily` dentro de `ELOS_Relatorio_1S2026.html`.
 4. Atualize os limites `min`, `max` e os atalhos do seletor de datas.
-5. Confira se os totais do período completo fecham com a exportação do GA4.
+5. Confira se os totais consolidados fecham e se cada lacuna aparece como cobertura parcial.
 
 ### Checklist obrigatório antes de publicar
 
@@ -88,7 +91,7 @@ O GitHub Pages publica automaticamente a branch `main`. Após o envio, aguarde a
 
 ## Regra para evitar novas divergências
 
-Sempre informe **métrica + dimensão + intervalo**. Exemplo correto: “36.066 sessões, agrupadas pelo canal da sessão, de 01/01/2026 a 08/08/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica ou a dimensão muda.
+Sempre informe **métrica + dimensão + intervalo + cobertura**. Exemplo correto: “39.001 sessões, agrupadas pelo canal da sessão, nos 235 dias exportados entre 01/01/2026 e 27/09/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica, a dimensão ou a cobertura muda.
 
 ## Situação das plataformas na revisão de 28/09/2026
 
