@@ -17,9 +17,9 @@
 
 ### Cobertura atual dos dados
 
-O calendário cobre **01/01/2026 a 27/09/2026**. A base diária exata do GA4 (Google Analytics 4) contém **01/01 a 22/08** e o recorte de **27/09**. Os dias de **23/08 a 26/09** ainda não foram exportados.
+O calendário cobre **01/01/2026 a 30/09/2026**. O período completo e o preset **Setembro completo** usam consultas consolidadas exatas do GA4 (Google Analytics 4). A base diária para intervalos personalizados contém **01/01 a 22/08** e o recorte de **27/09**; os demais dias ainda não foram exportados individualmente.
 
-Quando o intervalo contém uma lacuna, os cards mostram um asterisco e o aviso informa quantos dias estão cobertos. O relatório nunca converte um dia ausente em resultado zero. O bloco **Setembro** reúne os recortes mais recentes de Google Ads, LinkedIn, GA4 e Meta com a data de cada fonte.
+Quando um intervalo personalizado contém uma lacuna, os cards mostram um asterisco e o aviso informa quantos dias estão cobertos. O relatório nunca converte um dia ausente em resultado zero. O bloco **Setembro** reúne o fechamento de Google Ads, LinkedIn, GA4 e Meta com a data de cada fonte.
 
 ### O que acompanha o filtro
 
@@ -48,7 +48,7 @@ O quadro antigo de origem mostrava **novos usuários pela primeira origem do usu
 
 O relatório foi padronizado em **sessões pela origem da sessão**. O quadro **De onde vieram as sessões** e o quadro **Dados-chave** agora usam a mesma base, o mesmo intervalo e os mesmos agrupamentos. Não use capturas antigas como referência.
 
-De 01/01 a 08/08, os cards usam a consulta consolidada oficial do GA4. Depois dessa data, o relatório soma somente as linhas diárias efetivamente exportadas. Pequenas diferenças entre a consulta consolidada e as leituras diárias podem ocorrer pelo processamento e pela granularidade do GA4; não distribua a diferença manualmente entre os dias.
+O período completo e setembro usam consultas consolidadas oficiais do GA4. Nos demais intervalos, o relatório soma somente as linhas diárias efetivamente exportadas e sinaliza a cobertura. Pequenas diferenças entre consultas consolidadas e leituras diárias podem ocorrer pelo processamento e pela granularidade do GA4; não distribua a diferença manualmente entre os dias.
 
 ## Manutenção técnica
 
@@ -63,7 +63,7 @@ De 01/01 a 08/08, os cards usam a consulta consolidada oficial do GA4. Depois de
 
 1. Exporte no GA4 os dados diários do novo intervalo.
 2. Preserve os campos usados no objeto `GA4_PRECISE`: usuários ativos, novos usuários, visualizações, eventos, leads, downloads, WhatsApp, cliques, buscas, sessões e origens.
-3. Atualize `start`, `end`, `consolidatedEnd`, `coverageRanges`, `totals` e `daily` dentro de `ELOS_Relatorio_1S2026.html`.
+3. Atualize `start`, `end`, `consolidatedEnd`, `coverageRanges`, `totals`, `rangeTotals` e `daily` dentro de `ELOS_Relatorio_1S2026.html`.
 4. Atualize os limites `min`, `max` e os atalhos do seletor de datas.
 5. Confira se os totais consolidados fecham e se cada lacuna aparece como cobertura parcial.
 
@@ -91,20 +91,20 @@ O GitHub Pages publica automaticamente a branch `main`. Após o envio, aguarde a
 
 ## Regra para evitar novas divergências
 
-Sempre informe **métrica + dimensão + intervalo + cobertura**. Exemplo correto: “39.001 sessões, agrupadas pelo canal da sessão, nos 235 dias exportados entre 01/01/2026 e 27/09/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica, a dimensão ou a cobertura muda.
+Sempre informe **métrica + dimensão + intervalo + cobertura**. Exemplo correto: “45.721 sessões, agrupadas pelo canal da sessão, na consulta consolidada de 01/01/2026 a 30/09/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica, a dimensão ou a cobertura muda.
 
-## Situação das plataformas na revisão de 28/09/2026
+## Situação das plataformas no fechamento de 30/09/2026
 
-- 🔎 **Google Ads:** acumulado até 25/09 preservado no painel. A exportação de 01 a 26/09 registrou R$ 2.339,03, 175.781 impressões e 8.680 cliques; a captura do painel incluindo 27/09 registrou R$ 2.501,57 e 9.013 cliques. Orçamentos seguem em R$ 44/dia por campanha.
+- 🔎 **Google Ads:** setembro fechou com R$ 2.756,63, 193.863 impressões e CPC médio de R$ 0,29. Entre 29–30/09, a Busca de marca teve CTR de 8,05% e CPC de R$ 11,49, sem novo lead comercial no recorte.
 - 🎯 **Conversões Google:** formulário, ligação e mensagem são metas comerciais da Busca. Ações de YouTube ficam separadas e nunca são apresentadas como leads.
-- 💼 **LinkedIn Ads:** 10.487 seguidores na última base pública validada; 18 seguidores pagos nos 7 dias verificados em 26/09, a R$ 8,49 cada. A campanha segue em R$ 22/dia.
-- ⏸️ **Meta Ads:** campanhas de Instagram e Facebook estão desativadas e devem permanecer OFF. A tela de 01 a 27/09 mostrou 0 campanha ativa.
+- 💼 **LinkedIn Ads:** 10.713 seguidores na base pública; setembro gerou 74 seguidores pagos. Em 29–30/09, foram 12 seguidores a R$ 4,09 cada, com CTR de 4,67%.
+- ⏸️ **Meta Ads:** campanhas de Instagram e Facebook estão desativadas e devem permanecer OFF. Os dados exibidos são históricos.
 - 📞 **Tracking:** telefone e WhatsApp oficiais usam (41) 3383-9290. O clique de WhatsApp foi validado com um único disparo no Tag Assistant.
 
 ## Plano de otimização sem aumento de preço
 
-- 🎯 **LinkedIn:** preservar os dois criativos com CTR de 4,57% e 3,61%; substituir a peça com CTR de 0,30% e CPC de R$ 2,35.
-- 👥 **Audiência:** priorizar cargos elétricos e setores Utilities, Construção, Energia e fabricantes elétricos; separar o teste para medir qualidade sem misturar públicos.
+- 🎯 **LinkedIn:** preservar os criativos que elevaram o CTR recente para 4,67% e revisar novamente após uma janela mínima de sete dias.
+- 👥 **Audiência:** acompanhar frequência, custo por seguidor e divisão entre seguidores patrocinados e orgânicos antes de ampliar o público.
 - 📐 **Google:** manter metas de vídeo separadas das metas comerciais. Formulário, ligação e WhatsApp orientam campanhas de Busca; inscrições e engajamentos do YouTube ficam fora da contagem de leads.
 - 🔗 **Rastreamento:** padronizar UTMs com fonte, meio, campanha e anúncio em todos os links.
 - 💰 **Verba:** não alterar orçamento diário, lance ou investimento total sem nova autorização.
