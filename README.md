@@ -2,12 +2,12 @@
 
 Painel dark, responsivo e reutilizável para acompanhamento de mídia, site, SEO, conteúdo e conversões.
 
-- **Atualização:** fechamento publicado em 01/10/2026.
-- **GA4:** período completo e setembro fechados até 30/09; intervalos personalizados preservam o controle de cobertura diária.
-- **Google Ads:** acumulado e setembro validados até 30/09, com ações de YouTube separadas dos leads comerciais.
-- **LinkedIn:** Campaign Manager validado até 30/09 e base pública da página até 29/09.
-- **Meta Ads:** campanhas mantidas desligadas; dados históricos preservados.
-- **Recursos:** menu lateral, filtro por datas com controle de cobertura, resumo de setembro, visão executiva, campanhas, leads, páginas, blog/SEO, comentários e plano de ação.
+- **Atualização:** revisão de 16/11/2026.
+- **GA4:** período completo de 01/01 a 15/11 e consultas consolidadas de setembro, outubro e novembro (1–15). Intervalos personalizados preservam o controle de cobertura diária; sem exportação, exibem "Sem dados".
+- **Google Ads:** recorte de campanhas conferido em 10–15/11; faturamento e histórico têm datas próprias. Ações de YouTube ficam separadas de leads. Não presumir que todo saldo promocional esteja disponível ou reservado ao YouTube.
+- **LinkedIn:** campanha conferida em 10–15/11; página com base de 11.139 e 316 novos seguidores no recorte de 15/10–13/11. Custo por seguidor não é calculado com períodos diferentes.
+- **Meta Ads:** nenhuma reativação; dados históricos preservados. O estado atual não foi reconsultado nesta execução.
+- **Recursos:** menu lateral, filtro por datas com cobertura, resumo de novembro, histórico de setembro, visão executiva, campanhas, leads, páginas, blog/SEO, comentários e plano de ação.
 
 Arquivos principais:
 

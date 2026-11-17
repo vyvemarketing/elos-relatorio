@@ -3,6 +3,7 @@
 ## Links oficiais
 
 - Relatório ao vivo: https://vyvemarketing.github.io/elos-relatorio/
+- Novembro: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#novembro
 - Setembro: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#setembro
 - Dados solicitados pelo cliente: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#dados-cliente
 - Repositório: https://github.com/vyvemarketing/elos-relatorio
@@ -17,9 +18,9 @@
 
 ### Cobertura atual dos dados
 
-O calendário cobre **01/01/2026 a 30/09/2026**. O período completo e o preset **Setembro completo** usam consultas consolidadas exatas do GA4 (Google Analytics 4). A base diária para intervalos personalizados contém **01/01 a 22/08** e o recorte de **27/09**; os demais dias ainda não foram exportados individualmente.
+O calendário cobre **01/01/2026 a 15/11/2026**. O período completo e os presets **Setembro completo**, **Outubro completo** e **Novembro (1–15)** usam consultas consolidadas exatas do GA4 (Google Analytics 4). O fechamento anterior de 01/01–30/09 também permanece disponível ao selecionar essas datas. A base diária contém **01/01 a 22/08** e o recorte de **27/09**; os demais dias ainda não foram exportados individualmente.
 
-Quando um intervalo personalizado contém uma lacuna, os cards mostram um asterisco e o aviso informa quantos dias estão cobertos. O relatório nunca converte um dia ausente em resultado zero. O bloco **Setembro** reúne o fechamento de Google Ads, LinkedIn, GA4 e Meta com a data de cada fonte.
+Quando um intervalo contém lacunas, os cards mostram um asterisco e o aviso informa quantos dias estão cobertos. Se nenhum dia foi exportado, mostram **Sem dados**, não zero. O bloco **Novembro** reúne os recortes recentes com a data de cada fonte; **Setembro** preserva o histórico. Não se pode obter qualquer janela diária exata a partir de um total mensal: é necessário exportar esses dias no GA4.
 
 ### O que acompanha o filtro
 
@@ -28,14 +29,17 @@ Quando um intervalo personalizado contém uma lacuna, os cards mostram um asteri
 - 📊 **Origem:** distribuição das sessões por canal.
 - 🎯 **Leads:** leads, downloads, WhatsApp, cliques e buscas.
 
-Os gráficos mensais, páginas e artigos do blog continuam mostrando a exportação detalhada do GA4 indicada em cada seção. Google Ads e LinkedIn têm períodos próprios identificados em cada bloco. O aviso de cobertura permanece no topo para deixar esse escopo explícito.
+Os gráficos mensais incluem outubro e novembro parcial. Páginas usam 01/01–15/11. Blog mostra leituras recentes e mantém o histórico de janeiro–junho identificado. Esses quadros não acompanham o filtro de acessos. Google Ads e LinkedIn têm períodos próprios em cada bloco; o filtro não troca o período deles.
 
 ## Definições das métricas
 
 - **Visitas ao site:** sessões atribuídas pelo GA4. Uma pessoa pode gerar mais de uma sessão.
-- **Novos visitantes:** soma de novos usuários identificados pelo GA4 no intervalo.
-- **Retorno de visitas:** cálculo operacional `sessões - novos visitantes`. Não é a dimensão nativa de usuários recorrentes do GA4.
-- **Leads captados:** evento `generate_lead` registrado no GA4.
+- **Novos visitantes:** novos usuários informados pela consulta do GA4; nos intervalos diários cobertos, soma das linhas disponíveis.
+- **Retorno de visitas:** usuários recorrentes, métrica nativa do GA4. No total até 15/11: 4.421; em outubro: 461; em 01–15/11: 255. Onde não houve consulta, exibimos N/D. O antigo cálculo `sessões - novos usuários` foi retirado por não medir retorno real.
+- **Leads captados:** contagem do evento `generate_lead`. Não significa quantidade de leads únicos ou qualificados. Ausência do evento não prova ausência de contatos.
+- **Cliques no WhatsApp:** intenção de contato; não confirma mensagem enviada, conversa iniciada ou lead comercial.
+- **Tempo de página/artigo:** engajamento médio por usuário ativo, não duração média de sessão. São métricas diferentes.
+- **Propriedade GA4:** reúne site e loja; caminhos iguais podem ser agrupados se não houver a dimensão de hostname (nome do domínio).
 - **Orgânico:** Organic Search + Organic Shopping + Organic Video.
 - **Direto:** canal Direct.
 - **Social:** Paid Social + Organic Social.
@@ -48,7 +52,7 @@ O quadro antigo de origem mostrava **novos usuários pela primeira origem do usu
 
 O relatório foi padronizado em **sessões pela origem da sessão**. O quadro **De onde vieram as sessões** e o quadro **Dados-chave** agora usam a mesma base, o mesmo intervalo e os mesmos agrupamentos. Não use capturas antigas como referência.
 
-O período completo e setembro usam consultas consolidadas oficiais do GA4. Nos demais intervalos, o relatório soma somente as linhas diárias efetivamente exportadas e sinaliza a cobertura. Pequenas diferenças entre consultas consolidadas e leituras diárias podem ocorrer pelo processamento e pela granularidade do GA4; não distribua a diferença manualmente entre os dias.
+O período completo, setembro, outubro e novembro parcial usam consultas consolidadas oficiais do GA4. Nos demais intervalos, o relatório soma somente as linhas diárias efetivamente exportadas e sinaliza a cobertura. Diferenças entre consultas podem ocorrer por processamento, atribuição ou granularidade; não distribua diferenças manualmente entre os dias nem trate resíduos como um canal identificado.
 
 ## Manutenção técnica
 
@@ -94,6 +98,18 @@ O GitHub Pages publica automaticamente a branch `main`. Após o envio, aguarde a
 Sempre informe **métrica + dimensão + intervalo + cobertura**. Exemplo correto: “45.721 sessões, agrupadas pelo canal da sessão, na consulta consolidada de 01/01/2026 a 30/09/2026”. Um mesmo período pode apresentar valores diferentes quando a métrica, a dimensão ou a cobertura muda.
 
 ## Situação das plataformas no fechamento de 30/09/2026
+
+Este bloco é histórico. A revisão mais recente, em 16/11, confirmou:
+
+- GA4 de 01/01–15/11: 52.397 sessões, 40.002 novos usuários, 82.799 visualizações e 2.429 cliques no WhatsApp.
+- GA4 de 01–15/11: 2.220 sessões, 1.691 novos usuários, 126 cliques de WhatsApp e nenhum `generate_lead` na lista de eventos.
+- Google Ads em 10–15/11: R$ 518,22, 27.820 impressões e 2.925 interações. As 768 ações de YouTube não são leads. Colunas Contato/Lead telefônico da Busca: zero; outras ações precisam ser conciliadas.
+- LinkedIn Campaign Manager em 10–15/11: R$ 279,94, 30.769 impressões, 570 cliques, CTR de 1,85% e CPC de R$ 0,49.
+- LinkedIn página: 11.139 seguidores até 13/11; em 15/10–13/11, 149 patrocinados e 167 orgânicos. Não calcular custo por seguidor usando o gasto de outro período.
+- GTM da loja: tag `sign_up` salva no contêiner `GTM-P3BRCVBJ`, ainda não publicado/instalado. A loja carregou `GTM-TR6XKKBB` no teste. Detecção de tag não é prova de rastreamento validado.
+- Meta Ads não foi reativado; o estado atual não foi reconsultado.
+
+### Histórico de setembro
 
 - 🔎 **Google Ads:** setembro fechou com R$ 2.756,63, 193.863 impressões e CPC médio de R$ 0,29. Entre 29–30/09, a Busca de marca teve CTR de 8,05% e CPC de R$ 11,49, sem novo lead comercial no recorte.
 - 🎯 **Conversões Google:** formulário, ligação e mensagem são metas comerciais da Busca. Ações de YouTube ficam separadas e nunca são apresentadas como leads.
