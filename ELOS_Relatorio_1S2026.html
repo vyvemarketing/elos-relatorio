@@ -576,7 +576,7 @@ footer{background:#0c1520;border-top:1px solid var(--border);padding:28px 0}
         <h3>Consolidar o crescimento e ativar a loja</h3>
         <p>A meta de 11 mil seguidores foi superada. O próximo ciclo deve preservar a aquisição qualificada no LinkedIn e lançar a loja somente com conversões comerciais validadas.</p>
         <div class="priority-list">
-          <div class="priority-item"><span class="priority-num">01</span><span class="priority-text">Instalar e validar o GTM da loja antes de ativar campanhas de conversão.</span></div>
+          <div class="priority-item"><span class="priority-num">01</span><span class="priority-text">Validar formulários e conversões da loja no Google Ads, preservando o WhatsApp já medido.</span></div>
           <div class="priority-item"><span class="priority-num">02</span><span class="priority-text">Usar os três vídeos publicados em 16/11 no ciclo promocional de YouTube.</span></div>
           <div class="priority-item"><span class="priority-num">03</span><span class="priority-text">Acompanhar semanalmente seguidores pagos, orgânicos e sinais comerciais reais.</span></div>
         </div>
@@ -1072,14 +1072,14 @@ footer{background:#0c1520;border-top:1px solid var(--border);padding:28px 0}
           • <code>generate_lead</code> deve disparar após um formulário ou orçamento enviado com sucesso, nunca apenas no clique.<br><br>
           • <code>click_whatsapp</code> mede um clique, não comprova conversa iniciada nem lead qualificado.<br><br>
           • Cadastro, downloads, visualizações e ações do YouTube ficam separados de leads.<br><br>
-          <strong>Loja:</strong> a configuração do novo GTM ainda depende de instalação, prévia e teste completo. Salvar uma tag não valida a medição nem a importação para o Google Ads.
+          <strong>Loja:</strong> o WhatsApp já envia eventos ao GA4 pela implementação existente. Formulário, cadastro e vínculo com o Google Ads ainda exigem validação. O novo GTM está publicado, mas não foi detectado na home; publicação não comprova instalação.
         </p>
       </div>
       <div class="ic" style="border-left:3px solid var(--amber)">
         <h4 style="color:var(--amber)">📈 WhatsApp — dados e validação</h4>
         <p style="font-size:12px;color:var(--txt2);line-height:1.7;margin-top:4px">
           O GA4 registra <strong style="color:var(--amber)">2.429 cliques até 15/11</strong>, sendo 244 em outubro e 126 em 01–15/11. O telefone oficial é <strong>(41) 3383-9290</strong>.<br><br>
-          A validação histórica do botão do site em setembro não comprova o funcionamento atual da loja. O novo contêiner ainda precisa de teste de clique real, recebimento no GA4 e verificação de duplicidade antes da publicação.
+          <strong>Loja, separadamente:</strong> 10 cliques em outubro e 18 em 01–15/11, com filtro de domínio no GA4; esses valores já integram os totais acima. Em 17/11, um teste real de clique na loja enviou <code>click_whatsapp</code> a <code>G-LJB86PR98T</code>, sem enviar mensagem. A tag redundante do novo contêiner foi pausada para evitar duplicação. Isso não comprova atribuição no Google Ads nem conversa iniciada.
         </p>
       </div>
     </div>
@@ -1277,8 +1277,8 @@ footer{background:#0c1520;border-top:1px solid var(--border);padding:28px 0}
       </div>
       <div class="ns">
         <div class="ns-num">03</div>
-        <div class="ns-title">🛠️ GTM da loja: concluir instalação</div>
-        <div class="ns-desc">Tags de cadastro e WhatsApp salvas em GTM-P3BRCVBJ, ainda sem publicação. A verificação de 17/11 detectou apenas o contêiner antigo na loja. Falta acesso ao painel Jet para instalar o próprio e testar o fluxo completo antes de liberar a campanha.</div>
+        <div class="ns-title">🛠️ Loja: preservar medição e validar leads</div>
+        <div class="ns-desc">WhatsApp já envia eventos ao GA4 pela implementação existente. Em GTM-P3BRCVBJ, publicada a versão 3 com somente a pausa da tag redundante de WhatsApp. Novo contêiner não detectado na home; formulários e cadastro ainda não validados. Falta acesso ao GTM instalado ou ao painel Jet para concluir sem duplicação.</div>
         <span class="ns-tag">Pendente de validação</span>
       </div>
       <div class="ns">
