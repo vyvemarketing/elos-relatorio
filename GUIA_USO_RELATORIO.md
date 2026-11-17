@@ -99,7 +99,7 @@ Sempre informe **métrica + dimensão + intervalo + cobertura**. Exemplo correto
 
 ## Situação das plataformas no fechamento de 30/09/2026
 
-Este bloco é histórico. A revisão mais recente, em 16/11, confirmou:
+Os indicadores abaixo foram conferidos em 16/11; a auditoria operacional de 17/11 está separada logo depois:
 
 - GA4 de 01/01–15/11: 52.397 sessões, 40.002 novos usuários, 82.799 visualizações e 2.429 cliques no WhatsApp.
 - GA4 de 01–15/11: 2.220 sessões, 1.691 novos usuários, 126 cliques de WhatsApp e nenhum `generate_lead` na lista de eventos.
@@ -108,6 +108,16 @@ Este bloco é histórico. A revisão mais recente, em 16/11, confirmou:
 - LinkedIn página: 11.139 seguidores até 13/11; em 15/10–13/11, 149 patrocinados e 167 orgânicos. Não calcular custo por seguidor usando o gasto de outro período.
 - GTM da loja: tag `sign_up` salva no contêiner `GTM-P3BRCVBJ`, ainda não publicado/instalado. A loja carregou `GTM-TR6XKKBB` no teste. Detecção de tag não é prova de rastreamento validado.
 - Meta Ads não foi reativado; o estado atual não foi reconsultado.
+
+### Auditoria operacional de 17/11
+
+- LinkedIn, conjunto de seguidores, **19/10–17/11, último dia parcial**: 140 seguidores atribuídos, aproximadamente R$ 680,61 e R$ 4,86 por seguidor. Os cases Pirapora e montagem somaram 128 seguidores. Esse recorte não substitui o fechamento até 15/11.
+- Pausados somente **Ad4_RedesSubterraneas (760670163)** e **Ad5_SubtCeara (1170186303)**: zero seguidores no mesmo intervalo, com gastos de R$ 49,52 e R$ 36,51. Status confirmado após recarregar. Orçamentos e lances preservados; efeito futuro ainda não medido.
+- Google Ads: ação legada **Contato**, criada em 2023, com configuração incorreta e diagnóstico de que nunca recebeu dados. Isso não prova ausência de contatos. Nenhuma conversão, lance ou orçamento foi alterado nesta auditoria.
+- GTM: cadastro e WhatsApp salvos em `GTM-P3BRCVBJ`, mas o novo contêiner continua ausente na home testada em 17/11. Instalação, prévia, teste de sucesso/erro e publicação continuam pendentes. Não declarar rastreamento validado.
+- Promoção: **R$ 2.400**, resgatada em 13/11, ativa, vencimento em **12/01/2027**, para futuros gastos de campanhas de visualizações de vídeo. Créditos gastos/saldo restante ainda indisponíveis; não presumir elegibilidade da atual Geração de demanda.
+- Novas campanhas: propostas, sem ativação. Salvar a configuração no Google depende de confirmação de identidade solicitada pela própria plataforma.
+- A seção **Ações, Comentários e Próxima Revisão** contém esse registro e não acompanha o filtro GA4.
 
 ### Histórico de setembro
 
@@ -119,7 +129,7 @@ Este bloco é histórico. A revisão mais recente, em 16/11, confirmou:
 
 ## Plano de otimização sem aumento de preço
 
-- 🎯 **LinkedIn:** preservar os criativos que elevaram o CTR recente para 4,67% e revisar novamente após uma janela mínima de sete dias.
+- 🎯 **LinkedIn:** preservar os cases que trouxeram 128 dos 140 seguidores no recorte auditado e revisar as duas pausas após sete a 14 dias. Priorizar custo por seguidor, não apenas taxa de cliques.
 - 👥 **Audiência:** acompanhar frequência, custo por seguidor e divisão entre seguidores patrocinados e orgânicos antes de ampliar o público.
 - 📐 **Google:** manter metas de vídeo separadas das metas comerciais. Formulário, ligação e WhatsApp orientam campanhas de Busca; inscrições e engajamentos do YouTube ficam fora da contagem de leads.
 - 🔗 **Rastreamento:** padronizar UTMs com fonte, meio, campanha e anúncio em todos os links.
