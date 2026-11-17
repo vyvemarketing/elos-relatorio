@@ -116,7 +116,7 @@ Os indicadores abaixo foram conferidos em 16/11; a auditoria operacional de 17/1
 - Google Ads: ação legada **Contato**, criada em 2023, com configuração incorreta e diagnóstico de que nunca recebeu dados. Isso não prova ausência de contatos. Nenhuma conversão, lance ou orçamento foi alterado nesta auditoria.
 - GTM: cadastro e WhatsApp salvos em `GTM-P3BRCVBJ`, mas o novo contêiner continua ausente na home testada em 17/11. Instalação, prévia, teste de sucesso/erro e publicação continuam pendentes. Não declarar rastreamento validado.
 - Promoção: **R$ 2.400**, resgatada em 13/11, ativa, vencimento em **12/01/2027**, para futuros gastos de campanhas de visualizações de vídeo. Créditos gastos/saldo restante ainda indisponíveis; não presumir elegibilidade da atual Geração de demanda.
-- Novas campanhas: propostas, sem ativação. Salvar a configuração no Google depende de confirmação de identidade solicitada pela própria plataforma.
+- Novas campanhas: dois rascunhos salvos no Google, sem ativação. Loja inicialmente focada em muflas: R$ 32,89/dia, aproximadamente R$ 1.000/mês, teto de R$ 3 por clique. YouTube: três vídeos de 16/11, R$ 2.400 totais propostos, 18/11–01/01, meta de R$ 0,02 por visualização. A autenticação foi concluída pelo usuário e o salvamento foi conferido. Revalidar metas comerciais, rastreamento, recursos e saldo promocional antes de qualquer ativação.
 - A seção **Ações, Comentários e Próxima Revisão** contém esse registro e não acompanha o filtro GA4.
 
 ### Histórico de setembro
