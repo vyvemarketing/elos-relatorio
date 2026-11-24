@@ -6,6 +6,8 @@
 - Novembro: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#novembro
 - Setembro: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#setembro
 - Dados solicitados pelo cliente: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#dados-cliente
+- Conteúdo LinkedIn para 2027: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#conteudo-linkedin
+- Último check de mídia: https://vyvemarketing.github.io/elos-relatorio/ELOS_Relatorio_1S2026.html#check-campanhas
 - Repositório: https://github.com/vyvemarketing/elos-relatorio
 
 ## Como usar o relatório
@@ -30,6 +32,20 @@ Quando um intervalo contém lacunas, os cards mostram um asterisco e o aviso inf
 - 🎯 **Leads:** leads, downloads, WhatsApp, cliques e buscas.
 
 Os gráficos mensais incluem outubro e novembro parcial. Páginas usam 01/01–15/11. Blog mostra leituras recentes e mantém o histórico de janeiro–junho identificado. Esses quadros não acompanham o filtro de acessos. Google Ads e LinkedIn têm períodos próprios em cada bloco; o filtro não troca o período deles.
+
+### Conteúdo LinkedIn para 2027
+
+1. Abra **Conteúdo LinkedIn · 2027**, próximo ao fim do menu lateral.
+2. Escolha **ELOS pelo Brasil**, **Vídeos**, **Temas técnicos**, **Reposts** ou a visão geral.
+3. Selecione as datas de criação e confirme em **Aplicar datas**. A cobertura é de 01/01 a 22/11/2026. Não confundir com a data das interações: as métricas por post são acumuladas na consulta de 23/11.
+4. Filtre por formato ou ordene por impressões, taxa de engajamento, interações sociais, cliques, views disponíveis ou data. O título abre a publicação original.
+5. Use as setas para navegar pelas páginas. **CSV** baixa todas as publicações filtradas, não apenas a página visível. **Limpar filtros** restaura a visão geral.
+
+A seção tem filtros próprios e não altera o GA4. As medianas mostram o desempenho central por post, reduzindo o peso de resultados excepcionais. Os comparativos de editoria e formato são eixos diferentes: não some seus totais.
+
+Foram exportadas 114 linhas orgânicas únicas, 4 patrocinadas e 4 totais; somente as orgânicas entram no ranking. “Reposts” é o subconjunto de 7 publicações mensuráveis com tipo nativo Compartilhar. Outros 14 itens na tela não têm métricas disponíveis. N/D não é zero. Views são somente as orgânicas disponíveis; o total misto do vídeo bimetálico não é usado como orgânico. Os formatos vieram da interface; as editorias são classificações analíticas da Vyve por texto, não etiquetas oficiais do cliente.
+
+O check de mídia em **16–22/11**, comparado com **09–15/11**, está separado. O custo por seguidor caiu de R$ 6,84 para R$ 5,35, mas a comparação não comprova causalidade das pausas. A loja tem 19 cliques e zero conversões registradas no recorte. Nenhuma campanha, orçamento ou lance foi alterado no check de 23/11. A recomendação autoaplicada sinalizada pelo Google ainda exige leitura do detalhamento, que não carregou nesta consulta.
 
 ## Definições das métricas
 
@@ -154,6 +170,7 @@ Os indicadores abaixo foram conferidos em 16/11; a auditoria operacional de 17/1
 5. Oculte canais que não fazem parte do contrato, mas preserve Site, Leads, Páginas, Blog/SEO e Comentários quando existirem dados.
 6. Atualize `GA4_PRECISE` para habilitar o filtro diário do novo cliente.
 7. Valide desktop, celular, todos os atalhos do filtro e o fechamento das origens antes de publicar.
+8. Na análise editorial, substitua o JSON `linkedinContentData`, confira IDs únicos, fonte orgânica, formatos e classificações. Atualize limites de criação, textos de cobertura e a data da consulta. Não copie resultados ou recomendações da ELOS para outro cliente.
 
 O modelo não depende do Looker Studio para abrir. Ele é um arquivo estático publicado no GitHub Pages, com dados incorporados e configuração visual centralizada.
 

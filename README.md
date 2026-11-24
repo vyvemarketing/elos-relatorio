@@ -2,12 +2,14 @@
 
 Painel dark, responsivo e reutilizável para acompanhamento de mídia, site, SEO, conteúdo e conversões.
 
-- **Atualização:** revisão de 18/11/2026; dados GA4 consolidados até 15/11, auditoria e publicação de campanhas posteriores separadas.
+- **Atualização:** revisão de 23/11/2026; dados GA4 consolidados até 15/11, mídia em 16–22/11 e análise editorial do LinkedIn em seção própria.
+- **Conteúdo LinkedIn 2027:** 114 posts únicos, somente métricas orgânicas, criados de 01/01 a 22/11. Abas ELOS pelo Brasil, Vídeos, Temas técnicos e Reposts, filtros próprios de criação/formato, ranking, medianas e CSV. Métricas por post acumuladas na consulta de 23/11, não atividades exclusivas do intervalo. Reposts instantâneos sem métricas e linhas patrocinadas/totais não entram no ranking.
+- **Check de 23/11:** LinkedIn em 16–22/11: R$ 219,52 / 41 seguidores pagos, R$ 5,35 cada; semana anterior R$ 321,45 / 47, R$ 6,84 cada. Google: quatro campanhas com gasto somado de R$ 972,56. Loja já entregou 19 cliques, sem conversões registradas; YouTube novo teve R$ 218,25 de gasto. Nenhum orçamento, lance ou status alterado neste check.
 - **GA4:** período completo de 01/01 a 15/11 e consultas consolidadas de setembro, outubro e novembro (1–15). Intervalos personalizados preservam o controle de cobertura diária; sem exportação, exibem "Sem dados".
 - **Google Ads:** recorte de campanhas conferido em 10–15/11; faturamento e histórico têm datas próprias. Ações de YouTube ficam separadas de leads. Não presumir que todo saldo promocional esteja disponível ou reservado ao YouTube.
 - **LinkedIn:** campanha conferida em 10–15/11; página com base de 11.139 e 316 novos seguidores no recorte de 15/10–13/11. Custo por seguidor não é calculado com períodos diferentes.
 - **Auditoria de 17/11:** dois anúncios de seguidores pausados e persistência conferida; sem mudar orçamento ou lance vigente. Conversão legada Contato com erro de medição. WhatsApp da loja já envia eventos ao GA4; 18 cliques em 01–15/11, incluídos nos 126 totais. Novo GTM com versão 3 publicada, somente pausa da tag redundante de WhatsApp; não detectado na home. Formulários, cadastro e atribuição no Ads ainda pendentes.
-- **Publicação de 18/11:** Busca da loja `24486408215`, R$ 32,89/dia, teto R$ 3 por clique, ativada com veiculação pendente. YouTube `24492525046`, três vídeos, limite total R$ 2.400, CPV desejado R$ 0,02, 18/11–01/01/2027, ativada com anúncio em análise. Verbas e lances anteriores preservados; não confundir publicação com entrega, aprovação ou leads.
+- **Histórico da publicação de 18/11:** Busca da loja `24486408215`, R$ 32,89/dia, teto R$ 3 por clique; YouTube `24492525046`, três vídeos, limite total R$ 2.400, CPV desejado R$ 0,02, 18/11–01/01/2027. A entrega das duas foi confirmada no check de 23/11, sem validar todo o rastreamento comercial ou o abatimento do crédito.
 - **Promoção Google:** R$ 2.400 concedidos, ativa, vencimento em 12/01/2027, para campanhas de visualizações de vídeo; saldo restante ainda sem confirmação.
 - **Meta Ads:** nenhuma reativação; dados históricos preservados. O estado atual não foi reconsultado nesta execução.
 - **Recursos:** menu lateral, filtro por datas com cobertura, resumo de novembro, histórico de setembro, visão executiva, campanhas, leads, páginas, blog/SEO, comentários e plano de ação.
